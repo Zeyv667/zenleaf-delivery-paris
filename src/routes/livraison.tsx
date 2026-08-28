@@ -16,7 +16,12 @@ export const Route = createFileRoute("/livraison")({
     ],
     links: [{ rel: "canonical", href: "/livraison" }],
   }),
-  component: () => (
+  component: DeliveryPage,
+});
+
+function DeliveryPage() {
+  const { open } = useCart();
+  return (
     <>
       <LegalPage
         title="Conditions de livraison"
@@ -31,7 +36,12 @@ export const Route = createFileRoute("/livraison")({
           { heading: "Disponibilité des produits", body: "En cas d’indisponibilité exceptionnelle d’un produit, le client sera contacté afin de convenir d’un remplacement ou d’un remboursement." },
         ]}
       />
-      <DeliveryCTA />
+      <section className="container-x pb-16">
+        <button className="btn-base w-full bg-[#FBD9DF] text-[#0F172A] hover:bg-[#A3B2D6]" onClick={open}>
+          DELIVERY EXPRESS
+        </button>
+      </section>
     </>
-  ),
+  );
+}
 });
