@@ -1,5 +1,5 @@
-import pouchSunset from "@/assets/CALIV_ID_MENU-5.png.asset.json";
-import pouchGreen from "@/assets/CALIV_ID_MENU-4.png.asset.json";
+import pouchSunset from "@/assets/CALIV_ID_MENU-5-clean.png.asset.json";
+import pouchGreen from "@/assets/CALIV_ID_MENU-4-clean.png.asset.json";
 import pouchPink from "@/assets/CALIV_ID_MENU-3.png.asset.json";
 import resinOne from "@/assets/caliv-resin-1.png.asset.json";
 import resinTwo from "@/assets/caliv-resin-2.png.asset.json";
