@@ -26,7 +26,7 @@ export type Product = {
 export const PRODUCTS: Product[] = [
   {
     id: "sunset-cream",
-    name: "CALIV - FLOWER BAG - SUNSET CREAM",
+    name: "CALIV - Flower Bag - SUNSET CREAM",
     type: "Fleur",
     origin: "USA",
     description: "Fleur crémeuse et sucrée, cultivée indoor. Profil doux et gourmand.",
