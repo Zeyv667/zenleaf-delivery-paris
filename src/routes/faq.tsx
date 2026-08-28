@@ -59,6 +59,7 @@ function FaqPage() {
           </details>
         ))}
       </div>
+      <DeliveryCTA />
     </main>
   );
 }

@@ -41,6 +41,7 @@ function ContactPage() {
           <p className="mt-3 text-lg tracking-tight">contact@caliv.fr</p>
         </a>
       </div>
+      <DeliveryCTA />
     </main>
   );
 }

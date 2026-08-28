@@ -71,6 +71,7 @@ function CbdPage() {
           Questions fréquentes
         </Link>
       </div>
+      <DeliveryCTA />
     </main>
   );
 }
