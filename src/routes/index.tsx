@@ -187,18 +187,6 @@ function Home() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="container-x pb-24">
-        <div className="rounded-sm border border-border bg-card px-6 py-16 text-center">
-          <h2 className="display text-4xl md:text-6xl">On livre aujourd'hui.</h2>
-          <p className="mt-4 text-sm text-muted-foreground">
-            Livraison offerte dès 50 € · PARIS & Île-de-France
-          </p>
-          <button className="btn-base btn-primary mt-8" onClick={open}>
-            Commander
-          </button>
-        </div>
-      </section>
     </main>
   );
 }
