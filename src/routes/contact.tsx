@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useCart } from "@/lib/cart";
+import { WHATSAPP_LINK } from "@/lib/utils";
+
 
 
 export const Route = createFileRoute("/contact")({
@@ -29,14 +30,15 @@ function ContactPage() {
       </p>
 
       <div className="mt-10 grid max-w-3xl gap-4 sm:gap-8 md:mt-16 md:grid-cols-3">
-        <a href="https://wa.me/33600000000" className="block rounded-sm border border-border p-6 hover:bg-secondary md:p-8">
+        <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="block rounded-sm border border-border p-6 hover:bg-secondary md:p-8">
           <p className="eyebrow">WhatsApp</p>
-          <p className="mt-3 text-lg tracking-tight">+33 6 00 00 00 00</p>
+          <p className="mt-3 text-lg tracking-tight">+33 6 95 11 04 38</p>
         </a>
-        <a href="tel:+33600000000" className="block rounded-sm border border-border p-6 hover:bg-secondary md:p-8">
+        <a href="tel:+33695110438" className="block rounded-sm border border-border p-6 hover:bg-secondary md:p-8">
           <p className="eyebrow">Téléphone</p>
-          <p className="mt-3 text-lg tracking-tight">+33 6 00 00 00 00</p>
+          <p className="mt-3 text-lg tracking-tight">+33 6 95 11 04 38</p>
         </a>
+
         <a href="mailto:contact@caliv.fr" className="block rounded-sm border border-border p-6 hover:bg-secondary md:p-8">
           <p className="eyebrow">E-mail</p>
           <p className="mt-3 text-lg tracking-tight">contact@caliv.fr</p>
@@ -51,14 +53,16 @@ function ContactPage() {
 }
 
 function DeliveryExpressButton() {
-  const { open } = useCart();
   return (
-    <button
-      className="btn-base btn-primary w-full active:scale-[0.98] sm:w-auto"
-      onClick={open}
+    <a
+      href={WHATSAPP_LINK}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="btn-base btn-primary w-full text-center active:scale-[0.98] sm:w-auto"
     >
       DELIVERY EXPRESS
-    </button>
+    </a>
   );
 }
+
 

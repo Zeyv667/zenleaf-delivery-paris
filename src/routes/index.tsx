@@ -2,8 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImage from "@/assets/caliv-store-hero-hd.jpg";
 import wordmark from "@/assets/caliv-wordmark-hd.png";
 import { ProductCard } from "@/components/site/ProductCard";
-import { useCart } from "@/lib/cart";
 import { PRODUCTS } from "@/lib/products";
+import { WHATSAPP_LINK } from "@/lib/utils";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -36,9 +37,8 @@ const DELIVERY = {
 };
 
 function Home() {
-  const { open } = useCart();
-
   return (
+
     <main>
       {/* HERO */}
       <section className="container-x pt-20 md:pt-24">
@@ -62,9 +62,15 @@ function Home() {
               express.
             </h1>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <button className="btn-base btn-primary w-full sm:w-auto" onClick={open}>
+              <a
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-base btn-primary w-full text-center sm:w-auto"
+              >
                 DELIVERY EXPRESS
-              </button>
+              </a>
+
               <Link to="/produits" className="btn-base btn-ghost w-full sm:w-auto">
                 NOS VARIETES
               </Link>
