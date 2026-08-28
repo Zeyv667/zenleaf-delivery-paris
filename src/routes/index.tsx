@@ -142,14 +142,9 @@ function Home() {
 
       {/* SERVICE */}
       <section className="border-y border-border">
-        <div className="container-x grid gap-10 py-16 md:grid-cols-3 md:py-20">
-          {STEPS.map((s) => (
-            <div key={s.n}>
-              <span className="text-xs tabular-nums text-accent">{s.n}</span>
-              <h3 className="display mt-3 text-2xl">{s.t}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{s.p}</p>
-            </div>
-          ))}
+        <div className="container-x flex flex-col items-start py-16 md:py-20">
+          <h3 className="display text-3xl md:text-5xl">{DELIVERY.label}</h3>
+          <p className="mt-3 text-lg text-muted-foreground">{DELIVERY.hours}</p>
         </div>
       </section>
 
