@@ -117,11 +117,9 @@ export function CartDrawer() {
               </div>
             </div>
 
-            {remaining > 0 && (
-              <p className="text-xs text-muted-foreground">
-                Plus que {formatPrice(remaining)} pour la livraison offerte.
-              </p>
-            )}
+            <p className="text-xs text-muted-foreground">
+              Livraison offerte · Commande minimum : 1 sachet de 5 g
+            </p>
 
             <button
               className="btn-base btn-primary w-full"
