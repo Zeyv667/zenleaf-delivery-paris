@@ -44,9 +44,9 @@ export const Route = createFileRoute("/faq")({
 
 function FaqPage() {
   return (
-    <main className="container-x pb-32 pt-36">
+    <main className="container-x pb-24 pt-28 md:pb-32 md:pt-36">
       <p className="eyebrow">FAQ</p>
-      <h1 className="display mt-4 max-w-2xl text-4xl md:text-6xl">Questions fréquentes</h1>
+      <h1 className="display mt-4 max-w-2xl text-[2.25rem] sm:text-4xl md:text-6xl">Questions fréquentes</h1>
 
       <div className="mt-16 max-w-2xl divide-y divide-border border-t border-border">
         {ITEMS.map((item) => (
