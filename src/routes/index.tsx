@@ -44,7 +44,7 @@ function Home() {
       <section className="container-x pt-24">
         <div className="pastel-tile flex items-center justify-center rounded-3xl px-6 py-12 md:py-16">
           <img
-            src={wordmark}
+            src={wordmark.url}
             alt="CALIV — Premium CBD Paris"
             width={900}
             height={480}
