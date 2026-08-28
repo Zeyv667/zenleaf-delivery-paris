@@ -41,7 +41,7 @@ function Home() {
   return (
     <main>
       {/* HERO */}
-      <section className="container-x pt-24">
+      <section className="container-x pt-20 md:pt-24">
         <div className="flex items-center justify-center">
           <img
             src={wordmark.url}
@@ -49,28 +49,28 @@ function Home() {
             width={900}
             height={480}
             fetchPriority="high"
-            className="w-full max-w-md"
+            className="w-full max-w-[19rem] sm:max-w-md"
           />
         </div>
 
-        <div className="grid gap-10 py-14 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+        <div className="grid gap-8 py-10 md:gap-10 md:py-14 md:grid-cols-[1.1fr_0.9fr] md:items-center">
           <div>
             <p className="eyebrow">CBD premium · PARIS & Île-de-France</p>
-            <h1 className="display mt-5 text-[3rem] leading-[0.95] md:text-[5rem]">
+            <h1 className="display mt-4 text-[2.5rem] leading-[0.95] sm:text-[3rem] md:text-[5rem]">
               Livraison
               <br />
               express.
             </h1>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <button className="btn-base btn-primary" onClick={open}>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <button className="btn-base btn-primary w-full sm:w-auto" onClick={open}>
                 DELIVERY EXPRESS
               </button>
-              <Link to="/produits" className="btn-base btn-ghost">
+              <Link to="/produits" className="btn-base btn-ghost w-full sm:w-auto">
                 NOS PRODUITS
               </Link>
             </div>
 
-            <ul className="mt-10 grid gap-3 text-sm text-muted-foreground sm:grid-cols-2">
+            <ul className="mt-8 grid gap-3 text-sm text-muted-foreground sm:grid-cols-2">
               {[
                 "Livraison rapide",
                 "Paiement sécurisé",
@@ -85,13 +85,14 @@ function Home() {
             </ul>
           </div>
 
-          <div className="overflow-hidden rounded-3xl">
+          <div className="overflow-hidden rounded-2xl md:rounded-3xl">
           <img
             src={heroImage.url}
             alt="Livraison de CBD premium CALIV à PARIS"
             width={1200}
             height={1200}
-            className="h-full w-full object-cover"
+            loading="lazy"
+            className="aspect-square h-full w-full object-cover md:aspect-auto"
           />
           </div>
         </div>
@@ -113,16 +114,16 @@ function Home() {
 
 
       {/* PRODUITS */}
-      <section className="container-x py-20 md:py-28">
+      <section className="container-x py-14 md:py-28">
         <h3 className="display text-2xl">Fleurs</h3>
-        <div className="mt-6 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-8 sm:gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
           {PRODUCTS.filter((p) => p.type === "Fleur").map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
         </div>
 
-        <h3 className="display mt-16 text-2xl">Résines</h3>
-        <div className="mt-6 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+        <h3 className="display mt-12 text-2xl md:mt-16">Résines</h3>
+        <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-8 sm:gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
           {PRODUCTS.filter((p) => p.type === "Résine").map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
@@ -130,8 +131,8 @@ function Home() {
       </section>
 
       {/* PRÉCAUTIONS */}
-      <section className="container-x pb-20 md:pb-28">
-        <div className="rounded-sm border border-border bg-card px-6 py-8 md:px-10 md:py-10">
+      <section className="container-x pb-14 md:pb-28">
+        <div className="rounded-sm border border-border bg-card px-5 py-7 md:px-10 md:py-10">
           <h3 className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
             Précautions
           </h3>
@@ -148,10 +149,10 @@ function Home() {
 
       {/* SERVICE */}
       <section className="border-y border-border">
-        <div className="container-x flex flex-col items-start py-16 md:py-20">
-          <h3 className="display text-3xl md:text-5xl">{DELIVERY.label}</h3>
-          <p className="mt-3 text-lg text-muted-foreground">{DELIVERY.hours}</p>
-          <p className="mt-6 text-lg text-muted-foreground">PARIS / IDF (75/93/94)</p>
+        <div className="container-x flex flex-col items-start py-12 md:py-20">
+          <h3 className="display text-[1.75rem] sm:text-3xl md:text-5xl">{DELIVERY.label}</h3>
+          <p className="mt-3 text-base text-muted-foreground md:text-lg">{DELIVERY.hours}</p>
+          <p className="mt-6 text-base text-muted-foreground md:text-lg">PARIS / IDF (75/93/94)</p>
           <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
             La livraison dans le 91 et le 92 n'est pas encore assurée de manière systématique. Nous travaillons à l'ouverture de ces secteurs. Certaines commandes supérieures à 10 g, à proximité de PARIS, peuvent néanmoins être éligibles à la livraison.
           </p>
@@ -160,18 +161,18 @@ function Home() {
 
       {/* ZONE & QUALITÉ */}
       <section className="bg-primary/10">
-        <div className="container-x flex flex-col items-start py-16 md:py-20">
-          <h3 className="display text-3xl md:text-5xl">CBD PREMIUM</h3>
-          <p className="mt-3 text-lg text-muted-foreground">Fleur cali + Laboratoires en France</p>
+        <div className="container-x flex flex-col items-start py-12 md:py-20">
+          <h3 className="display text-[1.75rem] sm:text-3xl md:text-5xl">CBD PREMIUM</h3>
+          <p className="mt-3 text-base text-muted-foreground md:text-lg">Fleur cali + Laboratoires en France</p>
         </div>
       </section>
 
       {/* CBD EN BREF */}
-      <section className="container-x py-20 md:py-28">
+      <section className="container-x py-14 md:py-28">
         <div className="grid gap-8 md:grid-cols-[1fr_0.9fr] md:items-end">
           <div>
             <p className="eyebrow">Le CBD, en bref</p>
-            <h2 className="display mt-4 max-w-xl text-4xl md:text-5xl">
+            <h2 className="display mt-4 max-w-xl text-[2rem] sm:text-4xl md:text-5xl">
               Une molécule du chanvre, sans effet planant.
             </h2>
           </div>
@@ -180,7 +181,7 @@ function Home() {
               Nos produits contiennent moins de 0,3 % de THC, conformément à la législation française.
               Fleur ou résine, chaque lot est analysé avant livraison.
             </p>
-            <Link to="/cbd" className="btn-base btn-ghost mt-6">
+            <Link to="/cbd" className="btn-base btn-ghost mt-6 w-full sm:w-auto">
               En savoir plus
             </Link>
           </div>

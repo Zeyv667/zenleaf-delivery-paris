@@ -24,16 +24,16 @@ export const Route = createFileRoute("/produits")({
 function ProductsPage() {
   const { open } = useCart();
   return (
-    <main className="container-x pb-32 pt-36">
-      <h2 className="display text-3xl">Fleurs</h2>
-      <div className="mt-6 grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+    <main className="container-x pb-24 pt-28 md:pb-32 md:pt-36">
+      <h2 className="display text-2xl sm:text-3xl">Fleurs</h2>
+      <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-8 sm:gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
         {PRODUCTS.filter((p) => p.type === "Fleur").map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}
       </div>
 
-      <h2 className="display mt-20 text-3xl">Résines</h2>
-      <div className="mt-6 grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+      <h2 className="display mt-14 text-2xl sm:text-3xl md:mt-20">Résines</h2>
+      <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-8 sm:gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
       {PRODUCTS.filter((p) => p.type === "Résine").map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}
@@ -45,7 +45,7 @@ function ProductsPage() {
 
       {/* PRÉCAUTIONS */}
       <section className="mt-10">
-        <div className="rounded-sm border border-border bg-card px-6 py-8 md:px-10 md:py-10">
+        <div className="rounded-sm border border-border bg-card px-5 py-7 md:px-10 md:py-10">
           <h3 className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
             Précautions
           </h3>

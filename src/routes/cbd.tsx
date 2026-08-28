@@ -45,7 +45,7 @@ const BLOCKS = [
 
 function CbdPage() {
   return (
-    <main className="container-x pb-32 pt-36">
+    <main className="container-x pb-24 pt-28 md:pb-32 md:pt-36">
       <p className="eyebrow">Le CBD, en bref</p>
       <h1 className="display mt-4 max-w-3xl text-5xl md:text-7xl">Comprendre avant de choisir.</h1>
 

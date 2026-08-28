@@ -14,6 +14,13 @@ export function Header() {
   const [menu, setMenu] = useState(false);
 
   useEffect(() => {
+    document.body.style.overflow = menu ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menu]);
+
+  useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -26,13 +33,13 @@ export function Header() {
         scrolled || menu ? "border-b border-border bg-background/85 backdrop-blur-xl" : ""
       }`}
     >
-      <div className="container-x flex h-16 items-center justify-between gap-4">
-        <div className="flex items-center gap-6">
+      <div className="container-x flex h-16 items-center justify-between gap-3">
+        <div className="flex items-center gap-3 sm:gap-6">
           <button
             onClick={() => setMenu((v) => !v)}
             aria-label={menu ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={menu}
-            className="flex h-9 w-9 flex-col items-center justify-center gap-[5px] md:hidden"
+            className="-ml-2 flex h-11 w-11 flex-col items-center justify-center gap-[5px] md:hidden"
           >
             <span
               className={`h-px w-5 bg-foreground transition-transform ${menu ? "translate-y-[3px] rotate-45" : ""}`}
@@ -70,13 +77,13 @@ export function Header() {
 
 
       {menu && (
-        <nav className="container-x flex flex-col gap-1 pb-6 md:hidden">
+        <nav className="container-x flex max-h-[calc(100dvh-4rem)] flex-col gap-1 overflow-y-auto pb-8 md:hidden">
           {NAV.map((item) => (
             <Link
               key={item.to}
               to={item.to}
               onClick={() => setMenu(false)}
-              className="display border-b border-border py-4 text-2xl"
+              className="display border-b border-border py-5 text-2xl"
             >
               {item.label}
             </Link>
