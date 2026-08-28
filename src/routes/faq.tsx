@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { DeliveryCTA } from "@/components/site/DeliveryCTA";
 
 const ITEMS = [
   { q: "Le CBD est-il légal ?", a: "Oui, conformément à la réglementation française." },
