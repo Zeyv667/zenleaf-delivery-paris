@@ -63,9 +63,15 @@ function Home() {
               express.
             </h1>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <button className="btn-base btn-primary w-full sm:w-auto" onClick={open}>
+              <a
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-base btn-primary w-full text-center sm:w-auto"
+              >
                 DELIVERY EXPRESS
-              </button>
+              </a>
+
               <Link to="/produits" className="btn-base btn-ghost w-full sm:w-auto">
                 NOS VARIETES
               </Link>

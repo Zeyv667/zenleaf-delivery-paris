@@ -23,8 +23,8 @@ export const Route = createFileRoute("/produits")({
 });
 
 function ProductsPage() {
-  const { open } = useCart();
   return (
+
     <main className="container-x pb-24 pt-28 md:pb-32 md:pt-36">
       <h2 className="display text-2xl sm:text-3xl">Fleurs</h2>
       <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-8 sm:gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
@@ -40,9 +40,15 @@ function ProductsPage() {
         ))}
       </div>
 
-      <button className="btn-base mt-12 w-full bg-[#FBD9DF] text-[#0F172A] hover:bg-[#A3B2D6]" onClick={open}>
+      <a
+        href={WHATSAPP_LINK}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn-base mt-12 w-full bg-[#FBD9DF] text-center text-[#0F172A] hover:bg-[#A3B2D6]"
+      >
         DELIVERY EXPRESS
-      </button>
+      </a>
+
 
       {/* PRÉCAUTIONS */}
       <section className="mt-10">
