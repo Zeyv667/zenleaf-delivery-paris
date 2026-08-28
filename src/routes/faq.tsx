@@ -5,7 +5,7 @@ const ITEMS = [
   { q: "Quel est le délai de livraison ?", a: "Selon votre zone géographique." },
   { q: "Comment payer ?", a: "Carte bancaire sécurisée." },
   { q: "Les produits sont-ils testés ?", a: "Oui, chaque lot est contrôlé." },
-  { q: "La livraison est-elle offerte ?", a: "Oui, dès 50 € d'achat." },
+  { q: "La livraison est-elle offerte ?", a: "Oui, la livraison est offerte. La commande minimum est de 5 g (un sachet de 5 g)." },
   { q: "Puis-je commander si j'ai moins de 18 ans ?", a: "Non, la vente est réservée aux majeurs." },
 ];
 

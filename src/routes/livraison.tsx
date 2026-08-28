@@ -9,10 +9,10 @@ export const Route = createFileRoute("/livraison")({
       { title: "Conditions de livraison | CALIV" },
       {
         name: "description",
-        content: "Zones desservies, délais, frais de port et livraison offerte dès 50 € chez CALIV.",
+        content: "Zones desservies, délais et livraison offerte chez CALIV. Commande minimum de 5 g.",
       },
       { property: "og:title", content: "Conditions de livraison | CALIV" },
-      { property: "og:description", content: "Zones, délais et frais de port. Livraison offerte dès 50 €." },
+      { property: "og:description", content: "Zones, délais et livraison offerte. Commande minimum de 5 g." },
       { property: "og:url", content: "/livraison" },
     ],
     links: [{ rel: "canonical", href: "/livraison" }],
@@ -38,6 +38,8 @@ function DeliveryPage() {
               <p className="mt-3">Toute information incomplète pourra entraîner un retard dans le traitement de la commande.</p>
             </>
           )},
+          { heading: "Frais de livraison", body: "La livraison est offerte pour toute commande validée." },
+          { heading: "Montant minimum de commande", body: "Un minimum de 5 g est requis pour passer commande, ce qui correspond à un sachet de 5 g." },
           { heading: "Zone desservie", body: "Nous livrons actuellement PARIS et certaines communes limitrophes d’Île-de-France. Les départements 91 et 92 ne sont pas encore couverts dans leur intégralité. Nous travaillons activement à l’extension de notre zone de livraison." },
           { heading: "Horaires de livraison", body: "Les livraisons sont effectuées selon les créneaux disponibles et l'activité du service." },
           { heading: "Délais de livraison", body: "Les délais communiqués sont indicatifs et peuvent varier en fonction du trafic, des conditions météorologiques ou d'autres circonstances exceptionnelles." },
