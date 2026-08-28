@@ -163,9 +163,6 @@ function ContactPage() {
         </button>
       </form>
 
-      <section className="py-12 md:py-20">
-        <DeliveryExpressButton />
-      </section>
     </main>
   );
 }
@@ -199,15 +196,3 @@ function Field({
   );
 }
 
-function DeliveryExpressButton() {
-  return (
-    <a
-      href={WHATSAPP_LINK}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="btn-base btn-primary w-full text-center active:scale-[0.98] sm:w-auto"
-    >
-      DELIVERY EXPRESS
-    </a>
-  );
-}
