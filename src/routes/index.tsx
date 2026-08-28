@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroImage from "@/assets/hero.jpg";
+import heroImage from "@/assets/caliv-store-hero.png.asset.json";
 import wordmark from "@/assets/caliv-wordmark.png";
 import { ProductCard } from "@/components/site/ProductCard";
 import { useCart } from "@/lib/cart";
@@ -91,13 +91,13 @@ function Home() {
           </div>
 
           <div className="overflow-hidden rounded-3xl">
-            <img
-              src={heroImage}
-              alt="Livraison de CBD premium CALIV à Paris"
-              width={1200}
-              height={1200}
-              className="h-full w-full object-cover"
-            />
+          <img
+            src={heroImage.url}
+            alt="Livraison de CBD premium CALIV à Paris"
+            width={1200}
+            height={1200}
+            className="h-full w-full object-cover"
+          />
           </div>
         </div>
       </section>

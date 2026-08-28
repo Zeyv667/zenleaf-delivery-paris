@@ -1,9 +1,6 @@
-import { useCart } from "@/lib/cart";
 import { formatPrice, type Product } from "@/lib/products";
 
 export function ProductCard({ product }: { product: Product }) {
-  const { add } = useCart();
-
   return (
     <article className="group flex flex-col">
       <div className="pastel-tile relative flex aspect-[4/5] items-center justify-center overflow-hidden rounded-2xl p-8 md:p-10">
@@ -33,9 +30,6 @@ export function ProductCard({ product }: { product: Product }) {
         <p className="mt-1 text-xs text-muted-foreground">
           {product.origin} · Sachet 5 g — {formatPrice(product.price)}
         </p>
-        <button className="btn-base btn-primary mt-5 w-full" onClick={() => add(product.id)}>
-          Ajouter au panier
-        </button>
       </div>
     </article>
   );
