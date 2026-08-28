@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { WHATSAPP_LINK, WHATSAPP_NUMBER } from "@/lib/utils";
+import { WHATSAPP_NUMBER } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 
 const orderSchema = z.object({
