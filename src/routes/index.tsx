@@ -67,7 +67,7 @@ function Home() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <button className="btn-base btn-primary" onClick={open}>
-                Commander maintenant
+                delivery express
               </button>
               <Link to="/produits" className="btn-base btn-ghost">
                 Découvrir nos produits
