@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ageLogo from "@/assets/caliv-gorilla-logo.png.asset.json";
 
 export function AgeGate() {
   const [ready, setReady] = useState(false);
@@ -16,11 +17,13 @@ export function AgeGate() {
     <div className="fixed inset-0 z-[70] flex flex-col items-center justify-center bg-background px-6 text-center">
       <div className="w-full max-w-md fade-up">
         <p className="eyebrow">Paris · Île-de-France</p>
-        <h2 className="display mt-6 text-5xl md:text-6xl">
-          California
-          <br />
-          state of mind.
-        </h2>
+        <img
+          src={ageLogo.url}
+          alt="CALIV"
+          width={900}
+          height={900}
+          className="mx-auto mt-6 w-full max-w-[16rem] md:max-w-[18rem]"
+        />
         <div className="mx-auto mt-8 h-px w-16 bg-accent" />
         <p className="mt-8 text-sm text-muted-foreground">
           Service de livraison réservé aux personnes majeures.
