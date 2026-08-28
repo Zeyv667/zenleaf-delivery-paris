@@ -134,12 +134,13 @@
 }
 
 @utility btn-primary {
-  background: var(--olive);
-  color: oklch(0.995 0 0);
+  background: var(--primary);
+  color: var(--primary-foreground);
   &:hover {
-    background: oklch(0.62 0.095 254);
+    background: oklch(0.48 0.16 258);
   }
 }
+
 
 @utility btn-light {
   background: var(--foreground);
