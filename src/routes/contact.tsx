@@ -152,33 +152,6 @@ function ContactPage() {
         </button>
       </form>
 
-      <section className="mt-16 grid max-w-3xl gap-4 sm:mt-20 sm:grid-cols-3 sm:gap-8">
-        <a
-          href={WHATSAPP_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block rounded-sm border border-border p-6 hover:bg-secondary md:p-8"
-        >
-          <p className="eyebrow">WhatsApp</p>
-          <p className="mt-3 text-lg tracking-tight">+33 6 95 11 04 38</p>
-        </a>
-        <a
-          href="tel:+33695110438"
-          className="block rounded-sm border border-border p-6 hover:bg-secondary md:p-8"
-        >
-          <p className="eyebrow">Téléphone</p>
-          <p className="mt-3 text-lg tracking-tight">+33 6 95 11 04 38</p>
-        </a>
-
-        <a
-          href="mailto:contact@caliv.fr"
-          className="block rounded-sm border border-border p-6 hover:bg-secondary md:p-8"
-        >
-          <p className="eyebrow">E-mail</p>
-          <p className="mt-3 text-lg tracking-tight">contact@caliv.fr</p>
-        </a>
-      </section>
-
       <section className="py-12 md:py-20">
         <DeliveryExpressButton />
       </section>
