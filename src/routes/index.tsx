@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroImage from "@/assets/hero.jpg";
+import heroImage from "@/assets/caliv-store-hero.png.asset.json";
 import wordmark from "@/assets/caliv-wordmark.png";
 import { ProductCard } from "@/components/site/ProductCard";
 import { useCart } from "@/lib/cart";
