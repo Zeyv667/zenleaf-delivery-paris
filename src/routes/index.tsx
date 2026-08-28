@@ -44,7 +44,7 @@ function Home() {
       <section className="container-x pt-20 md:pt-24">
         <div className="flex items-center justify-center">
           <img
-            src={wordmark.url}
+            src={wordmark}
             alt="CALIV — Premium CBD PARIS"
             width={900}
             height={480}
