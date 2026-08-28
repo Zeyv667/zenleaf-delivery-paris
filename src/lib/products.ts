@@ -56,7 +56,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "frozen",
-    name: "Frozen",
+    name: "CALIV - FROZEN",
     type: "Résine",
     origin: "Maroc",
     description: "Résine fraîche à la texture souple. Arômes verts et épicés.",
@@ -66,7 +66,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "cali-plate",
-    name: "Cali Plate",
+    name: "CALIV - CALI PLATE",
     type: "Résine",
     origin: "Maroc",
     description: "Plaque blonde, grain fin. Arômes floraux et boisés.",
