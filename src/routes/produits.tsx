@@ -22,6 +22,7 @@ export const Route = createFileRoute("/produits")({
 });
 
 function ProductsPage() {
+  const { open } = useCart();
   return (
     <main className="container-x pb-32 pt-36">
       <h2 className="display text-3xl">Fleurs</h2>
