@@ -194,7 +194,7 @@ function Field({
 }: {
   id: string;
   label: string;
-  error?: string;
+  error: string | undefined;
   inputProps: React.InputHTMLAttributes<HTMLInputElement>;
 }) {
   return (
