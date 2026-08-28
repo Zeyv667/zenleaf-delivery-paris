@@ -1,7 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImage from "@/assets/caliv-store-hero.png.asset.json";
 import wordmark from "@/assets/caliv-wordmark.png.asset.json";
+import { ProductCard } from "@/components/site/ProductCard";
 import { useCart } from "@/lib/cart";
+import { PRODUCTS } from "@/lib/products";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -109,6 +111,30 @@ function Home() {
         </div>
       </div>
 
+
+      {/* PRODUITS */}
+      <section className="container-x py-20 md:py-28">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <h2 className="display text-4xl md:text-6xl">La sélection</h2>
+          <p className="max-w-xs text-sm text-muted-foreground">
+            Cinq références en sachet 5 g. Trois fleurs, deux résines.
+          </p>
+        </div>
+
+        <h3 className="display mt-14 text-2xl">Fleurs</h3>
+        <div className="mt-6 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+          {PRODUCTS.filter((p) => p.type === "Fleur").map((p) => (
+            <ProductCard key={p.id} product={p} />
+          ))}
+        </div>
+
+        <h3 className="display mt-16 text-2xl">Résines</h3>
+        <div className="mt-6 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+          {PRODUCTS.filter((p) => p.type === "Résine").map((p) => (
+            <ProductCard key={p.id} product={p} />
+          ))}
+        </div>
+      </section>
 
       {/* PRÉCAUTIONS */}
       <section className="container-x pb-20 md:pb-28">
