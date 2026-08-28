@@ -38,24 +38,24 @@
 
 :root {
   --radius: 0.25rem;
-  --background: #ffffff;
+  --background: #e6eefb;
   --foreground: #16233d;
-  --card: #f4f7fc;
+  --card: #d8e4f7;
   --card-foreground: #16233d;
-  --popover: #ffffff;
+  --popover: #f2f7ff;
   --popover-foreground: #16233d;
   --primary: #759dd2;
   --primary-foreground: #ffffff;
-  --secondary: #eef3fa;
+  --secondary: #d2e0f6;
   --secondary-foreground: #16233d;
-  --muted: #eef3fa;
-  --muted-foreground: #6d7d99;
+  --muted: #d2e0f6;
+  --muted-foreground: #5c6f92;
   --accent: #fbd9df;
   --accent-foreground: #16233d;
   --destructive: oklch(0.62 0.2 25);
   --destructive-foreground: oklch(0.995 0 0);
-  --border: #dfe6f2;
-  --input: #dfe6f2;
+  --border: #c3d3ee;
+  --input: #c3d3ee;
   --ring: #759dd2;
   --olive: #759dd2;
   --olive-soft: #a3b2d6;

@@ -24,11 +24,13 @@ export function ProductCard({ product }: { product: Product }) {
         <div className="flex items-baseline justify-between gap-4">
           <h3 className="text-base font-medium tracking-tight">{product.name}</h3>
           <span className="text-base tabular-nums text-muted-foreground">
-            {formatPrice(product.price)}
+            {product.pricePerGram} €/g
           </span>
         </div>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{product.description}</p>
-        <p className="mt-1 text-xs text-muted-foreground">Sachet 5 g</p>
+        <p className="mt-1 text-xs text-muted-foreground">
+          {product.origin} · Sachet 5 g — {formatPrice(product.price)}
+        </p>
         <button className="btn-base btn-primary mt-5 w-full" onClick={() => add(product.id)}>
           Ajouter au panier
         </button>
