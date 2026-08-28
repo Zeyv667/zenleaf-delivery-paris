@@ -6,15 +6,17 @@ export function ProductCard({ product }: { product: Product }) {
 
   return (
     <article className="group flex flex-col">
-      <div className="pastel-tile relative aspect-square overflow-hidden rounded-2xl">
-        <img
-          src={product.image}
-          alt={`${product.name} — ${product.type} CBD`}
-          loading="lazy"
-          width={1024}
-          height={1024}
-          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-        />
+      <div className="pastel-tile relative flex aspect-[4/5] items-center justify-center overflow-hidden rounded-2xl p-8 md:p-10">
+        <div className="relative h-[62%] w-[62%]">
+          <img
+            src={product.image}
+            alt={`${product.name} — ${product.type} CBD`}
+            loading="lazy"
+            width={800}
+            height={800}
+            className="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+          />
+        </div>
         <span className="absolute left-4 top-4 rounded-full bg-background/80 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-foreground backdrop-blur">
           {product.type}
         </span>
