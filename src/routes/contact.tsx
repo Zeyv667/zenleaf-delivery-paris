@@ -49,3 +49,16 @@ function ContactPage() {
     </main>
   );
 }
+
+function DeliveryExpressButton() {
+  const { open } = useCart();
+  return (
+    <button
+      className="btn-base btn-primary active:scale-[0.98]"
+      onClick={open}
+    >
+      DELIVERY EXPRESS
+    </button>
+  );
+}
+
