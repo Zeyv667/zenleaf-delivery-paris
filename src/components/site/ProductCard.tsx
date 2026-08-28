@@ -18,10 +18,6 @@ export function ProductCard({ product }: { product: Product }) {
         <span className="absolute left-4 top-4 rounded-full bg-background/80 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-foreground backdrop-blur">
           {product.type}
         </span>
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 p-5 text-center">
-          <p className="tile-caption text-xl leading-tight">{product.name}</p>
-          <p className="tile-caption text-lg">{formatPrice(product.price)}</p>
-        </div>
       </div>
 
       <div className="flex flex-1 flex-col pt-5">
