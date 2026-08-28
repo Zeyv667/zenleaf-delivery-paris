@@ -54,6 +54,7 @@ function ProductsPage() {
           </ul>
         </div>
       </section>
+      <DeliveryCTA />
     </main>
   );
 }
