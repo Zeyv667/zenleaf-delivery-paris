@@ -100,10 +100,13 @@
 }
 
 @utility display {
-  font-weight: 500;
-  letter-spacing: -0.035em;
-  line-height: 0.98;
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 0.92;
+  text-transform: uppercase;
 }
+
 
 @utility btn-base {
   display: inline-flex;
