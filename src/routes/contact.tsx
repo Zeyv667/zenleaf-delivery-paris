@@ -75,9 +75,9 @@ function ContactPage() {
 
   return (
     <main className="container-x pb-24 pt-28 md:pb-32 md:pt-36">
-      <p className="eyebrow">Commande</p>
+      <p className="eyebrow">Contact</p>
       <h1 className="display mt-4 max-w-2xl text-[2.25rem] sm:text-4xl md:text-6xl">
-        Passer commande
+        CONTACTEZ NOUS
       </h1>
       <p className="mt-6 max-w-md text-sm text-muted-foreground">
         Remplissez le formulaire ci-dessous. Votre demande part directement sur WhatsApp.
