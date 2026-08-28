@@ -16,11 +16,11 @@ const orderSchema = z.object({
     .trim()
     .min(8, { message: "Numéro requis." })
     .max(20, { message: "Le numéro ne doit pas dépasser 20 caractères." }),
-  email: z
+  variete: z
     .string()
     .trim()
-    .email({ message: "Adresse e-mail invalide." })
-    .max(255, { message: "L'e-mail ne doit pas dépasser 255 caractères." }),
+    .min(3, { message: "Variété requise." })
+    .max(255, { message: "La variété ne doit pas dépasser 255 caractères." }),
   details: z
     .string()
     .trim()
@@ -37,7 +37,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Contactez CALIV par WhatsApp, téléphone ou e-mail. Service client 7j/7.",
+          "Contactez CALIV par WhatsApp. Service client 7j/7.",
       },
       { property: "og:title", content: "Contactez-nous — CALIV" },
       {
@@ -64,7 +64,7 @@ function ContactPage() {
     const { error } = await supabase.from("commandes").insert({
       pseudo: data.pseudo,
       numero: data.numero,
-      email: data.email,
+      variete: data.variete,
       details: data.details ?? null,
     });
     if (error) {
@@ -76,7 +76,7 @@ function ContactPage() {
       "",
       `Pseudo : ${data.pseudo}`,
       `Numéro : ${data.numero}`,
-      `E-mail : ${data.email}`,
+      `Variété : ${data.variete}`,
       data.details ? `\nDétails :\n${data.details}` : "",
     ].join("\n");
 
@@ -124,14 +124,14 @@ function ContactPage() {
         />
 
         <Field
-          id="email"
-          label="Mail"
-          error={errors.email?.message}
+          id="variete"
+          label="Variété"
+          error={errors.variete?.message}
           inputProps={{
-            type: "email",
-            placeholder: "reymysterio619@caliv.fr",
-            autoComplete: "email",
-            ...register("email"),
+            type: "text",
+            placeholder: "1x BRUCE BANNER",
+            autoComplete: "off",
+            ...register("variete"),
           }}
         />
 
@@ -145,7 +145,7 @@ function ContactPage() {
           <textarea
             id="details"
             rows={4}
-            placeholder="Variété souhaitée, quantité, adresse complète..."
+            placeholder="Quantité, adresse complète, créneau..."
             className="w-full resize-none rounded-sm border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 outline-none transition focus:border-primary focus:ring-2 focus:ring-ring/30"
             {...register("details")}
           />
