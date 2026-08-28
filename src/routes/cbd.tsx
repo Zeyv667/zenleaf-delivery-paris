@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { DeliveryCTA } from "@/components/site/DeliveryCTA";
 
 export const Route = createFileRoute("/cbd")({
   head: () => ({
@@ -70,6 +71,7 @@ function CbdPage() {
           Questions fréquentes
         </Link>
       </div>
+      <DeliveryCTA />
     </main>
   );
 }

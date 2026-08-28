@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { DeliveryCTA } from "@/components/site/DeliveryCTA";
 import { ProductCard } from "@/components/site/ProductCard";
 import { PRODUCTS } from "@/lib/products";
 
@@ -9,7 +10,7 @@ export const Route = createFileRoute("/produits")({
       {
         name: "description",
         content:
-          "Trois fleurs indoor et deux résines CBD en sachet 5 g. Lots analysés en laboratoire, livraison rapide à Paris.",
+          "Trois fleurs indoor et deux résines CBD en sachet 5 g. Lots analysés en laboratoire, livraison rapide à PARIS.",
       },
       { property: "og:title", content: "Produits CBD — Fleurs et résines | CALIV" },
       { property: "og:description", content: "Fleurs et résines CBD sélectionnées, sachets 5 g." },
@@ -53,6 +54,7 @@ function ProductsPage() {
           </ul>
         </div>
       </section>
+      <DeliveryCTA />
     </main>
   );
 }

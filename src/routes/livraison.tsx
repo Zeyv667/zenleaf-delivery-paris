@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { DeliveryCTA } from "@/components/site/DeliveryCTA";
 import { LegalPage } from "@/components/site/LegalPage";
 
 export const Route = createFileRoute("/livraison")({
@@ -16,18 +17,21 @@ export const Route = createFileRoute("/livraison")({
     links: [{ rel: "canonical", href: "/livraison" }],
   }),
   component: () => (
-    <LegalPage
-      title="Conditions de livraison"
-      sections={[
-        { heading: "Zone desservie", body: "Nous livrons actuellement Paris et certaines communes limitrophes d’Île-de-France. Les départements 91 et 92 ne sont pas encore couverts dans leur intégralité. Nous travaillons activement à l’extension de notre zone de livraison." },
-        { heading: "Horaires de livraison", body: "Les livraisons sont effectuées selon les créneaux disponibles affichés lors de la commande." },
-        { heading: "Montant minimum de commande", body: "Un montant minimum peut être requis selon la zone de livraison." },
-        { heading: "Délais de livraison", body: "Les délais communiqués sont indicatifs et peuvent varier en fonction du trafic, des conditions météorologiques ou d'autres circonstances exceptionnelles." },
-        { heading: "Vérification de l’âge", body: "La vente est strictement réservée aux personnes majeures. Une pièce d’identité pourra être demandée lors de la livraison." },
-        { heading: "Réception de la commande", body: "Le client est tenu de vérifier l’exactitude de sa commande au moment de sa réception et de signaler toute anomalie dans les meilleurs délais." },
-        { heading: "Adresse de livraison", body: "Le client doit fournir une adresse complète et accessible. Tout retard ou impossibilité de livraison lié à une information erronée relève de la responsabilité du client." },
-        { heading: "Disponibilité des produits", body: "En cas d’indisponibilité exceptionnelle d’un produit, le client sera contacté afin de convenir d’un remplacement ou d’un remboursement." },
-      ]}
-    />
+    <>
+      <LegalPage
+        title="Conditions de livraison"
+        sections={[
+          { heading: "Zone desservie", body: "Nous livrons actuellement PARIS et certaines communes limitrophes d’Île-de-France. Les départements 91 et 92 ne sont pas encore couverts dans leur intégralité. Nous travaillons activement à l’extension de notre zone de livraison." },
+          { heading: "Horaires de livraison", body: "Les livraisons sont effectuées selon les créneaux disponibles affichés lors de la commande." },
+          { heading: "Montant minimum de commande", body: "Un montant minimum peut être requis selon la zone de livraison." },
+          { heading: "Délais de livraison", body: "Les délais communiqués sont indicatifs et peuvent varier en fonction du trafic, des conditions météorologiques ou d'autres circonstances exceptionnelles." },
+          { heading: "Vérification de l’âge", body: "La vente est strictement réservée aux personnes majeures. Une pièce d’identité pourra être demandée lors de la livraison." },
+          { heading: "Réception de la commande", body: "Le client est tenu de vérifier l’exactitude de sa commande au moment de sa réception et de signaler toute anomalie dans les meilleurs délais." },
+          { heading: "Adresse de livraison", body: "Le client doit fournir une adresse complète et accessible. Tout retard ou impossibilité de livraison lié à une information erronée relève de la responsabilité du client." },
+          { heading: "Disponibilité des produits", body: "En cas d’indisponibilité exceptionnelle d’un produit, le client sera contacté afin de convenir d’un remplacement ou d’un remboursement." },
+        ]}
+      />
+      <DeliveryCTA />
+    </>
   ),
 });

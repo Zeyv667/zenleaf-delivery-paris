@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { DeliveryCTA } from "@/components/site/DeliveryCTA";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -40,6 +41,7 @@ function ContactPage() {
           <p className="mt-3 text-lg tracking-tight">contact@caliv.fr</p>
         </a>
       </div>
+      <DeliveryCTA />
     </main>
   );
 }

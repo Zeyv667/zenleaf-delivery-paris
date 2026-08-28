@@ -8,16 +8,16 @@ import { PRODUCTS } from "@/lib/products";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "CALIV — Livraison de CBD premium à Paris & Île-de-France" },
+      { title: "CALIV — Livraison de CBD premium à PARIS & Île-de-France" },
       {
         name: "description",
         content:
-          "Service de livraison de CBD premium à Paris et en Île-de-France. Fleurs et résines sélectionnées, esprit dispensary californien, lots analysés en laboratoire.",
+          "Service de livraison de CBD premium à PARIS et en Île-de-France. Fleurs et résines sélectionnées, esprit dispensary californien, lots analysés en laboratoire.",
       },
-      { property: "og:title", content: "CALIV — Livraison de CBD premium à Paris & Île-de-France" },
+      { property: "og:title", content: "CALIV — Livraison de CBD premium à PARIS & Île-de-France" },
       {
         property: "og:description",
-        content: "Fleurs et résines sélectionnées, livrées à Paris et en Île-de-France.",
+        content: "Fleurs et résines sélectionnées, livrées à PARIS et en Île-de-France.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const MARQUEE = ["Paris & Île-de-France", "West coast quality", "Analysé en laboratoire", "THC < 0,3 %"];
+const MARQUEE = ["PARIS & Île-de-France", "West coast quality", "Analysé en laboratoire", "THC < 0,3 %"];
 
 const DELIVERY = {
   label: "Livraison express",
@@ -45,7 +45,7 @@ function Home() {
         <div className="flex items-center justify-center">
           <img
             src={wordmark.url}
-            alt="CALIV — Premium CBD Paris"
+            alt="CALIV — Premium CBD PARIS"
             width={900}
             height={480}
             fetchPriority="high"
@@ -55,7 +55,7 @@ function Home() {
 
         <div className="grid gap-10 py-14 md:grid-cols-[1.1fr_0.9fr] md:items-center">
           <div>
-            <p className="eyebrow">CBD premium · Paris & Île-de-France</p>
+            <p className="eyebrow">CBD premium · PARIS & Île-de-France</p>
             <h1 className="display mt-5 text-[3rem] leading-[0.95] md:text-[5rem]">
               Livraison
               <br />
@@ -88,7 +88,7 @@ function Home() {
           <div className="overflow-hidden rounded-3xl">
           <img
             src={heroImage.url}
-            alt="Livraison de CBD premium CALIV à Paris"
+            alt="Livraison de CBD premium CALIV à PARIS"
             width={1200}
             height={1200}
             className="h-full w-full object-cover"
@@ -151,9 +151,9 @@ function Home() {
         <div className="container-x flex flex-col items-start py-16 md:py-20">
           <h3 className="display text-3xl md:text-5xl">{DELIVERY.label}</h3>
           <p className="mt-3 text-lg text-muted-foreground">{DELIVERY.hours}</p>
-          <p className="mt-6 text-lg text-muted-foreground">Paris / IDF (75/93/94)</p>
+          <p className="mt-6 text-lg text-muted-foreground">PARIS / IDF (75/93/94)</p>
           <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
-            La livraison dans le 91 et le 92 n'est pas encore assurée de manière systématique. Nous travaillons à l'ouverture de ces secteurs. Certaines commandes supérieures à 10 g, à proximité de Paris, peuvent néanmoins être éligibles à la livraison.
+            La livraison dans le 91 et le 92 n'est pas encore assurée de manière systématique. Nous travaillons à l'ouverture de ces secteurs. Certaines commandes supérieures à 10 g, à proximité de PARIS, peuvent néanmoins être éligibles à la livraison.
           </p>
         </div>
       </section>
@@ -192,7 +192,7 @@ function Home() {
         <div className="rounded-sm border border-border bg-card px-6 py-16 text-center">
           <h2 className="display text-4xl md:text-6xl">On livre aujourd'hui.</h2>
           <p className="mt-4 text-sm text-muted-foreground">
-            Livraison offerte dès 50 € · Paris & Île-de-France
+            Livraison offerte dès 50 € · PARIS & Île-de-France
           </p>
           <button className="btn-base btn-primary mt-8" onClick={open}>
             Commander
