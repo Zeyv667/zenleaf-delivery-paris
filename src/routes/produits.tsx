@@ -39,8 +39,12 @@ function ProductsPage() {
         ))}
       </div>
 
+      <button className="btn-base btn-primary mt-12 w-full" onClick={open}>
+        DELIVERY EXPRESS
+      </button>
+
       {/* PRÉCAUTIONS */}
-      <section className="mt-20">
+      <section className="mt-10">
         <div className="rounded-sm border border-border bg-card px-6 py-8 md:px-10 md:py-10">
           <h3 className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
             Précautions
@@ -55,9 +59,6 @@ function ProductsPage() {
           </ul>
         </div>
       </section>
-      <button className="btn-base btn-primary mt-10 w-full" onClick={open}>
-        DELIVERY EXPRESS
-      </button>
     </main>
   );
 }
