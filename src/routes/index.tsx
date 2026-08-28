@@ -61,10 +61,6 @@ function Home() {
               <br />
               express.
             </h1>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
-              Fleurs et résines sélectionnées. Livraison rapide. Paiement sécurisé.
-            </p>
-
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <button className="btn-base btn-primary" onClick={open}>
                 DELIVERY EXPRESS
