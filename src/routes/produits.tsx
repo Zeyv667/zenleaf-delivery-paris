@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ProductCard } from "@/components/site/ProductCard";
-import { useCart } from "@/lib/cart";
 import { PRODUCTS } from "@/lib/products";
+import { WHATSAPP_LINK } from "@/lib/utils";
+
 
 export const Route = createFileRoute("/produits")({
   head: () => ({

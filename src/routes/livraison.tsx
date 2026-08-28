@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage } from "@/components/site/LegalPage";
-import { useCart } from "@/lib/cart";
+import { WHATSAPP_LINK } from "@/lib/utils";
+
 
 export const Route = createFileRoute("/livraison")({
   head: () => ({
