@@ -66,7 +66,7 @@ function Home() {
                 DELIVERY EXPRESS
               </button>
               <Link to="/produits" className="btn-base btn-ghost">
-                Découvrir nos produits
+                NOS PRODUITS
               </Link>
             </div>
 
