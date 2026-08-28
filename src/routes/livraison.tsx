@@ -19,7 +19,7 @@ export const Route = createFileRoute("/livraison")({
     <LegalPage
       title="Conditions de livraison"
       sections={[
-        { heading: "Zone desservie", body: "Nous livrons actuellement Paris et certaines communes limitrophes d’Île-de-France. Les départements 91 et 92 ne sont pas encore couverts dans leur intégralité. Nous travaillons activement à l’extension de notre zone de livraison." },
+        { heading: "Zone desservie", body: "Nous livrons actuellement PARIS et certaines communes limitrophes d’Île-de-France. Les départements 91 et 92 ne sont pas encore couverts dans leur intégralité. Nous travaillons activement à l’extension de notre zone de livraison." },
         { heading: "Horaires de livraison", body: "Les livraisons sont effectuées selon les créneaux disponibles affichés lors de la commande." },
         { heading: "Montant minimum de commande", body: "Un montant minimum peut être requis selon la zone de livraison." },
         { heading: "Délais de livraison", body: "Les délais communiqués sont indicatifs et peuvent varier en fonction du trafic, des conditions météorologiques ou d'autres circonstances exceptionnelles." },

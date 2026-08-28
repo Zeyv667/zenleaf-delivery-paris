@@ -70,10 +70,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "CALIV — CBD premium livré à Paris" },
+      { title: "CALIV — CBD premium livré à PARIS" },
       {
         name: "description",
-        content: "CBD premium livré en moins de 60 minutes à Paris. Fleurs et résines sélectionnées.",
+        content: "CBD premium livré en moins de 60 minutes à PARIS. Fleurs et résines sélectionnées.",
       },
       { property: "og:site_name", content: "CALIV" },
       { property: "og:type", content: "website" },
@@ -98,8 +98,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "Store",
           name: "CALIV",
-          description: "CBD premium livré en moins de 60 minutes à Paris.",
-          areaServed: "Paris, France",
+          description: "CBD premium livré en moins de 60 minutes à PARIS.",
+          areaServed: "PARIS, France",
         }),
       },
     ],

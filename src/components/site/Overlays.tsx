@@ -16,7 +16,7 @@ export function AgeGate() {
   return (
     <div className="fixed inset-0 z-[70] flex flex-col items-center justify-center bg-background px-6 text-center">
       <div className="w-full max-w-md fade-up">
-        <p className="eyebrow">Paris · Île-de-France</p>
+        <p className="eyebrow">PARIS · Île-de-France</p>
         <img
           src={ageLogo.url}
           alt="CALIV"
