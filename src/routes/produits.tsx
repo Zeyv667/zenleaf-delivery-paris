@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ProductCard } from "@/components/site/ProductCard";
+import { useCart } from "@/lib/cart";
 import { PRODUCTS } from "@/lib/products";
 
 export const Route = createFileRoute("/produits")({
