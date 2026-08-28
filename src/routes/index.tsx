@@ -30,11 +30,10 @@ export const Route = createFileRoute("/")({
 
 const MARQUEE = ["Paris & Île-de-France", "West coast quality", "Analysé en laboratoire", "THC < 0,3 %"];
 
-const STEPS = [
-  { n: "01", t: "Choisissez", p: "Cinq références, rien de superflu." },
-  { n: "02", t: "Commandez", p: "Deux minutes, paiement sécurisé." },
-  { n: "03", t: "On livre", p: "Paris et Île-de-France, emballage neutre." },
-];
+const DELIVERY = {
+  label: "Livraison express",
+  hours: "À partir de 10h jusqu'à 21h",
+};
 
 function Home() {
   const { open } = useCart();
@@ -143,14 +142,9 @@ function Home() {
 
       {/* SERVICE */}
       <section className="border-y border-border">
-        <div className="container-x grid gap-10 py-16 md:grid-cols-3 md:py-20">
-          {STEPS.map((s) => (
-            <div key={s.n}>
-              <span className="text-xs tabular-nums text-accent">{s.n}</span>
-              <h3 className="display mt-3 text-2xl">{s.t}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{s.p}</p>
-            </div>
-          ))}
+        <div className="container-x flex flex-col items-start py-16 md:py-20">
+          <h3 className="display text-3xl md:text-5xl">{DELIVERY.label}</h3>
+          <p className="mt-3 text-lg text-muted-foreground">{DELIVERY.hours}</p>
         </div>
       </section>
 
