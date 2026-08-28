@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { useCart } from "@/lib/cart";
 import logo from "@/assets/caliv-logo.png";
 
 const NAV = [
@@ -11,7 +10,6 @@ const NAV = [
 ] as const;
 
 export function Header() {
-  const { count, open } = useCart();
   const [scrolled, setScrolled] = useState(false);
   const [menu, setMenu] = useState(false);
 
@@ -68,14 +66,6 @@ export function Header() {
           ))}
         </nav>
 
-        <button
-          onClick={open}
-          aria-label="Ouvrir le panier"
-          className="btn-base btn-ghost bg-background px-4 py-2 text-[11px] uppercase tracking-[0.2em]"
-        >
-          Panier
-          <span className="tabular-nums text-primary">{count}</span>
-        </button>
       </div>
 
 
