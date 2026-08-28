@@ -76,8 +76,8 @@ export const PRODUCTS: Product[] = [
   },
 ];
 
-export const FREE_SHIPPING_THRESHOLD = 50;
-export const SHIPPING_FEE = 4.9;
+export const FREE_SHIPPING_THRESHOLD = 0;
+export const SHIPPING_FEE = 0;
 
 export const PROMO_CODES: Record<string, number> = {
   CALIV10: 0.1,

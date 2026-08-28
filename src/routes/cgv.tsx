@@ -36,10 +36,10 @@ export const Route = createFileRoute("/cgv")({
           heading: "4. Prix et paiement",
           body: "Les prix sont indiqués en euros toutes taxes comprises. Le paiement s'effectue par carte bancaire, Apple Pay ou Google Pay via un prestataire de paiement sécurisé.",
         },
-        {
-          heading: "5. Livraison",
-          body: "Les frais de livraison s'élèvent à 4,90 € et sont offerts à partir de 50 € d'achat. Les délais varient selon la zone géographique.",
-        },
+          {
+            heading: "5. Livraison",
+            body: "La livraison est offerte pour toute commande. Un montant minimum de 5 g s'applique (soit un sachet de 5 g). Les délais varient selon la zone géographique.",
+          },
         {
           heading: "6. Rétractation",
           body: "Conformément au code de la consommation, le droit de rétractation de 14 jours s'applique aux produits non descellés. Les produits alimentaires ou d'hygiène descellés ne peuvent être repris.",

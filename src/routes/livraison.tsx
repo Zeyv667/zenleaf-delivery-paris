@@ -9,10 +9,10 @@ export const Route = createFileRoute("/livraison")({
       { title: "Conditions de livraison | CALIV" },
       {
         name: "description",
-        content: "Zones desservies, délais, frais de port et livraison offerte dès 50 € chez CALIV.",
+        content: "Zones desservies, délais et livraison offerte chez CALIV. Commande minimum de 5 g.",
       },
       { property: "og:title", content: "Conditions de livraison | CALIV" },
-      { property: "og:description", content: "Zones, délais et frais de port. Livraison offerte dès 50 €." },
+      { property: "og:description", content: "Zones, délais et livraison offerte. Commande minimum de 5 g." },
       { property: "og:url", content: "/livraison" },
     ],
     links: [{ rel: "canonical", href: "/livraison" }],
