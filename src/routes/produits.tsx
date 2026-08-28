@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ProductCard } from "@/components/site/ProductCard";
+import { useCart } from "@/lib/cart";
 import { PRODUCTS } from "@/lib/products";
 
 export const Route = createFileRoute("/produits")({
@@ -21,6 +22,7 @@ export const Route = createFileRoute("/produits")({
 });
 
 function ProductsPage() {
+  const { open } = useCart();
   return (
     <main className="container-x pb-32 pt-36">
       <h2 className="display text-3xl">Fleurs</h2>
@@ -53,6 +55,9 @@ function ProductsPage() {
           </ul>
         </div>
       </section>
+      <button className="btn-base btn-primary mt-10 w-full" onClick={open}>
+        DELIVERY EXPRESS
+      </button>
     </main>
   );
 }
