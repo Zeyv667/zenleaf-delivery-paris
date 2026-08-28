@@ -24,7 +24,7 @@ export function ProductCard({ product }: { product: Product }) {
         <div className="flex items-baseline justify-between gap-4">
           <h3 className="text-base font-medium tracking-tight">{product.name}</h3>
           <span className="text-base tabular-nums text-muted-foreground">
-            {formatPrice(product.price)}
+            {product.pricePerGram} €/g
           </span>
         </div>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{product.description}</p>
