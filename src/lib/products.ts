@@ -36,7 +36,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "blueberry-candy",
-    name: "Blueberry Candy",
+    name: "CALIV - Flower Bag - BLUEBERRY CANDY",
     type: "Fleur",
     origin: "USA",
     description: "Notes de myrtille confite. Têtes compactes aux reflets violets.",
