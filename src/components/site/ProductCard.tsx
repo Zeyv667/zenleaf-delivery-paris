@@ -7,7 +7,7 @@ export function ProductCard({ product }: { product: Product }) {
   return (
     <article className="group flex flex-col">
       <div className="pastel-tile relative flex aspect-[4/5] items-center justify-center overflow-hidden rounded-2xl p-8 md:p-10">
-        <div className="relative h-[72%] w-[72%]">
+        <div className="relative h-[62%] w-[62%]">
           <img
             src={product.image}
             alt={`${product.name} — ${product.type} CBD`}
