@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImage from "@/assets/hero.jpg";
+import wordmark from "@/assets/caliv-wordmark.png";
 import { ProductCard } from "@/components/site/ProductCard";
 import { useCart } from "@/lib/cart";
 import { PRODUCTS } from "@/lib/products";
@@ -125,8 +126,16 @@ function Home() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-          {PRODUCTS.map((p) => (
+        <h3 className="display mt-14 text-2xl">Fleurs</h3>
+        <div className="mt-6 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+          {PRODUCTS.filter((p) => p.type === "Fleur").map((p) => (
+            <ProductCard key={p.id} product={p} />
+          ))}
+        </div>
+
+        <h3 className="display mt-16 text-2xl">Résines</h3>
+        <div className="mt-6 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+          {PRODUCTS.filter((p) => p.type === "Résine").map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
         </div>

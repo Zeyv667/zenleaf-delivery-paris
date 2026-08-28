@@ -29,8 +29,16 @@ function ProductsPage() {
         Sachets de 5 g. Chaque lot est contrôlé et conforme à la législation française.
       </p>
 
-      <div className="mt-16 grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
-        {PRODUCTS.map((p) => (
+      <h2 className="display mt-16 text-3xl">Fleurs</h2>
+      <div className="mt-6 grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+        {PRODUCTS.filter((p) => p.type === "Fleur").map((p) => (
+          <ProductCard key={p.id} product={p} />
+        ))}
+      </div>
+
+      <h2 className="display mt-20 text-3xl">Résines</h2>
+      <div className="mt-6 grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+        {PRODUCTS.filter((p) => p.type === "Résine").map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}
       </div>
