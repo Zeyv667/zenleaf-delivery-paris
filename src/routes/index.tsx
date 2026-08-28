@@ -70,7 +70,7 @@ function Home() {
           fetchPriority="high"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/45" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
 
         <div className="container-x relative flex min-h-[92vh] flex-col justify-end pb-20 pt-32">
           <p className="eyebrow fade-up">CBD premium livré en moins de 60 minutes à Paris</p>
