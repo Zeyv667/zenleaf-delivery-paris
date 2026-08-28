@@ -1,8 +1,12 @@
-import sunsetCream from "@/assets/sunset-cream.jpg";
-import blueberryCandy from "@/assets/blueberry-candy.jpg";
-import bruceBanner from "@/assets/bruce-banner.jpg";
-import frozenHash from "@/assets/frozen-hash.jpg";
-import caliPlate from "@/assets/cali-plate.jpg";
+import pouchSunset from "@/assets/CALIV_ID_MENU.png.asset.json";
+import pouchGreen from "@/assets/CALIV_ID_MENU-2.png.asset.json";
+import pouchPink from "@/assets/CALIV_ID_MENU-3.png.asset.json";
+
+const sunsetCream = pouchSunset.url;
+const blueberryCandy = pouchPink.url;
+const bruceBanner = pouchGreen.url;
+const frozenHash = pouchGreen.url;
+const caliPlate = pouchPink.url;
 
 export type ProductType = "Fleur" | "Résine";
 
