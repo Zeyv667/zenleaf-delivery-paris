@@ -23,7 +23,6 @@ export function ProductCard({ product }: { product: Product }) {
             {product.pricePerGram} €/g
           </span>
         </div>
-        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{product.description}</p>
         <p className="mt-1 text-xs text-muted-foreground">
           {product.origin} · Sachet 5 g — {formatPrice(product.price)}
         </p>
