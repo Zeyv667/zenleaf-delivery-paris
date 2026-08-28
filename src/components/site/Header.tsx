@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useCart } from "@/lib/cart";
+import logo from "@/assets/caliv-logo.png";
 
 const NAV = [
   { to: "/", label: "Accueil" },
@@ -27,8 +28,9 @@ export function Header() {
       }`}
     >
       <div className="container-x flex h-16 items-center justify-between">
-        <Link to="/" className="text-sm font-semibold tracking-[0.34em]">
-          CALIV
+        <Link to="/" className="flex items-center gap-3" aria-label="CALIV — accueil">
+          <img src={logo} alt="CALIV Premium CBD Paris" width={40} height={40} className="h-9 w-auto" />
+          <span className="text-sm font-semibold tracking-[0.34em]">CALIV</span>
         </Link>
 
         <nav className="hidden items-center gap-9 md:flex">
