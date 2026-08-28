@@ -1,9 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImage from "@/assets/caliv-store-hero.png.asset.json";
 import wordmark from "@/assets/caliv-wordmark.png.asset.json";
-import { ProductCard } from "@/components/site/ProductCard";
 import { useCart } from "@/lib/cart";
-import { PRODUCTS } from "@/lib/products";
 
 export const Route = createFileRoute("/")({
   head: () => ({
