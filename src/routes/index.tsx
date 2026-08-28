@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImage from "@/assets/caliv-store-hero-hd.jpg";
-import wordmark from "@/assets/caliv-wordmark-hd.png";
+import wordmark from "@/assets/caliv-cbd-premium-3.png.asset.json";
 import { ProductCard } from "@/components/site/ProductCard";
 import { PRODUCTS } from "@/lib/products";
 import { WHATSAPP_LINK } from "@/lib/utils";
@@ -44,7 +44,7 @@ function Home() {
       <section className="container-x pt-20 md:pt-24">
         <div className="flex items-center justify-center">
           <img
-            src={wordmark}
+            src={wordmark.url}
             alt="CALIV — Premium CBD PARIS"
             width={900}
             height={480}
