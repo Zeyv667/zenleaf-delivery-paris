@@ -4,9 +4,10 @@ import { useCart } from "@/lib/cart";
 import logo from "@/assets/caliv-logo.png";
 
 const NAV = [
+  { to: "/", label: "Accueil" },
   { to: "/produits", label: "Produits" },
-  { to: "/cbd", label: "Le CBD" },
-  { to: "/contact", label: "Livraison" },
+  { to: "/livraison", label: "Livraison" },
+  { to: "/contact", label: "Contact" },
 ] as const;
 
 export function Header() {
