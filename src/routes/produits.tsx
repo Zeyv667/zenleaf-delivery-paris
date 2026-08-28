@@ -39,7 +39,7 @@ function ProductsPage() {
         ))}
       </div>
 
-      <button className="btn-base btn-primary mt-12 w-full" onClick={open}>
+      <button className="btn-base mt-12 w-full bg-[#FBD9DF] text-[#0F172A] hover:bg-[#A3B2D6]" onClick={open}>
         DELIVERY EXPRESS
       </button>
 
