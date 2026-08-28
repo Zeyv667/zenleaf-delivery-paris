@@ -79,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "fr_FR" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "theme-color", content: "#0A0A0A" },
+      { name: "theme-color", content: "#759DD2" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -87,7 +87,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Graduate&family=Inter:wght@400;500;600&display=swap",
       },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
