@@ -136,6 +136,23 @@ function Home() {
         </div>
       </section>
 
+      {/* PRÉCAUTIONS */}
+      <section className="container-x pb-20 md:pb-28">
+        <div className="rounded-sm border border-border bg-card px-6 py-8 md:px-10 md:py-10">
+          <h3 className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+            Précautions
+          </h3>
+          <ul className="mt-5 grid gap-2 text-sm text-muted-foreground sm:grid-cols-2">
+            <li>Réservé aux personnes majeures (18+).</li>
+            <li>Tenir hors de portée des enfants.</li>
+            <li>Déconseillé aux femmes enceintes ou allaitantes.</li>
+            <li>Peut entraîner un résultat positif au THC.</li>
+            <li>Ne pas conduire après utilisation.</li>
+            <li>Conserver au sec, au frais et à l’abri de la lumière.</li>
+          </ul>
+        </div>
+      </section>
+
       {/* SERVICE */}
       <section className="border-y border-border">
         <div className="container-x flex flex-col items-start py-16 md:py-20">
