@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import logo from "@/assets/caliv-logo.png";
 
 const LINKS = [
   { to: "/", label: "Accueil" },
@@ -16,7 +17,8 @@ export function Footer() {
     <footer className="border-t border-border">
       <div className="container-x grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <p className="text-sm font-semibold tracking-[0.34em]">CALIV</p>
+          <img src={logo} alt="CALIV Premium CBD Paris" width={56} height={56} className="h-12 w-auto" />
+          <p className="mt-4 text-sm font-semibold tracking-[0.34em]">CALIV</p>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
             CBD premium livré en moins de 60 minutes à Paris.
           </p>

@@ -32,31 +32,33 @@
   --color-ring: var(--ring);
   --color-olive: var(--olive);
   --color-olive-soft: var(--olive-soft);
+  --color-blush: var(--blush);
 }
 
 :root {
   --radius: 0.25rem;
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.964 0 0);
-  --card: oklch(0.18 0 0);
-  --card-foreground: oklch(0.964 0 0);
-  --popover: oklch(0.18 0 0);
-  --popover-foreground: oklch(0.964 0 0);
-  --primary: oklch(0.964 0 0);
-  --primary-foreground: oklch(0.145 0 0);
-  --secondary: oklch(0.22 0 0);
-  --secondary-foreground: oklch(0.964 0 0);
-  --muted: oklch(0.22 0 0);
-  --muted-foreground: oklch(0.68 0.005 106);
-  --accent: oklch(0.575 0.05 122);
-  --accent-foreground: oklch(0.145 0 0);
+  --background: oklch(0.985 0.002 250);
+  --foreground: oklch(0.24 0.02 255);
+  --card: oklch(0.965 0.006 250);
+  --card-foreground: oklch(0.24 0.02 255);
+  --popover: oklch(0.995 0.002 250);
+  --popover-foreground: oklch(0.24 0.02 255);
+  --primary: oklch(0.68 0.089 254);
+  --primary-foreground: oklch(0.995 0 0);
+  --secondary: oklch(0.95 0.012 250);
+  --secondary-foreground: oklch(0.24 0.02 255);
+  --muted: oklch(0.95 0.012 250);
+  --muted-foreground: oklch(0.52 0.025 255);
+  --accent: oklch(0.9 0.041 5);
+  --accent-foreground: oklch(0.24 0.02 255);
   --destructive: oklch(0.62 0.2 25);
-  --destructive-foreground: oklch(0.964 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 14%);
-  --ring: oklch(0.575 0.05 122);
-  --olive: oklch(0.575 0.05 122);
-  --olive-soft: oklch(0.575 0.05 122 / 18%);
+  --destructive-foreground: oklch(0.995 0 0);
+  --border: oklch(0.24 0.02 255 / 12%);
+  --input: oklch(0.24 0.02 255 / 16%);
+  --ring: oklch(0.68 0.089 254);
+  --olive: oklch(0.68 0.089 254);
+  --olive-soft: oklch(0.68 0.089 254 / 14%);
+  --blush: oklch(0.9 0.041 5);
 }
 
 @layer base {
@@ -128,9 +130,9 @@
 
 @utility btn-primary {
   background: var(--olive);
-  color: oklch(0.145 0 0);
+  color: oklch(0.995 0 0);
   &:hover {
-    background: oklch(0.63 0.055 122);
+    background: oklch(0.62 0.095 254);
   }
 }
 
