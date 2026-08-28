@@ -20,18 +20,18 @@ export function CartDrawer() {
       />
       <aside
         aria-label="Panier"
-        className={`fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col border-l border-[#FBD9DF] bg-[#FBD9DF] transition-transform duration-300 ease-out ${
+        className={`fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col pb-[env(safe-area-inset-bottom)] border-l border-[#FBD9DF] bg-[#FBD9DF] transition-transform duration-300 ease-out ${
           cart.isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between border-b border-[#FBD9DF] px-6 py-5">
+        <div className="flex items-center justify-between border-b border-[#FBD9DF] px-5 py-4 sm:px-6 sm:py-5">
           <p className="eyebrow">Panier ({cart.count})</p>
           <button onClick={cart.close} className="text-sm text-muted-foreground hover:text-foreground active:text-foreground">
             Fermer
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto px-6">
+        <div className="flex-1 overflow-y-auto overscroll-contain px-5 sm:px-6">
           {cart.lines.length === 0 ? (
             <p className="py-16 text-center text-sm text-muted-foreground">Votre panier est vide.</p>
           ) : (

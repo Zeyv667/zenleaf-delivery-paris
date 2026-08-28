@@ -21,28 +21,28 @@ export const Route = createFileRoute("/contact")({
 
 function ContactPage() {
   return (
-    <main className="container-x pb-32 pt-36">
+    <main className="container-x pb-24 pt-28 md:pb-32 md:pt-36">
       <p className="eyebrow">Contact</p>
-      <h1 className="display mt-4 max-w-2xl text-4xl md:text-6xl">Une question ?</h1>
+      <h1 className="display mt-4 max-w-2xl text-[2.25rem] sm:text-4xl md:text-6xl">Une question ?</h1>
       <p className="mt-6 max-w-md text-sm text-muted-foreground">
         Notre équipe répond du lundi au dimanche, de 10h à 23h.
       </p>
 
-      <div className="mt-16 grid max-w-3xl gap-8 md:grid-cols-3">
-        <a href="https://wa.me/33600000000" className="rounded-sm border border-border p-8 hover:bg-secondary">
+      <div className="mt-10 grid max-w-3xl gap-4 sm:gap-8 md:mt-16 md:grid-cols-3">
+        <a href="https://wa.me/33600000000" className="block rounded-sm border border-border p-6 hover:bg-secondary md:p-8">
           <p className="eyebrow">WhatsApp</p>
           <p className="mt-3 text-lg tracking-tight">+33 6 00 00 00 00</p>
         </a>
-        <a href="tel:+33600000000" className="rounded-sm border border-border p-8 hover:bg-secondary">
+        <a href="tel:+33600000000" className="block rounded-sm border border-border p-6 hover:bg-secondary md:p-8">
           <p className="eyebrow">Téléphone</p>
           <p className="mt-3 text-lg tracking-tight">+33 6 00 00 00 00</p>
         </a>
-        <a href="mailto:contact@caliv.fr" className="rounded-sm border border-border p-8 hover:bg-secondary">
+        <a href="mailto:contact@caliv.fr" className="block rounded-sm border border-border p-6 hover:bg-secondary md:p-8">
           <p className="eyebrow">E-mail</p>
           <p className="mt-3 text-lg tracking-tight">contact@caliv.fr</p>
         </a>
       </div>
-      <section className="container-x py-16 md:py-20">
+      <section className="py-12 md:py-20">
         <DeliveryExpressButton />
       </section>
 
@@ -54,7 +54,7 @@ function DeliveryExpressButton() {
   const { open } = useCart();
   return (
     <button
-      className="btn-base btn-primary active:scale-[0.98]"
+      className="btn-base btn-primary w-full active:scale-[0.98] sm:w-auto"
       onClick={open}
     >
       DELIVERY EXPRESS
