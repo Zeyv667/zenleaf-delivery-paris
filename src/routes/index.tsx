@@ -74,7 +74,7 @@ function Home() {
               {[
                 "Livraison rapide",
                 "Paiement sécurisé",
-                "Produits analysés en laboratoire",
+                "Nos variétés analysées en laboratoire",
                 "THC conforme à la législation française",
               ].map((f) => (
                 <li key={f} className="flex items-start gap-2">
