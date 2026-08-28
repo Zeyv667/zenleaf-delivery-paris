@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { DeliveryCTA } from "@/components/site/DeliveryCTA";
 import { ProductCard } from "@/components/site/ProductCard";
 import { PRODUCTS } from "@/lib/products";
 
@@ -54,7 +53,6 @@ function ProductsPage() {
           </ul>
         </div>
       </section>
-      <DeliveryCTA />
     </main>
   );
 }
