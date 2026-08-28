@@ -66,12 +66,6 @@ export function Header() {
           ))}
         </nav>
 
-        <Link
-          to="/contact"
-          className="btn-base btn-ghost bg-background px-4 py-2 text-[11px] uppercase tracking-[0.2em]"
-        >
-          Contact
-        </Link>
       </div>
 
 
