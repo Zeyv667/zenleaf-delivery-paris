@@ -3,7 +3,7 @@ import { formatPrice, type Product } from "@/lib/products";
 export function ProductCard({ product }: { product: Product }) {
   return (
     <article className="group flex flex-col">
-      <div className="relative flex aspect-[4/5] items-center justify-center overflow-hidden rounded-2xl bg-popover p-8 md:p-10">
+      <div className="relative flex aspect-[4/5] items-center justify-center overflow-hidden rounded-2xl bg-[#FBD9DF] p-8 md:p-10">
         <div className={`relative ${product.type === "Fleur" ? "h-[78%] w-[78%]" : "h-[62%] w-[62%]"}`}>
           <img
             src={product.image}
