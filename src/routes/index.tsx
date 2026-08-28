@@ -168,7 +168,7 @@ function Home() {
           <p className="mt-3 text-lg text-muted-foreground">Fleur cali + Laboratoires en France</p>
           <p className="mt-1 text-lg text-muted-foreground">Paris / IDF (75/93/94)</p>
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
-            le 92 et le 91 ne sont pas assurés sauf commande supérieure à 10g et distance proche Paris
+            La livraison dans le 91 et le 92 n'est pas encore assurée de manière systématique. Nous travaillons à l'ouverture de ces secteurs. Certaines commandes supérieures à 10 g, à proximité de Paris, peuvent néanmoins être éligibles à la livraison.
           </p>
         </div>
       </section>
