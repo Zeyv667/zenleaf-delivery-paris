@@ -11,6 +11,7 @@
   --radius-xl: calc(var(--radius) + 4px);
   --radius-2xl: calc(var(--radius) + 8px);
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Anton", "Inter", ui-sans-serif, system-ui, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -37,29 +38,30 @@
 
 :root {
   --radius: 0.25rem;
-  --background: oklch(0.985 0.002 250);
-  --foreground: oklch(0.24 0.02 255);
-  --card: oklch(0.965 0.006 250);
-  --card-foreground: oklch(0.24 0.02 255);
-  --popover: oklch(0.995 0.002 250);
-  --popover-foreground: oklch(0.24 0.02 255);
-  --primary: oklch(0.68 0.089 254);
-  --primary-foreground: oklch(0.995 0 0);
-  --secondary: oklch(0.95 0.012 250);
-  --secondary-foreground: oklch(0.24 0.02 255);
-  --muted: oklch(0.95 0.012 250);
-  --muted-foreground: oklch(0.52 0.025 255);
-  --accent: oklch(0.9 0.041 5);
-  --accent-foreground: oklch(0.24 0.02 255);
+  --background: oklch(0.972 0.014 85);
+  --foreground: oklch(0.22 0.02 260);
+  --card: oklch(0.945 0.019 85);
+  --card-foreground: oklch(0.22 0.02 260);
+  --popover: oklch(0.985 0.008 85);
+  --popover-foreground: oklch(0.22 0.02 260);
+  --primary: oklch(0.55 0.16 258);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.93 0.024 85);
+  --secondary-foreground: oklch(0.22 0.02 260);
+  --muted: oklch(0.93 0.024 85);
+  --muted-foreground: oklch(0.5 0.025 260);
+  --accent: oklch(0.68 0.17 45);
+  --accent-foreground: oklch(0.99 0 0);
   --destructive: oklch(0.62 0.2 25);
   --destructive-foreground: oklch(0.995 0 0);
-  --border: oklch(0.24 0.02 255 / 12%);
-  --input: oklch(0.24 0.02 255 / 16%);
-  --ring: oklch(0.68 0.089 254);
-  --olive: oklch(0.68 0.089 254);
-  --olive-soft: oklch(0.68 0.089 254 / 14%);
-  --blush: oklch(0.9 0.041 5);
+  --border: oklch(0.22 0.02 260 / 14%);
+  --input: oklch(0.22 0.02 260 / 18%);
+  --ring: oklch(0.55 0.16 258);
+  --olive: oklch(0.55 0.16 258);
+  --olive-soft: oklch(0.55 0.16 258 / 14%);
+  --blush: oklch(0.68 0.17 45);
 }
+
 
 @layer base {
   * {
@@ -98,10 +100,13 @@
 }
 
 @utility display {
-  font-weight: 500;
-  letter-spacing: -0.035em;
-  line-height: 0.98;
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 0.92;
+  text-transform: uppercase;
 }
+
 
 @utility btn-base {
   display: inline-flex;
@@ -129,12 +134,13 @@
 }
 
 @utility btn-primary {
-  background: var(--olive);
-  color: oklch(0.995 0 0);
+  background: var(--primary);
+  color: var(--primary-foreground);
   &:hover {
-    background: oklch(0.62 0.095 254);
+    background: oklch(0.48 0.16 258);
   }
 }
+
 
 @utility btn-light {
   background: var(--foreground);

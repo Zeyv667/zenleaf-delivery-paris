@@ -4,15 +4,15 @@ import { useCart } from "@/lib/cart";
 import logo from "@/assets/caliv-logo.png";
 
 const NAV = [
-  { to: "/", label: "Accueil" },
   { to: "/produits", label: "Produits" },
-  { to: "/faq", label: "FAQ" },
-  { to: "/contact", label: "Contact" },
+  { to: "/cbd", label: "Le CBD" },
+  { to: "/contact", label: "Livraison" },
 ] as const;
 
 export function Header() {
   const { count, open } = useCart();
   const [scrolled, setScrolled] = useState(false);
+  const [menu, setMenu] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -24,38 +24,73 @@ export function Header() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-40 transition-colors duration-300 ${
-        scrolled ? "border-b border-border bg-background/80 backdrop-blur-xl" : ""
+        scrolled || menu ? "border-b border-border bg-background/85 backdrop-blur-xl" : ""
       }`}
     >
       <div className="container-x flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-3" aria-label="CALIV — accueil">
+        <div className="flex items-center gap-6">
+          <button
+            onClick={() => setMenu((v) => !v)}
+            aria-label={menu ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={menu}
+            className="flex h-9 w-9 flex-col items-center justify-center gap-[5px] md:hidden"
+          >
+            <span
+              className={`h-px w-5 bg-foreground transition-transform ${menu ? "translate-y-[3px] rotate-45" : ""}`}
+            />
+            <span
+              className={`h-px w-5 bg-foreground transition-transform ${menu ? "-translate-y-[3px] -rotate-45" : ""}`}
+            />
+          </button>
+
+          <nav className="hidden items-center gap-8 md:flex">
+            {NAV.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-foreground"
+                activeProps={{ className: "text-[11px] uppercase tracking-[0.2em] text-foreground" }}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+
+        <Link
+          to="/"
+          className="absolute left-1/2 flex -translate-x-1/2 items-center gap-2"
+          aria-label="CALIV — accueil"
+          onClick={() => setMenu(false)}
+        >
           <img src={logo} alt="CALIV Premium CBD Paris" width={40} height={40} className="h-9 w-auto" />
-          <span className="text-sm font-semibold tracking-[0.34em]">CALIV</span>
+          <span className="display text-lg tracking-[0.14em]">CALIV</span>
         </Link>
 
-        <nav className="hidden items-center gap-9 md:flex">
+        <button
+          onClick={open}
+          aria-label="Ouvrir le panier"
+          className="btn-base btn-ghost px-4 py-2 text-[11px] uppercase tracking-[0.2em]"
+        >
+          Panier
+          <span className="tabular-nums text-primary">{count}</span>
+        </button>
+      </div>
+
+      {menu && (
+        <nav className="container-x flex flex-col gap-1 pb-6 md:hidden">
           {NAV.map((item) => (
             <Link
               key={item.to}
               to={item.to}
-              className="text-[13px] text-muted-foreground transition-colors hover:text-foreground"
-              activeProps={{ className: "text-[13px] text-foreground" }}
-              activeOptions={{ exact: item.to === "/" }}
+              onClick={() => setMenu(false)}
+              className="display border-b border-border py-4 text-2xl"
             >
               {item.label}
             </Link>
           ))}
         </nav>
-
-        <button
-          onClick={open}
-          aria-label="Ouvrir le panier"
-          className="btn-base btn-ghost px-4 py-2 text-[13px]"
-        >
-          Panier
-          <span className="tabular-nums text-olive">{count}</span>
-        </button>
-      </div>
+      )}
     </header>
   );
 }

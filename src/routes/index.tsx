@@ -7,204 +7,147 @@ import { PRODUCTS } from "@/lib/products";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "CALIV — Le CBD premium livré chez vous à Paris" },
+      { title: "CALIV — Livraison de CBD premium à Paris & Île-de-France" },
       {
         name: "description",
         content:
-          "Fleurs et résines CBD sélectionnées, livrées en moins de 60 minutes à Paris. Produits analysés en laboratoire, paiement sécurisé.",
+          "Service de livraison de CBD premium à Paris et en Île-de-France. Fleurs et résines sélectionnées, esprit dispensary californien, lots analysés en laboratoire.",
       },
-      { property: "og:title", content: "CALIV — Le CBD premium livré chez vous" },
+      { property: "og:title", content: "CALIV — Livraison de CBD premium à Paris & Île-de-France" },
       {
         property: "og:description",
-        content: "Fleurs et résines sélectionnées. Livraison rapide. Paiement sécurisé.",
+        content: "Fleurs et résines sélectionnées, livrées à Paris et en Île-de-France.",
       },
+      { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/" }],
   }),
   component: Home,
 });
 
-const GUARANTEES = [
-  "Livraison rapide",
-  "Paiement sécurisé",
-  "Produits analysés en laboratoire",
-  "THC conforme à la législation française",
-];
-
-const PILLARS = [
-  { title: "Qualité", text: "Produits soigneusement sélectionnés." },
-  { title: "Livraison", text: "Livraison rapide et discrète." },
-  { title: "Confiance", text: "Analyses laboratoire disponibles." },
-];
+const MARQUEE = ["Paris & Île-de-France", "West coast quality", "Analysé en laboratoire", "THC < 0,3 %"];
 
 const STEPS = [
-  { n: "01", title: "Choisissez votre produit.", text: "Cinq références, rien de superflu." },
-  { n: "02", title: "Validez votre commande.", text: "Paiement sécurisé en quelques secondes." },
-  { n: "03", title: "Recevez votre livraison.", text: "Emballage neutre et discret." },
-];
-
-const REVIEWS = ["Très bonne qualité.", "Livraison rapide.", "Site simple et efficace."];
-
-const FAQ = [
-  { q: "Le CBD est-il légal ?", a: "Oui, conformément à la réglementation française." },
-  { q: "Quel est le délai de livraison ?", a: "Selon votre zone géographique." },
-  { q: "Comment payer ?", a: "Carte bancaire sécurisée." },
-  { q: "Les produits sont-ils testés ?", a: "Oui, chaque lot est contrôlé." },
+  { n: "01", t: "Choisissez", p: "Cinq références, rien de superflu." },
+  { n: "02", t: "Commandez", p: "Deux minutes, paiement sécurisé." },
+  { n: "03", t: "On livre", p: "Paris et Île-de-France, emballage neutre." },
 ];
 
 function Home() {
   const { open } = useCart();
-  const fleurs = PRODUCTS.filter((p) => p.type === "Fleur");
-  const resines = PRODUCTS.filter((p) => p.type === "Résine");
 
   return (
     <main>
       {/* HERO */}
-      <section className="relative min-h-[92vh] overflow-hidden">
+      <section className="relative min-h-[88vh] overflow-hidden">
         <img
           src={heroImage}
-          alt="Pot de fleurs de CBD premium CALIV tenu à la main"
+          alt="Livraison de CBD premium CALIV, ambiance californienne"
           width={1600}
-          height={1808}
+          height={1200}
           fetchPriority="high"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-transparent" />
 
-        <div className="container-x relative flex min-h-[92vh] flex-col justify-end pb-20 pt-32">
-          <p className="eyebrow fade-up">CBD premium livré en moins de 60 minutes à Paris</p>
-          <h1 className="display mt-6 max-w-3xl text-[3rem] leading-[0.95] md:text-[5.5rem] fade-up">
-            Le CBD premium
+        <div className="container-x relative flex min-h-[88vh] flex-col justify-end pb-16 pt-32">
+          <p className="eyebrow fade-up">Paris · Île-de-France · Delivery only</p>
+          <h1 className="display mt-5 max-w-4xl text-[3.4rem] md:text-[7rem] fade-up">
+            California
             <br />
-            livré chez vous.
+            grade delivery.
           </h1>
-          <p className="mt-6 max-w-lg text-base leading-relaxed text-muted-foreground fade-up">
-            Fleurs et résines sélectionnées. Livraison rapide. Paiement sécurisé.
+          <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground fade-up">
+            Fleurs et résines CBD sélectionnées à la manière des dispensaries californiens. Livrées chez
+            vous, à Paris et en Île-de-France.
           </p>
 
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row fade-up">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row fade-up">
             <button className="btn-base btn-primary" onClick={open}>
-              Commander maintenant
+              Commander
             </button>
-            <a href="#produits" className="btn-base btn-ghost">
-              Découvrir nos produits
-            </a>
-          </div>
-
-          <ul className="mt-14 grid gap-3 text-sm text-muted-foreground sm:grid-cols-2 lg:grid-cols-4">
-            {GUARANTEES.map((g) => (
-              <li key={g} className="flex items-center gap-2">
-                <span className="text-olive">✓</span>
-                {g}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* PRODUITS */}
-      <section id="produits" className="container-x scroll-mt-20 py-28 md:py-40">
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="eyebrow">Nos 5 produits</p>
-            <h2 className="display mt-4 text-4xl md:text-5xl">Fleurs</h2>
-          </div>
-          <p className="max-w-sm text-sm text-muted-foreground">
-            Sachets de 5 g. Chaque lot est contrôlé en laboratoire.
-          </p>
-        </div>
-
-        <div className="mt-14 grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
-          {fleurs.map((p) => (
-            <ProductCard key={p.id} product={p} />
-          ))}
-        </div>
-
-        <h2 className="display mt-28 text-4xl md:text-5xl">Résines</h2>
-        <div className="mt-14 grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
-          {resines.map((p) => (
-            <ProductCard key={p.id} product={p} />
-          ))}
-        </div>
-      </section>
-
-      {/* POURQUOI NOUS */}
-      <section className="border-y border-border">
-        <div className="container-x grid gap-14 py-24 md:grid-cols-3 md:py-32">
-          {PILLARS.map((p) => (
-            <div key={p.title}>
-              <p className="eyebrow">{p.title}</p>
-              <p className="mt-4 text-xl tracking-tight md:text-2xl">{p.text}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* COMMENT ÇA MARCHE */}
-      <section className="container-x py-28 md:py-40">
-        <p className="eyebrow">Comment ça marche</p>
-        <div className="mt-14 grid gap-12 md:grid-cols-3">
-          {STEPS.map((s) => (
-            <div key={s.n} className="border-t border-border pt-8">
-              <span className="text-sm tabular-nums text-olive">{s.n}</span>
-              <h3 className="mt-6 text-xl tracking-tight">{s.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{s.text}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* AVIS */}
-      <section className="border-y border-border">
-        <div className="container-x py-24 md:py-32">
-          <div className="flex items-center gap-3">
-            <span className="text-olive">★★★★★</span>
-            <p className="text-sm text-muted-foreground">Avis clients vérifiés</p>
-          </div>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {REVIEWS.map((r) => (
-              <figure key={r} className="rounded-sm border border-border p-8">
-                <span className="text-olive">★★★★★</span>
-                <blockquote className="mt-4 text-lg tracking-tight">« {r} »</blockquote>
-                <figcaption className="mt-4 text-xs text-muted-foreground">Client vérifié</figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="container-x py-28 md:py-40">
-        <div className="grid gap-14 md:grid-cols-[0.6fr_1fr]">
-          <div>
-            <p className="eyebrow">FAQ</p>
-            <h2 className="display mt-4 text-4xl">Questions fréquentes</h2>
-            <Link to="/faq" className="btn-base btn-ghost mt-8">
-              Toutes les réponses
+            <Link to="/produits" className="btn-base btn-ghost">
+              Voir les produits
             </Link>
           </div>
-          <div className="divide-y divide-border border-t border-border">
-            {FAQ.map((item) => (
-              <details key={item.q} className="group py-6">
-                <summary className="flex cursor-pointer list-none items-center justify-between text-base">
-                  {item.q}
-                  <span className="text-muted-foreground transition-transform group-open:rotate-45">+</span>
-                </summary>
-                <p className="mt-3 text-sm text-muted-foreground">{item.a}</p>
-              </details>
-            ))}
+        </div>
+      </section>
+
+      {/* BANDEAU */}
+      <div className="overflow-hidden border-y border-border bg-primary py-3">
+        <div className="container-x flex flex-wrap items-center justify-center gap-x-8 gap-y-1 text-center">
+          {MARQUEE.map((m) => (
+            <span
+              key={m}
+              className="text-[11px] uppercase tracking-[0.24em] text-primary-foreground"
+            >
+              {m}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* PRODUITS */}
+      <section className="container-x py-20 md:py-28">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <h2 className="display text-4xl md:text-6xl">La sélection</h2>
+          <p className="max-w-xs text-sm text-muted-foreground">
+            Cinq références en sachet 5 g. Trois fleurs, deux résines.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+          {PRODUCTS.map((p) => (
+            <ProductCard key={p.id} product={p} />
+          ))}
+        </div>
+      </section>
+
+      {/* SERVICE */}
+      <section className="border-y border-border">
+        <div className="container-x grid gap-10 py-16 md:grid-cols-3 md:py-20">
+          {STEPS.map((s) => (
+            <div key={s.n}>
+              <span className="text-xs tabular-nums text-accent">{s.n}</span>
+              <h3 className="display mt-3 text-2xl">{s.t}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{s.p}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CBD EN BREF */}
+      <section className="container-x py-20 md:py-28">
+        <div className="grid gap-8 md:grid-cols-[1fr_0.9fr] md:items-end">
+          <div>
+            <p className="eyebrow">Le CBD, en bref</p>
+            <h2 className="display mt-4 max-w-xl text-4xl md:text-5xl">
+              Une molécule du chanvre, sans effet planant.
+            </h2>
+          </div>
+          <div>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Nos produits contiennent moins de 0,3 % de THC, conformément à la législation française.
+              Fleur ou résine, chaque lot est analysé avant livraison.
+            </p>
+            <Link to="/cbd" className="btn-base btn-ghost mt-6">
+              En savoir plus
+            </Link>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="container-x pb-32">
-        <div className="rounded-sm border border-border px-8 py-20 text-center">
-          <h2 className="display text-4xl md:text-5xl">Commandez en moins de 30 secondes.</h2>
-          <p className="mt-4 text-sm text-muted-foreground">Livraison offerte dès 50 €.</p>
-          <button className="btn-base btn-primary mt-10" onClick={open}>
-            Commander maintenant
+      <section className="container-x pb-24">
+        <div className="rounded-sm border border-border bg-card px-6 py-16 text-center">
+          <h2 className="display text-4xl md:text-6xl">On livre aujourd'hui.</h2>
+          <p className="mt-4 text-sm text-muted-foreground">
+            Livraison offerte dès 50 € · Paris & Île-de-France
+          </p>
+          <button className="btn-base btn-primary mt-8" onClick={open}>
+            Commander
           </button>
         </div>
       </section>

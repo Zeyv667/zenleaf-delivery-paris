@@ -13,12 +13,19 @@ export function AgeGate() {
   if (!ready || verified) return null;
 
   return (
-    <div className="fixed inset-0 z-[70] flex items-center justify-center bg-background px-6">
-      <div className="w-full max-w-sm text-center fade-up">
-        <p className="text-sm font-semibold tracking-[0.34em]">CALIV</p>
-        <h2 className="display mt-8 text-3xl">Avez-vous 18 ans ou plus ?</h2>
-        <p className="mt-4 text-sm text-muted-foreground">
-          La vente de nos produits est strictement interdite aux mineurs.
+    <div className="fixed inset-0 z-[70] flex flex-col items-center justify-center bg-background px-6 text-center">
+      <div className="w-full max-w-md fade-up">
+        <p className="eyebrow">Paris · Île-de-France</p>
+        <h2 className="display mt-6 text-5xl md:text-6xl">
+          California
+          <br />
+          state of mind.
+        </h2>
+        <div className="mx-auto mt-8 h-px w-16 bg-accent" />
+        <p className="mt-8 text-sm text-muted-foreground">
+          Service de livraison réservé aux personnes majeures.
+          <br />
+          Avez-vous 18 ans ou plus ?
         </p>
         <div className="mt-8 flex flex-col gap-3">
           <button
@@ -28,16 +35,20 @@ export function AgeGate() {
               setVerified(true);
             }}
           >
-            J'ai 18 ans ou plus
+            Oui, j'ai 18 ans ou plus
           </button>
           <a href="https://www.google.com" className="btn-base btn-ghost w-full">
-            J'ai moins de 18 ans
+            Non, je quitte le site
           </a>
         </div>
+        <p className="mt-8 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+          CALIV — Premium CBD delivery
+        </p>
       </div>
     </div>
   );
 }
+
 
 export function CookieBanner() {
   const [visible, setVisible] = useState(false);
