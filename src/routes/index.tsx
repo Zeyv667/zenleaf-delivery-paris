@@ -37,9 +37,8 @@ const DELIVERY = {
 };
 
 function Home() {
-  const { open } = useCart();
-
   return (
+
     <main>
       {/* HERO */}
       <section className="container-x pt-20 md:pt-24">
