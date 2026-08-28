@@ -55,6 +55,9 @@ function ProductsPage() {
           </ul>
         </div>
       </section>
+      <button className="btn-base btn-primary mt-10 w-full" onClick={open}>
+        DELIVERY EXPRESS
+      </button>
     </main>
   );
 }
