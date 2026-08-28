@@ -65,7 +65,7 @@ function CbdPage() {
 
       <div className="mt-10 flex flex-wrap gap-3">
         <Link to="/produits" className="btn-base btn-primary">
-          Voir les produits
+          Voir nos variétés
         </Link>
         <Link to="/faq" className="btn-base btn-ghost">
           Questions fréquentes

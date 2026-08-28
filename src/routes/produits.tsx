@@ -6,13 +6,13 @@ import { PRODUCTS } from "@/lib/products";
 export const Route = createFileRoute("/produits")({
   head: () => ({
     meta: [
-      { title: "Produits CBD — Fleurs et résines | CALIV" },
+      { title: "Nos variétés CBD — Fleurs et résines | CALIV" },
       {
         name: "description",
         content:
           "Trois fleurs indoor et deux résines CBD en sachet 5 g. Lots analysés en laboratoire, livraison rapide à PARIS.",
       },
-      { property: "og:title", content: "Produits CBD — Fleurs et résines | CALIV" },
+      { property: "og:title", content: "Nos variétés CBD — Fleurs et résines | CALIV" },
       { property: "og:description", content: "Fleurs et résines CBD sélectionnées, sachets 5 g." },
       { property: "og:url", content: "/produits" },
     ],

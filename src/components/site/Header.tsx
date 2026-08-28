@@ -4,7 +4,7 @@ import logo from "@/assets/caliv-logo.png";
 
 const NAV = [
   { to: "/", label: "Accueil" },
-  { to: "/produits", label: "Produits" },
+  { to: "/produits", label: "NOS VARIETES" },
   { to: "/livraison", label: "Livraison" },
   { to: "/contact", label: "Contact" },
 ] as const;

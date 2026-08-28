@@ -66,7 +66,7 @@ function Home() {
                 DELIVERY EXPRESS
               </button>
               <Link to="/produits" className="btn-base btn-ghost w-full sm:w-auto">
-                NOS PRODUITS
+                NOS VARIETES
               </Link>
             </div>
 
@@ -74,7 +74,7 @@ function Home() {
               {[
                 "Livraison rapide",
                 "Paiement sécurisé",
-                "Produits analysés en laboratoire",
+                "Nos variétés analysées en laboratoire",
                 "THC conforme à la législation française",
               ].map((f) => (
                 <li key={f} className="flex items-start gap-2">
@@ -113,7 +113,7 @@ function Home() {
       </div>
 
 
-      {/* PRODUITS */}
+      {/* VARIETES */}
       <section className="container-x py-14 md:py-28">
         <h3 className="display text-2xl">Fleurs</h3>
         <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-8 sm:gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
@@ -178,7 +178,7 @@ function Home() {
           </div>
           <div>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Nos produits contiennent moins de 0,3 % de THC, conformément à la législation française.
+              Nos variétés contiennent moins de 0,3 % de THC, conformément à la législation française.
               Fleur ou résine, chaque lot est analysé avant livraison.
             </p>
             <Link to="/cbd" className="btn-base btn-ghost mt-6 w-full sm:w-auto">

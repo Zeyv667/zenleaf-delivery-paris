@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import logo from "@/assets/caliv-logo.png";
 
 const LINKS = [
-  { to: "/produits", label: "Produits" },
+  { to: "/produits", label: "NOS VARIETES" },
   { to: "/cbd", label: "Le CBD" },
   { to: "/faq", label: "FAQ" },
   { to: "/contact", label: "Contact" },
@@ -43,7 +43,7 @@ export function Footer() {
 
       <div className="container-x flex flex-col gap-4 border-t border-border pb-[calc(2rem+env(safe-area-inset-bottom))] pt-8 md:flex-row md:items-center md:justify-between">
         <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} CALIV — Produits contenant moins de 0,3 % de THC, conformes à la
+          © {new Date().getFullYear()} CALIV — Nos variétés contiennent moins de 0,3 % de THC, conformes à la
           législation française. Vente interdite aux mineurs.
         </p>
         <div className="flex gap-6">
