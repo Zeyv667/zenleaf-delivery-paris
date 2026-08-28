@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { DeliveryCTA } from "@/components/site/DeliveryCTA";
+import { useCart } from "@/lib/cart";
+
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -41,7 +42,23 @@ function ContactPage() {
           <p className="mt-3 text-lg tracking-tight">contact@caliv.fr</p>
         </a>
       </div>
-      <DeliveryCTA />
+      <section className="container-x py-16 md:py-20">
+        <DeliveryExpressButton />
+      </section>
+
     </main>
   );
 }
+
+function DeliveryExpressButton() {
+  const { open } = useCart();
+  return (
+    <button
+      className="btn-base btn-primary active:scale-[0.98]"
+      onClick={open}
+    >
+      DELIVERY EXPRESS
+    </button>
+  );
+}
+
