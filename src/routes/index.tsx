@@ -53,7 +53,7 @@ function Home() {
           />
         </div>
 
-        <div className="grid gap-8 py-10 md:gap-10 md:py-14 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+        <div className="py-10 md:py-14">
           <div>
             <p className="eyebrow">CBD premium · PARIS & Île-de-France</p>
             <h1 className="display mt-4 text-[2.5rem] leading-[0.95] sm:text-[3rem] md:text-[5rem]">
@@ -83,17 +83,6 @@ function Home() {
                 </li>
               ))}
             </ul>
-          </div>
-
-          <div className="overflow-hidden rounded-2xl md:rounded-3xl">
-          <img
-            src={heroImage}
-            alt="Livraison de CBD premium CALIV à PARIS"
-            width={1200}
-            height={1200}
-            loading="lazy"
-            className="aspect-square h-full w-full object-cover md:aspect-auto"
-          />
           </div>
         </div>
       </section>
@@ -162,8 +151,19 @@ function Home() {
       {/* ZONE & QUALITÉ */}
       <section className="bg-primary/10">
         <div className="container-x flex flex-col items-start py-12 md:py-20">
-          <h3 className="display text-[1.75rem] sm:text-3xl md:text-5xl">CBD PREMIUM</h3>
+          <div className="w-full overflow-hidden rounded-2xl md:rounded-3xl">
+            <img
+              src={heroImage}
+              alt="Livraison de CBD premium CALIV à PARIS"
+              width={1200}
+              height={1200}
+              loading="lazy"
+              className="aspect-square w-full object-cover md:aspect-[21/9]"
+            />
+          </div>
+          <h3 className="display mt-8 text-[1.75rem] sm:text-3xl md:mt-12 md:text-5xl">CBD PREMIUM</h3>
           <p className="mt-3 text-base text-muted-foreground md:text-lg">Fleur cali + Laboratoires en France</p>
+          <p className="mt-2 text-base text-muted-foreground md:text-lg">PARIS & IDF</p>
         </div>
       </section>
 
