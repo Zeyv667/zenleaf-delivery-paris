@@ -158,12 +158,18 @@ function Home() {
         <div className="container-x flex flex-col items-start py-16 md:py-20">
           <h3 className="display text-3xl md:text-5xl">{DELIVERY.label}</h3>
           <p className="mt-3 text-lg text-muted-foreground">{DELIVERY.hours}</p>
-          <div className="mt-6 space-y-1 text-sm text-muted-foreground">
-            <p className="font-medium text-foreground">CBD PREMIUM</p>
-            <p>Fleur cali + Laboratoires en France</p>
-            <p>Paris / IDF (75/93/94)</p>
-            <p>le 92 et le 91 ne sont pas assurés sauf commande supérieure à 10g et distance proche Paris</p>
-          </div>
+        </div>
+      </section>
+
+      {/* ZONE & QUALITÉ */}
+      <section className="bg-primary/10">
+        <div className="container-x flex flex-col items-start py-16 md:py-20">
+          <h3 className="display text-3xl md:text-5xl">CBD PREMIUM</h3>
+          <p className="mt-3 text-lg text-muted-foreground">Fleur cali + Laboratoires en France</p>
+          <p className="mt-1 text-lg text-muted-foreground">Paris / IDF (75/93/94)</p>
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
+            le 92 et le 91 ne sont pas assurés sauf commande supérieure à 10g et distance proche Paris
+          </p>
         </div>
       </section>
 
