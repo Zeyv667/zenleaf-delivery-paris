@@ -169,7 +169,7 @@ function Home() {
       <section className="bg-primary/10">
         <div className="container-x flex flex-col items-start py-12 md:py-20">
           <h3 className="display text-[1.75rem] sm:text-3xl md:text-5xl">CBD PREMIUM</h3>
-          <p className="mt-3 text-base text-muted-foreground md:text-lg">Fleur cali + Laboratoires en France</p>
+          <p className="mt-3 text-base text-muted-foreground md:text-lg">Nos variétés sont analysées en laboratoire français — COA disponible pour chaque variété.</p>
         </div>
       </section>
 

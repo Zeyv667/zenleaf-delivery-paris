@@ -26,7 +26,11 @@ function ProductsPage() {
   return (
 
     <main className="container-x pb-24 pt-28 md:pb-32 md:pt-36">
-      <h2 className="display text-2xl sm:text-3xl">Fleurs</h2>
+      <p className="eyebrow">Qualité contrôlée</p>
+      <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+        Nos variétés sont analysées en laboratoire français. Un certificat d'analyse (COA) est disponible pour chaque variété.
+      </p>
+      <h2 className="display mt-10 text-2xl sm:text-3xl">Fleurs</h2>
       <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-8 sm:gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
         {PRODUCTS.filter((p) => p.type === "Fleur").map((p) => (
           <ProductCard key={p.id} product={p} />

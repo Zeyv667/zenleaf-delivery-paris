@@ -33,6 +33,10 @@ const BLOCKS = [
     p: "L'ensemble des produits proposés par Caliv provient de variétés de chanvre autorisées et respecte la réglementation française et européenne en vigueur. Les produits commercialisés présentent un taux de THC inférieur aux seuils légaux applicables.",
   },
   {
+    t: "Analyses en laboratoire",
+    p: "Nos variétés sont analysées en laboratoire français. Un certificat d'analyse (COA) est disponible pour chaque variété.",
+  },
+  {
     t: "Réservé aux adultes",
     p: "La vente de nos produits est strictement réservée aux personnes majeures de 18 ans et plus.",
   },
