@@ -27,7 +27,7 @@ export function Header() {
         scrolled || menu ? "border-b border-border bg-background/85 backdrop-blur-xl" : ""
       }`}
     >
-      <div className="container-x flex h-16 items-center justify-between">
+      <div className="container-x flex h-16 items-center justify-between gap-4">
         <div className="flex items-center gap-6">
           <button
             onClick={() => setMenu((v) => !v)}
@@ -43,39 +43,40 @@ export function Header() {
             />
           </button>
 
-          <nav className="hidden items-center gap-8 md:flex">
-            {NAV.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-foreground"
-                activeProps={{ className: "text-[11px] uppercase tracking-[0.2em] text-foreground" }}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+          <Link
+            to="/"
+            className="flex items-center gap-2"
+            aria-label="CALIV — accueil"
+            onClick={() => setMenu(false)}
+          >
+            <img src={logo} alt="CALIV Premium CBD Paris" width={40} height={40} className="h-9 w-auto" />
+            <span className="display text-lg tracking-[0.14em]">CALIV</span>
+          </Link>
         </div>
 
-        <Link
-          to="/"
-          className="absolute left-1/2 flex -translate-x-1/2 items-center gap-2"
-          aria-label="CALIV — accueil"
-          onClick={() => setMenu(false)}
-        >
-          <img src={logo} alt="CALIV Premium CBD Paris" width={40} height={40} className="h-9 w-auto" />
-          <span className="display text-lg tracking-[0.14em]">CALIV</span>
-        </Link>
+        <nav className="hidden items-center gap-8 md:flex">
+          {NAV.map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-foreground"
+              activeProps={{ className: "text-[11px] uppercase tracking-[0.2em] text-foreground" }}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
 
         <button
           onClick={open}
           aria-label="Ouvrir le panier"
-          className="btn-base btn-ghost px-4 py-2 text-[11px] uppercase tracking-[0.2em]"
+          className="btn-base btn-ghost bg-background px-4 py-2 text-[11px] uppercase tracking-[0.2em]"
         >
           Panier
           <span className="tabular-nums text-primary">{count}</span>
         </button>
       </div>
+
 
       {menu && (
         <nav className="container-x flex flex-col gap-1 pb-6 md:hidden">
