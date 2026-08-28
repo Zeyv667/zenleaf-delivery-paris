@@ -20,13 +20,13 @@ export function CartDrawer() {
       />
       <aside
         aria-label="Panier"
-        className={`fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col border-l border-border bg-card transition-transform duration-300 ease-out ${
+        className={`fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col border-l border-[#FBD9DF] bg-[#FBD9DF] transition-transform duration-300 ease-out ${
           cart.isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between border-b border-border px-6 py-5">
+        <div className="flex items-center justify-between border-b border-[#FBD9DF] px-6 py-5">
           <p className="eyebrow">Panier ({cart.count})</p>
-          <button onClick={cart.close} className="text-sm text-muted-foreground hover:text-foreground">
+          <button onClick={cart.close} className="text-sm text-muted-foreground hover:text-foreground active:text-foreground">
             Fermer
           </button>
         </div>
@@ -35,7 +35,7 @@ export function CartDrawer() {
           {cart.lines.length === 0 ? (
             <p className="py-16 text-center text-sm text-muted-foreground">Votre panier est vide.</p>
           ) : (
-            <ul className="divide-y divide-border">
+            <ul className="divide-y divide-[#FBD9DF]">
               {cart.lines.map(({ product, qty }) => (
                 <li key={product.id} className="flex gap-4 py-5">
                   <img
@@ -50,9 +50,9 @@ export function CartDrawer() {
                     <p className="text-sm font-medium">{product.name}</p>
                     <p className="text-xs text-muted-foreground">{product.type} · 5 g</p>
                     <div className="mt-3 flex items-center gap-3">
-                      <div className="flex items-center rounded-full border border-border">
+                      <div className="flex items-center rounded-full border border-[#FBD9DF] bg-[#FBD9DF]">
                         <button
-                          className="px-3 py-1 text-sm text-muted-foreground hover:text-foreground"
+                          className="px-3 py-1 text-sm text-muted-foreground hover:text-foreground active:text-foreground"
                           onClick={() => cart.setQty(product.id, qty - 1)}
                           aria-label="Diminuer"
                         >
@@ -60,7 +60,7 @@ export function CartDrawer() {
                         </button>
                         <span className="w-6 text-center text-sm tabular-nums">{qty}</span>
                         <button
-                          className="px-3 py-1 text-sm text-muted-foreground hover:text-foreground"
+                          className="px-3 py-1 text-sm text-muted-foreground hover:text-foreground active:text-foreground"
                           onClick={() => cart.setQty(product.id, qty + 1)}
                           aria-label="Augmenter"
                         >
@@ -77,15 +77,15 @@ export function CartDrawer() {
         </div>
 
         {cart.lines.length > 0 && (
-          <div className="space-y-4 border-t border-border px-6 py-6">
+          <div className="space-y-4 border-t border-[#FBD9DF] px-6 py-6">
             <div className="flex gap-2">
               <input
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
                 placeholder="Code promo"
-                className="flex-1 rounded-full border border-border bg-transparent px-4 py-2 text-sm outline-none placeholder:text-muted-foreground focus:border-olive"
+                className="flex-1 rounded-full border border-[#FBD9DF] bg-transparent px-4 py-2 text-sm outline-none placeholder:text-muted-foreground focus:border-[#759DD2]"
               />
-              <button className="btn-base btn-ghost px-5 py-2" onClick={() => cart.applyPromo(code)}>
+              <button className="btn-base btn-ghost px-5 py-2 active:scale-[0.98]" onClick={() => cart.applyPromo(code)}>
                 Appliquer
               </button>
             </div>
@@ -111,7 +111,7 @@ export function CartDrawer() {
                   {cart.shipping === 0 ? "Offerte" : formatPrice(cart.shipping)}
                 </span>
               </div>
-              <div className="flex justify-between border-t border-border pt-3 text-base font-medium">
+              <div className="flex justify-between border-t border-[#FBD9DF] pt-3 text-base font-medium">
                 <span>Total</span>
                 <span className="tabular-nums">{formatPrice(cart.total)}</span>
               </div>
