@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImage from "@/assets/hero.jpg";
+import wordmark from "@/assets/caliv-wordmark.png";
 import { ProductCard } from "@/components/site/ProductCard";
 import { useCart } from "@/lib/cart";
 import { PRODUCTS } from "@/lib/products";
@@ -41,36 +42,62 @@ function Home() {
   return (
     <main>
       {/* HERO */}
-      <section className="relative min-h-[88vh] overflow-hidden">
-        <img
-          src={heroImage}
-          alt="Livraison de CBD premium CALIV, ambiance californienne"
-          width={1600}
-          height={1200}
-          fetchPriority="high"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-transparent" />
+      <section className="container-x pt-24">
+        <div className="pastel-tile flex items-center justify-center rounded-3xl px-6 py-12 md:py-16">
+          <img
+            src={wordmark}
+            alt="CALIV — Premium CBD Paris"
+            width={900}
+            height={480}
+            fetchPriority="high"
+            className="w-full max-w-md"
+          />
+        </div>
 
-        <div className="container-x relative flex min-h-[88vh] flex-col justify-end pb-16 pt-32">
-          <p className="eyebrow fade-up">Paris · Île-de-France · Delivery only</p>
-          <h1 className="display mt-5 max-w-4xl text-[3.4rem] md:text-[7rem] fade-up">
-            California
-            <br />
-            grade delivery.
-          </h1>
-          <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground fade-up">
-            Fleurs et résines CBD sélectionnées à la manière des dispensaries californiens. Livrées chez
-            vous, à Paris et en Île-de-France.
-          </p>
+        <div className="grid gap-10 py-14 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+          <div>
+            <p className="eyebrow">CBD premium · Paris & Île-de-France</p>
+            <h1 className="display mt-5 text-[3rem] leading-[0.95] md:text-[5rem]">
+              Livraison
+              <br />
+              express.
+            </h1>
+            <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
+              Fleurs et résines sélectionnées. Livraison rapide. Paiement sécurisé.
+            </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row fade-up">
-            <button className="btn-base btn-primary" onClick={open}>
-              Commander
-            </button>
-            <Link to="/produits" className="btn-base btn-ghost">
-              Voir les produits
-            </Link>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <button className="btn-base btn-primary" onClick={open}>
+                Commander maintenant
+              </button>
+              <Link to="/produits" className="btn-base btn-ghost">
+                Découvrir nos produits
+              </Link>
+            </div>
+
+            <ul className="mt-10 grid gap-3 text-sm text-muted-foreground sm:grid-cols-2">
+              {[
+                "Livraison rapide",
+                "Paiement sécurisé",
+                "Produits analysés en laboratoire",
+                "THC conforme à la législation française",
+              ].map((f) => (
+                <li key={f} className="flex items-start gap-2">
+                  <span className="text-primary">✓</span>
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="overflow-hidden rounded-3xl">
+            <img
+              src={heroImage}
+              alt="Livraison de CBD premium CALIV à Paris"
+              width={1200}
+              height={1200}
+              className="h-full w-full object-cover"
+            />
           </div>
         </div>
       </section>
@@ -89,6 +116,7 @@ function Home() {
         </div>
       </div>
 
+
       {/* PRODUITS */}
       <section className="container-x py-20 md:py-28">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -98,8 +126,16 @@ function Home() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-          {PRODUCTS.map((p) => (
+        <h3 className="display mt-14 text-2xl">Fleurs</h3>
+        <div className="mt-6 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+          {PRODUCTS.filter((p) => p.type === "Fleur").map((p) => (
+            <ProductCard key={p.id} product={p} />
+          ))}
+        </div>
+
+        <h3 className="display mt-16 text-2xl">Résines</h3>
+        <div className="mt-6 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+          {PRODUCTS.filter((p) => p.type === "Résine").map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
         </div>
