@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ageLogo from "@/assets/caliv-gorilla-logo.png.asset.json";
+import ageLogo from "@/assets/caliv-gorilla-logo-hd.png";
 
 export function AgeGate() {
   const [ready, setReady] = useState(false);
@@ -18,7 +18,7 @@ export function AgeGate() {
       <div className="w-full max-w-md fade-up">
         <p className="eyebrow">PARIS · Île-de-France</p>
         <img
-          src={ageLogo.url}
+          src={ageLogo}
           alt="CALIV"
           width={900}
           height={900}

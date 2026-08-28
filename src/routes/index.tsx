@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroImage from "@/assets/caliv-store-hero.png.asset.json";
-import wordmark from "@/assets/caliv-cbd-premium-3.png.asset.json";
+import heroImage from "@/assets/caliv-store-hero-hd.jpg";
+import wordmark from "@/assets/caliv-wordmark-hd.png";
 import { ProductCard } from "@/components/site/ProductCard";
 import { useCart } from "@/lib/cart";
 import { PRODUCTS } from "@/lib/products";
@@ -44,7 +44,7 @@ function Home() {
       <section className="container-x pt-20 md:pt-24">
         <div className="flex items-center justify-center">
           <img
-            src={wordmark.url}
+            src={wordmark}
             alt="CALIV — Premium CBD PARIS"
             width={900}
             height={480}
@@ -87,7 +87,7 @@ function Home() {
 
           <div className="overflow-hidden rounded-2xl md:rounded-3xl">
           <img
-            src={heroImage.url}
+            src={heroImage}
             alt="Livraison de CBD premium CALIV à PARIS"
             width={1200}
             height={1200}
