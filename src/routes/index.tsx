@@ -42,7 +42,7 @@ function Home() {
     <main>
       {/* HERO */}
       <section className="container-x pt-24">
-        <div className="pastel-tile flex items-center justify-center rounded-3xl px-6 py-12 md:py-16">
+        <div className="flex items-center justify-center">
           <img
             src={wordmark.url}
             alt="CALIV — Premium CBD Paris"
