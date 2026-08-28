@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { WHATSAPP_LINK, WHATSAPP_NUMBER } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
 
 const orderSchema = z.object({
   pseudo: z
@@ -59,7 +60,17 @@ function ContactPage() {
     resolver: zodResolver(orderSchema),
   });
 
-  const onSubmit = (data: OrderForm) => {
+  const onSubmit = async (data: OrderForm) => {
+    const { error } = await supabase.from("commandes").insert({
+      pseudo: data.pseudo,
+      numero: data.numero,
+      email: data.email,
+      details: data.details ?? null,
+    });
+    if (error) {
+      console.error("Enregistrement de la commande impossible", error.message);
+    }
+
     const message = [
       "Bonjour CALIV, je souhaite passer une commande.",
       "",
