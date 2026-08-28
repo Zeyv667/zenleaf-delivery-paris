@@ -139,7 +139,7 @@
   background: var(--primary);
   color: var(--primary-foreground);
   &:hover {
-    background: oklch(0.48 0.16 258);
+    background: #5f88c0;
   }
 }
 
@@ -173,4 +173,16 @@
     opacity: 1;
     transform: none;
   }
+}
+
+@utility pastel-tile {
+  background: linear-gradient(150deg, #dbe6f7 0%, #cfd9ef 40%, #fbd9df 100%);
+}
+
+@utility tile-caption {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(22, 35, 61, 0.35);
 }
