@@ -91,13 +91,13 @@ function Home() {
           </div>
 
           <div className="overflow-hidden rounded-3xl">
-            <img
-              src={heroImage}
-              alt="Livraison de CBD premium CALIV à Paris"
-              width={1200}
-              height={1200}
-              className="h-full w-full object-cover"
-            />
+          <img
+            src={heroImage.url}
+            alt="Livraison de CBD premium CALIV à Paris"
+            width={1200}
+            height={1200}
+            className="h-full w-full object-cover"
+          />
           </div>
         </div>
       </section>
