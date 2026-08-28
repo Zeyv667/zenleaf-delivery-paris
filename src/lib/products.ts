@@ -46,7 +46,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "bruce-banner",
-    name: "Bruce Banner",
+    name: "CALIV - FLower Bag - BRUCE BANNER",
     type: "Fleur",
     origin: "USA",
     description: "Profil terreux et résineux. Fleur dense, très aromatique.",
