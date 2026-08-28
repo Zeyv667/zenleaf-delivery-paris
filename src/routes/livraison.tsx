@@ -37,7 +37,7 @@ function DeliveryPage() {
         ]}
       />
       <section className="container-x pb-16">
-        <button className="btn-base w-full bg-[#FBD9DF] text-[#0F172A] hover:bg-[#A3B2D6]" onClick={open}>
+        <button className="btn-base w-full bg-[#759DD2] text-white hover:bg-[#A3B2D6]" onClick={open}>
           DELIVERY EXPRESS
         </button>
       </section>
