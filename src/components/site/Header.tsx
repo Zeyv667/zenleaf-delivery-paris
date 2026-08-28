@@ -49,7 +49,7 @@ export function Header() {
             onClick={() => setMenu(false)}
           >
             <img src={logo} alt="CALIV Premium CBD Paris" width={40} height={40} className="h-9 w-auto" />
-            <span className="display text-lg tracking-[0.14em]">CALIV</span>
+            <span className="display text-lg tracking-[0.14em] text-[#FBD9DF]">CALIV</span>
           </Link>
         </div>
 
