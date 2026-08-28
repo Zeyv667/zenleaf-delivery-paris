@@ -30,11 +30,10 @@ export const Route = createFileRoute("/")({
 
 const MARQUEE = ["Paris & Île-de-France", "West coast quality", "Analysé en laboratoire", "THC < 0,3 %"];
 
-const STEPS = [
-  { n: "01", t: "Choisissez", p: "Cinq références, rien de superflu." },
-  { n: "02", t: "Commandez", p: "Deux minutes, paiement sécurisé." },
-  { n: "03", t: "On livre", p: "Paris et Île-de-France, emballage neutre." },
-];
+const DELIVERY = {
+  label: "Livraison express",
+  hours: "À partir de 10h jusqu'à 21h",
+};
 
 function Home() {
   const { open } = useCart();
