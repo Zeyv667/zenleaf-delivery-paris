@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { DeliveryCTA } from "@/components/site/DeliveryCTA";
 import { LegalPage } from "@/components/site/LegalPage";
+import { useCart } from "@/lib/cart";
 
 export const Route = createFileRoute("/livraison")({
   head: () => ({
