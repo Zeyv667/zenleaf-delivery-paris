@@ -4,16 +4,16 @@ import { DeliveryCTA } from "@/components/site/DeliveryCTA";
 export const Route = createFileRoute("/cbd")({
   head: () => ({
     meta: [
-      { title: "Le CBD, en bref — comprendre nos fleurs et résines | CALIV" },
+      { title: "Informations légales sur le CBD — CALIV" },
       {
         name: "description",
         content:
-          "Qu'est-ce que le CBD, comment il est cultivé, ce que dit la loi française et comment choisir entre fleur et résine. L'essentiel en trois minutes.",
+          "Informations légales sur le CBD : définition, conformité réglementaire, précautions d'utilisation et réservé aux adultes.",
       },
-      { property: "og:title", content: "Le CBD, en bref | CALIV" },
+      { property: "og:title", content: "Informations légales sur le CBD — CALIV" },
       {
         property: "og:description",
-        content: "L'essentiel sur le CBD : origine, légalité, fleurs et résines.",
+        content: "Tout savoir sur le CBD, sa légalité et les précautions d'utilisation.",
       },
       { property: "og:type", content: "article" },
       { property: "og:url", content: "/cbd" },
@@ -27,27 +27,41 @@ export const Route = createFileRoute("/cbd")({
 const BLOCKS = [
   {
     t: "Qu'est-ce que le CBD ?",
-    p: "Le cannabidiol est une molécule naturellement présente dans le chanvre. Contrairement au THC, il n'est pas classé comme stupéfiant et n'a pas d'effet planant.",
+    p: "Le cannabidiol (CBD) est un cannabinoïde naturellement présent dans le chanvre (Cannabis Sativa L.). Contrairement au THC, le CBD n'est pas recherché pour ses effets psychotropes.",
   },
   {
-    t: "Fleur ou résine ?",
-    p: "La fleur est le bouton séché de la plante, apprécié pour ses arômes. La résine est un concentré de trichomes, plus dense et plus intense en parfum.",
+    t: "Conformité réglementaire",
+    p: "L'ensemble des produits proposés par Caliv provient de variétés de chanvre autorisées et respecte la réglementation française et européenne en vigueur. Les produits commercialisés présentent un taux de THC inférieur aux seuils légaux applicables.",
   },
   {
-    t: "Ce que dit la loi",
-    p: "En France, la vente est autorisée pour des produits issus de variétés de chanvre autorisées, avec un taux de THC inférieur à 0,3 %. Vente interdite aux mineurs.",
+    t: "Réservé aux adultes",
+    p: "La vente de nos produits est strictement réservée aux personnes majeures de 18 ans et plus.",
   },
   {
-    t: "Notre sélection",
-    p: "Culture indoor, séchage lent, tri à la main. Chaque lot est analysé en laboratoire avant d'être proposé à la livraison.",
+    t: "Précautions d'utilisation",
+    p: "Tenir hors de portée des enfants. Déconseillé aux femmes enceintes ou allaitantes. En cas de traitement médical ou de doute, demandez conseil à un professionnel de santé. Ne pas utiliser comme substitut à un traitement médical.",
+  },
+  {
+    t: "Conduite et contrôles routiers",
+    p: "La consommation de produits à base de chanvre peut, dans certains cas, entraîner un résultat positif lors d'un contrôle routier. Il est recommandé de faire preuve de prudence avant toute activité nécessitant une vigilance particulière.",
+  },
+  {
+    t: "Informations importantes",
+    p: "Les produits commercialisés par Caliv ne sont pas des médicaments. Les informations présentes sur ce site sont fournies à titre informatif uniquement et ne constituent en aucun cas un avis médical, un diagnostic ou une recommandation thérapeutique.",
+  },
+  {
+    t: "Évolution de la réglementation",
+    p: "La réglementation applicable aux produits à base de chanvre et de CBD est susceptible d'évoluer. Caliv veille en permanence à la conformité de ses produits avec la législation française et européenne en vigueur.",
   },
 ];
 
 function CbdPage() {
   return (
     <main className="container-x pb-24 pt-28 md:pb-32 md:pt-36">
-      <p className="eyebrow">Le CBD, en bref</p>
-      <h1 className="display mt-4 max-w-3xl text-5xl md:text-7xl">Comprendre avant de choisir.</h1>
+      <p className="eyebrow">Informations légales</p>
+      <h1 className="display mt-4 max-w-3xl text-4xl md:text-6xl">
+        Informations légales sur le CBD
+      </h1>
 
       <div className="mt-16 grid max-w-4xl gap-x-12 gap-y-12 md:grid-cols-2">
         {BLOCKS.map((b) => (
@@ -57,11 +71,6 @@ function CbdPage() {
           </section>
         ))}
       </div>
-
-      <p className="mt-16 max-w-2xl text-xs leading-relaxed text-muted-foreground">
-        Ces informations sont fournies à titre général et ne constituent ni un conseil médical ni une
-        promesse d'effet thérapeutique.
-      </p>
 
       <div className="mt-10 flex flex-wrap gap-3">
         <Link to="/produits" className="btn-base btn-primary">
