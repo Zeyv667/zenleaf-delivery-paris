@@ -35,9 +35,7 @@ export function AgeGate() {
         />
         <div className="mx-auto mt-8 h-px w-16 bg-accent" />
         <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
-          Ce site propose des produits à base de CBD réservés exclusivement aux personnes majeures. En
-          accédant à ce site, vous confirmez avoir plus de 18 ans et être légalement autorisé(e) à
-          consulter ce contenu.
+          Site réservé aux adultes (+18 ans). En poursuivant, vous confirmez être majeur(e).
         </p>
         <div className="mt-6 flex flex-col gap-3">
           <button
