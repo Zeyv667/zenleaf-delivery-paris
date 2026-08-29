@@ -52,6 +52,9 @@ function ProductsPage() {
       >
         EXPRESS DELIVERY
       </a>
+      <p className="mt-3 text-center text-xs font-medium uppercase tracking-wider text-muted-foreground">
+        Livraison offerte
+      </p>
 
 
       {/* INFORMATIONS LÉGALES */}
