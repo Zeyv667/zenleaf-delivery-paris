@@ -81,8 +81,12 @@ export const PRODUCTS: Product[] = [
     origin: "Maroc",
     description: "Plaque blonde, grain fin. Arômes floraux et boisés.",
     pricePerGram: 14,
-    price: 70,
+    price: 28,
     image: caliPlate,
+    variants: [
+      { label: "2G", price: 28 },
+      { label: "5G", price: 70 },
+    ],
   },
 ];
 
