@@ -54,8 +54,17 @@ function ProductsPage() {
       </a>
 
 
+      <section className="mt-10 rounded-sm border border-border bg-card px-5 py-5 md:px-10 md:py-6">
+        <h3 className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+          Qualité contrôlée
+        </h3>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          Nos variétés sont analysées en laboratoire français. Un certificat d'analyse (COA) est disponible pour chaque variété.
+        </p>
+      </section>
+
       {/* INFORMATIONS LÉGALES */}
-      <section className="mt-10">
+      <section className="mt-6">
         <div className="rounded-sm border border-border bg-card px-5 py-7 md:px-10 md:py-10">
           <h3 className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
             Informations légales
