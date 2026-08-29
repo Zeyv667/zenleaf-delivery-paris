@@ -93,7 +93,9 @@ export function Header() {
               key={item.to}
               to={item.to}
               onClick={() => setMenu(false)}
-              className="display flex min-h-[56px] items-center border-b border-border py-5 text-2xl"
+              className={`display flex min-h-[56px] items-center border-b border-border py-5 text-2xl ${
+                item.label === "EXPRESS DELIVERY" ? "text-[#759DD2]" : ""
+              }`}
             >
               {item.label}
             </Link>
