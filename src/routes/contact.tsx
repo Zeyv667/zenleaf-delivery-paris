@@ -2,7 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Package } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
+import { Package, MapPin, Loader2 } from "lucide-react";
+import { autocompleteAddress } from "@/lib/places.functions";
 import { WHATSAPP_NUMBER } from "@/lib/utils";
 import { PRODUCTS } from "@/lib/products";
 import { supabase } from "@/integrations/supabase/client";
@@ -28,11 +31,11 @@ const orderSchema = z.object({
   quantite: z
     .string()
     .min(1, { message: "Quantité requise." }),
-  details: z
+  adresse: z
     .string()
     .trim()
-    .max(1000, { message: "Les détails ne doivent pas dépasser 1000 caractères." })
-    .optional(),
+    .min(8, { message: "Adresse complète requise (numéro, rue, code postal, ville)." })
+    .max(300, { message: "L'adresse ne doit pas dépasser 300 caractères." }),
 });
 
 type OrderForm = z.infer<typeof orderSchema>;
@@ -67,7 +70,7 @@ function ContactPage() {
     formState: { errors, isSubmitting, dirtyFields },
   } = useForm<OrderForm>({
     resolver: zodResolver(orderSchema),
-    defaultValues: { variete: [], quantite: "5 g" },
+    defaultValues: { variete: [], quantite: "5 g", adresse: "" },
     mode: "onBlur",
     reValidateMode: "onChange",
   });
@@ -78,10 +81,8 @@ function ContactPage() {
     const varietiesText = data.variete.join(", ");
     const storedDetails = [
       `Quantité : ${data.quantite}`,
-      data.details ?? "",
-    ]
-      .filter(Boolean)
-      .join("\n");
+      `Adresse complète : ${data.adresse}`,
+    ].join("\n");
 
     const { error } = await supabase.from("commandes").insert({
       pseudo: data.pseudo,
@@ -100,8 +101,7 @@ function ContactPage() {
       "",
       `Variété(s) : ${varietiesText}`,
       `Quantité(s) : ${data.quantite}`,
-      `Adresse complète de livraison :`,
-      data.details ? `\nDétails :\n${data.details}` : "",
+      `Adresse complète de livraison : ${data.adresse}`,
       "",
       "Merci de me confirmer la disponibilité ainsi que le délai estimée de livraison.",
     ].join("\n");
@@ -197,25 +197,19 @@ function ContactPage() {
           )}
         />
 
-        <div className="grid gap-1.5">
-          <label
-            htmlFor="details"
-            className="text-xs font-medium uppercase tracking-wider text-muted-foreground"
-          >
-            Détails de la commande
-          </label>
-          <textarea
-            id="details"
-            rows={3}
-            placeholder="Quantité, adresse complète, créneau..."
-            enterKeyHint="done"
-            className="w-full resize-none rounded-lg border border-border bg-background px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 outline-none transition focus:border-primary focus:ring-2 focus:ring-ring/30"
-            {...register("details")}
-          />
-          {errors.details?.message && (
-            <p className="text-sm text-red-600">{errors.details.message}</p>
+        <Controller
+          name="adresse"
+          control={control}
+          render={({ field }) => (
+            <AddressField
+              value={field.value ?? ""}
+              onChange={field.onChange}
+              onBlur={field.onBlur}
+              error={errors.adresse?.message}
+              valid={Boolean(dirtyFields.adresse) && !errors.adresse}
+            />
           )}
-        </div>
+        />
 
         <div className="sticky bottom-4 z-10 sm:static">
           <button
@@ -521,3 +515,121 @@ function MultiSelectField({
   );
 }
 
+
+function AddressField({
+  value,
+  onChange,
+  onBlur,
+  error,
+  valid,
+}: {
+  value: string;
+  onChange: (v: string) => void;
+  onBlur: () => void;
+  error?: string | undefined;
+  valid?: boolean | undefined;
+}) {
+  const fetchSuggestions = useServerFn(autocompleteAddress);
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [open, setOpen] = useState(false);
+  const pickedRef = useRef(false);
+
+  useEffect(() => {
+    if (pickedRef.current) {
+      pickedRef.current = false;
+      return;
+    }
+    if (value.trim().length < 4) {
+      setSuggestions([]);
+      return;
+    }
+    let cancelled = false;
+    setLoading(true);
+    const timer = setTimeout(async () => {
+      try {
+        const res = await fetchSuggestions({ data: { input: value.trim() } });
+        if (!cancelled) {
+          setSuggestions(res.suggestions);
+          setOpen(res.suggestions.length > 0);
+        }
+      } catch {
+        if (!cancelled) setSuggestions([]);
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }, 350);
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+      setLoading(false);
+    };
+  }, [value, fetchSuggestions]);
+
+  return (
+    <div className="grid gap-1.5">
+      <div className="flex items-center justify-between gap-2">
+        <label
+          htmlFor="adresse"
+          className="text-xs font-medium uppercase tracking-wider text-muted-foreground"
+        >
+          Adresse complète
+        </label>
+        {valid && (
+          <span className="text-[11px] font-semibold text-green-600">✓ OK</span>
+        )}
+      </div>
+      <div className="relative">
+        <MapPin className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+        <input
+          id="adresse"
+          type="text"
+          value={value}
+          onChange={(e) => {
+            onChange(e.target.value);
+            setOpen(true);
+          }}
+          onBlur={() => {
+            onBlur();
+            setTimeout(() => setOpen(false), 150);
+          }}
+          placeholder="12 rue de Rivoli, 75004 Paris"
+          autoComplete="street-address"
+          enterKeyHint="done"
+          className={`w-full rounded-lg border bg-background py-3 pl-9 pr-9 text-base text-foreground placeholder:text-muted-foreground/60 outline-none transition focus:ring-2 focus:ring-ring/30 ${
+            error
+              ? "border-red-500"
+              : valid
+                ? "border-green-500"
+                : "border-border focus:border-primary"
+          }`}
+        />
+        {loading && (
+          <Loader2 className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 animate-spin text-muted-foreground" />
+        )}
+        {open && suggestions.length > 0 && (
+          <ul className="absolute z-20 mt-1 w-full overflow-hidden rounded-lg border border-border bg-background shadow-lg">
+            {suggestions.map((s) => (
+              <li key={s}>
+                <button
+                  type="button"
+                  className="block w-full px-4 py-2.5 text-left text-sm text-foreground transition hover:bg-muted"
+                  onMouseDown={(e) => e.preventDefault()}
+                  onClick={() => {
+                    pickedRef.current = true;
+                    onChange(s);
+                    setSuggestions([]);
+                    setOpen(false);
+                  }}
+                >
+                  {s}
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+      {error && <p className="text-sm text-red-600">{error}</p>}
+    </div>
+  );
+}
