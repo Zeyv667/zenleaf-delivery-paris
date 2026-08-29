@@ -146,11 +146,7 @@ function Home() {
             </h2>
           </div>
           <div>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              Nos variétés contiennent moins de 0,3 % de THC, conformément à la législation française.
-              Fleur ou résine, chaque lot est analysé avant livraison.
-            </p>
-            <Link to="/cbd" className="btn-base btn-ghost mt-6 w-full sm:w-auto">
+            <Link to="/cbd" className="btn-base btn-ghost w-full sm:w-auto">
               En savoir plus
             </Link>
           </div>
