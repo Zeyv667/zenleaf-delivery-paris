@@ -2,7 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Package } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
+import { Package, MapPin, Loader2 } from "lucide-react";
+import { autocompleteAddress } from "@/lib/places.functions";
 import { WHATSAPP_NUMBER } from "@/lib/utils";
 import { PRODUCTS } from "@/lib/products";
 import { supabase } from "@/integrations/supabase/client";
@@ -67,7 +70,7 @@ function ContactPage() {
     formState: { errors, isSubmitting, dirtyFields },
   } = useForm<OrderForm>({
     resolver: zodResolver(orderSchema),
-    defaultValues: { variete: [], quantite: "5 g" },
+    defaultValues: { variete: [], quantite: "5 g", adresse: "" },
     mode: "onBlur",
     reValidateMode: "onChange",
   });
