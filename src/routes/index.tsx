@@ -72,7 +72,7 @@ function Home() {
                 rel="noopener noreferrer"
                 className="btn-base btn-primary w-full text-center sm:w-auto"
               >
-                DELIVERY EXPRESS
+                EXPRESS DELIVERY
               </a>
 
               <Link to="/produits" className="btn-base btn-ghost w-full sm:w-auto">

@@ -166,7 +166,7 @@ function ContactPage() {
           disabled={isSubmitting}
           className="btn-base btn-primary w-full text-center uppercase tracking-wide sm:w-auto"
         >
-          DELIVERY EXPRESS
+          EXPRESS DELIVERY
         </button>
       </form>
 

@@ -50,7 +50,7 @@ function ProductsPage() {
         rel="noopener noreferrer"
         className="btn-base mt-12 w-full bg-[#FBD9DF] text-center text-[#0F172A] hover:bg-[#A3B2D6]"
       >
-        DELIVERY EXPRESS
+        EXPRESS DELIVERY
       </a>
 
 
