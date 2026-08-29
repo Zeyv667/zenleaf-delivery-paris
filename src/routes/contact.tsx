@@ -374,3 +374,50 @@ function Field({
   );
 }
 
+function SelectField({
+  id,
+  label,
+  error,
+  valid,
+  selectProps,
+  children,
+}: {
+  id: string;
+  label: string;
+  error: string | undefined;
+  valid: boolean;
+  selectProps: React.SelectHTMLAttributes<HTMLSelectElement>;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="grid gap-1.5">
+      <label
+        htmlFor={id}
+        className="flex items-center justify-between text-xs font-medium uppercase tracking-wider text-muted-foreground"
+      >
+        {label}
+        {valid && (
+          <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-green-600">
+            <span aria-hidden>✓</span> OK
+          </span>
+        )}
+      </label>
+      <select
+        id={id}
+        aria-invalid={Boolean(error)}
+        className={`w-full appearance-none rounded-lg border bg-background px-4 py-3.5 text-base text-foreground outline-none transition focus:ring-2 ${
+          error
+            ? "border-red-500 focus:border-red-500 focus:ring-red-500/25"
+            : valid
+              ? "border-green-500/60 focus:border-primary focus:ring-ring/30"
+              : "border-border focus:border-primary focus:ring-ring/30"
+        }`}
+        {...selectProps}
+      >
+        {children}
+      </select>
+      {error && <p className="text-xs text-red-600">{error}</p>}
+    </div>
+  );
+}
+
