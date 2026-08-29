@@ -57,9 +57,11 @@ function ContactPage() {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, dirtyFields },
   } = useForm<OrderForm>({
     resolver: zodResolver(orderSchema),
+    mode: "onBlur",
+    reValidateMode: "onChange",
   });
 
   const onSubmit = async (data: OrderForm) => {
@@ -99,17 +101,20 @@ function ContactPage() {
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="mt-10 grid max-w-xl gap-6"
+        className="mt-8 grid max-w-xl gap-4 sm:gap-5"
         noValidate
       >
         <Field
           id="pseudo"
           label="Pseudo"
           error={errors.pseudo?.message}
+          valid={Boolean(dirtyFields.pseudo) && !errors.pseudo}
           inputProps={{
             type: "text",
             placeholder: "REYMYSTERIO",
             autoComplete: "nickname",
+            autoCapitalize: "characters",
+            enterKeyHint: "next",
             ...register("pseudo"),
           }}
         />
@@ -118,10 +123,13 @@ function ContactPage() {
           id="numero"
           label="Numéro"
           error={errors.numero?.message}
+          valid={Boolean(dirtyFields.numero) && !errors.numero}
           inputProps={{
             type: "tel",
+            inputMode: "tel",
             placeholder: "+336 00 00 00 00",
             autoComplete: "tel",
+            enterKeyHint: "next",
             ...register("numero"),
           }}
         />
@@ -130,15 +138,18 @@ function ContactPage() {
           id="variete"
           label="Variété"
           error={errors.variete?.message}
+          valid={Boolean(dirtyFields.variete) && !errors.variete}
           inputProps={{
             type: "text",
             placeholder: "1x BRUCE BANNER",
             autoComplete: "off",
+            autoCapitalize: "characters",
+            enterKeyHint: "next",
             ...register("variete"),
           }}
         />
 
-        <div className="grid gap-2">
+        <div className="grid gap-1.5">
           <label
             htmlFor="details"
             className="text-xs font-medium uppercase tracking-wider text-muted-foreground"
@@ -147,9 +158,10 @@ function ContactPage() {
           </label>
           <textarea
             id="details"
-            rows={4}
+            rows={3}
             placeholder="Quantité, adresse complète, créneau..."
-            className="w-full resize-none rounded-sm border border-border bg-background px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 outline-none transition focus:border-primary focus:ring-2 focus:ring-ring/30 sm:text-sm"
+            enterKeyHint="done"
+            className="w-full resize-none rounded-lg border border-border bg-background px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 outline-none transition focus:border-primary focus:ring-2 focus:ring-ring/30"
             {...register("details")}
           />
           {errors.details?.message && (
@@ -157,13 +169,15 @@ function ContactPage() {
           )}
         </div>
 
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="btn-base btn-primary w-full text-center uppercase tracking-wide sm:w-auto"
-        >
-          EXPRESS DELIVERY
-        </button>
+        <div className="sticky bottom-4 z-10 sm:static">
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="btn-base btn-primary w-full text-center uppercase tracking-wide shadow-lg shadow-primary/25 sm:w-auto sm:shadow-none"
+          >
+            {isSubmitting ? "ENVOI..." : "EXPRESS DELIVERY"}
+          </button>
+        </div>
       </form>
 
       <section className="mt-16 max-w-2xl border-t border-border pt-10">
@@ -311,27 +325,41 @@ function Field({
   id,
   label,
   error,
+  valid,
   inputProps,
 }: {
   id: string;
   label: string;
   error: string | undefined;
+  valid: boolean;
   inputProps: React.InputHTMLAttributes<HTMLInputElement>;
 }) {
   return (
-    <div className="grid gap-2">
+    <div className="grid gap-1.5">
       <label
         htmlFor={id}
-        className="text-xs font-medium uppercase tracking-wider text-muted-foreground"
+        className="flex items-center justify-between text-xs font-medium uppercase tracking-wider text-muted-foreground"
       >
         {label}
+        {valid && (
+          <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-green-600">
+            <span aria-hidden>✓</span> OK
+          </span>
+        )}
       </label>
       <input
         id={id}
-        className="w-full rounded-sm border border-border bg-background px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 outline-none transition focus:border-primary focus:ring-2 focus:ring-ring/30 sm:text-sm"
+        aria-invalid={Boolean(error)}
+        className={`w-full rounded-lg border bg-background px-4 py-3.5 text-base text-foreground placeholder:text-muted-foreground/60 outline-none transition focus:ring-2 ${
+          error
+            ? "border-red-500 focus:border-red-500 focus:ring-red-500/25"
+            : valid
+              ? "border-green-500/60 focus:border-primary focus:ring-ring/30"
+              : "border-border focus:border-primary focus:ring-ring/30"
+        }`}
         {...inputProps}
       />
-      {error && <p className="text-sm text-red-600">{error}</p>}
+      {error && <p className="text-xs text-red-600">{error}</p>}
     </div>
   );
 }
