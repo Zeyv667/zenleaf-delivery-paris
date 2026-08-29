@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { WHATSAPP_NUMBER } from "@/lib/utils";
@@ -20,10 +20,8 @@ const orderSchema = z.object({
     .min(8, { message: "Numéro requis." })
     .max(20, { message: "Le numéro ne doit pas dépasser 20 caractères." }),
   variete: z
-    .string()
-    .trim()
-    .min(3, { message: "Variété requise." })
-    .max(255, { message: "La variété ne doit pas dépasser 255 caractères." }),
+    .array(z.string())
+    .min(1, { message: "Sélectionnez au moins une variété." }),
   details: z
     .string()
     .trim()
@@ -58,18 +56,24 @@ function ContactPage() {
   const {
     register,
     handleSubmit,
+    control,
+    watch,
     formState: { errors, isSubmitting, dirtyFields },
   } = useForm<OrderForm>({
     resolver: zodResolver(orderSchema),
+    defaultValues: { variete: [] },
     mode: "onBlur",
     reValidateMode: "onChange",
   });
 
+  const selectedVarieties = watch("variete") ?? [];
+
   const onSubmit = async (data: OrderForm) => {
+    const varietiesText = data.variete.join(", ");
     const { error } = await supabase.from("commandes").insert({
       pseudo: data.pseudo,
       numero: data.numero,
-      variete: data.variete,
+      variete: varietiesText,
       details: data.details ?? null,
     });
     if (error) {
@@ -81,7 +85,7 @@ function ContactPage() {
       "",
       "Je souhaite passer une commande chez Caliv. Êtes-vous disponible pour une livraison ?",
       "",
-      `Variété(s) : ${data.variete}`,
+      `Variété(s) : ${varietiesText}`,
       `Quantité(s) :`,
       `Adresse complète de livraison :`,
       data.details ? `\nDétails :\n${data.details}` : "",
