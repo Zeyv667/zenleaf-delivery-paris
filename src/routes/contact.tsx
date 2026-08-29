@@ -43,6 +43,15 @@ const orderSchema = z.object({
   adresseSelected: z.boolean().refine((v) => v === true, {
     message: "Veuillez sélectionner une adresse dans la liste Google Maps.",
   }),
+  majeur: z.boolean().refine((v) => v === true, {
+    message: "Vous devez certifier être majeur (18 ans ou plus).",
+  }),
+  cgv: z.boolean().refine((v) => v === true, {
+    message: "Vous devez accepter les conditions générales de vente.",
+  }),
+  rgpd: z.boolean().refine((v) => v === true, {
+    message: "Vous devez accepter la politique de confidentialité.",
+  }),
 });
 
 
