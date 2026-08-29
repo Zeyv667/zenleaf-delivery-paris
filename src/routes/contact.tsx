@@ -143,25 +143,22 @@ function ContactPage() {
           }}
         />
 
-        <SelectField
-          id="variete"
-          label="Variété"
-          error={errors.variete?.message}
-          valid={Boolean(dirtyFields.variete) && !errors.variete}
-          selectProps={{
-            autoComplete: "off",
-            ...register("variete"),
-          }}
-        >
-          <option value="" disabled>
-            Choisissez une variété
-          </option>
-          {PRODUCTS.map((product) => (
-            <option key={product.id} value={product.name}>
-              {product.name}
-            </option>
-          ))}
-        </SelectField>
+        <Controller
+          name="variete"
+          control={control}
+          render={({ field }) => (
+            <MultiSelectField
+              id="variete"
+              label="Variété(s)"
+              error={errors.variete?.message}
+              valid={Boolean(dirtyFields.variete) && !errors.variete}
+              options={PRODUCTS.map((p) => ({ value: p.name, label: p.name }))}
+              value={field.value}
+              onChange={field.onChange}
+              onBlur={field.onBlur}
+            />
+          )}
+        />
 
         <div className="grid gap-1.5">
           <label
