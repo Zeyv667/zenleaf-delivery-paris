@@ -54,20 +54,65 @@ function ProductsPage() {
       </a>
 
 
-      {/* PRÉCAUTIONS */}
+      {/* INFORMATIONS LÉGALES */}
       <section className="mt-10">
         <div className="rounded-sm border border-border bg-card px-5 py-7 md:px-10 md:py-10">
           <h3 className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-            Précautions
+            Informations légales
           </h3>
-          <ul className="mt-5 grid gap-2 text-sm text-muted-foreground sm:grid-cols-2">
-            <li>Réservé aux personnes majeures (18+).</li>
-            <li>Tenir hors de portée des enfants.</li>
-            <li>Déconseillé aux femmes enceintes ou allaitantes.</li>
-            <li>Peut entraîner un résultat positif au THC.</li>
-            <li>Ne pas conduire après utilisation.</li>
-            <li>Conserver au sec, au frais et à l’abri de la lumière.</li>
-          </ul>
+          <div className="mt-6 grid gap-6 text-sm text-muted-foreground sm:grid-cols-2">
+            <div>
+              <h4 className="font-semibold text-foreground">Réservé aux adultes</h4>
+              <p className="mt-1">La vente de nos produits est strictement réservée aux personnes âgées de 18 ans et plus.</p>
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-foreground">Conformité réglementaire</h4>
+              <p className="mt-1">Tous les produits proposés par Caliv sont issus de variétés de Cannabis sativa L. autorisées et conformes à la réglementation française et européenne en vigueur.</p>
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-foreground">Certificats d'analyse</h4>
+              <p className="mt-1">Chaque variété commercialisée dispose d'un certificat d'analyse (COA) réalisé par un laboratoire indépendant garantissant sa traçabilité et sa conformité.</p>
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-foreground">Produits non médicaux</h4>
+              <ul className="mt-1 list-disc space-y-1 pl-4">
+                <li>Les produits commercialisés par Caliv ne sont pas des médicaments.</li>
+                <li>Les informations présentes sur ce site sont fournies à titre informatif uniquement et ne constituent ni un avis médical, ni un diagnostic, ni une recommandation thérapeutique.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-foreground">Aucune allégation thérapeutique</h4>
+              <p className="mt-1">Caliv ne formule aucune allégation médicale concernant ses produits. Nos produits ne sont pas destinés à diagnostiquer, traiter, guérir ou prévenir une maladie.</p>
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-foreground">Précautions d'utilisation</h4>
+              <ul className="mt-1 list-disc space-y-1 pl-4">
+                <li>Tenir hors de portée des enfants.</li>
+                <li>Déconseillé aux femmes enceintes ou allaitantes.</li>
+                <li>En cas de traitement médical, demander l'avis d'un professionnel de santé.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-foreground">Conduite et vigilance</h4>
+              <p className="mt-1">Par mesure de précaution, il est recommandé d'éviter la consommation de produits à base de chanvre avant toute activité nécessitant une vigilance particulière.</p>
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-foreground">Responsabilité</h4>
+              <p className="mt-1">Le client est seul responsable de l'utilisation des produits après leur achat et s'engage à respecter la législation applicable dans son pays de résidence.</p>
+            </div>
+
+            <div className="sm:col-span-2">
+              <h4 className="font-semibold text-foreground">Propriété intellectuelle</h4>
+              <p className="mt-1">L'ensemble du contenu du site Caliv (textes, visuels, logo, photographies, éléments graphiques) est protégé par le droit de la propriété intellectuelle.</p>
+            </div>
+          </div>
         </div>
       </section>
     </main>
