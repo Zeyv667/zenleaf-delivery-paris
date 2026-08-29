@@ -21,7 +21,7 @@ export function Logo({ height, className = "", priority = false }: LogoProps) {
   const width = Math.round(height * RATIO);
 
   return (
-    <picture>
+    <picture className="contents">
       <source
         type="image/webp"
         srcSet={`${logo128w} 128w, ${logo256w} 256w, ${logo384w} 384w, ${logo512w} 512w`}
@@ -37,8 +37,8 @@ export function Logo({ height, className = "", priority = false }: LogoProps) {
         decoding={priority ? "sync" : "async"}
         loading={priority ? "eager" : "lazy"}
         draggable={false}
-        className={`block h-full w-auto select-none object-contain ${className}`}
-        style={{ aspectRatio: `${256} / ${253}` }}
+        className={`block w-auto max-w-none select-none object-contain ${className}`}
+        style={{ height, aspectRatio: "256 / 253" }}
       />
     </picture>
   );
