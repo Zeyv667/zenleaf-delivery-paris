@@ -179,7 +179,7 @@ function Home() {
           <div>
             <p className="eyebrow">Le CBD, en bref</p>
             <h2 className="display mt-4 max-w-xl text-[2rem] sm:text-4xl md:text-5xl">
-              Une molécule du chanvre, sans effet psychotropes.
+              Une molécule du chanvre, sans THC.
             </h2>
           </div>
           <div>
