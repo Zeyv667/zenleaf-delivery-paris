@@ -4,7 +4,7 @@ import { WHATSAPP_LINK } from "@/lib/utils";
 
 export function AgeGate() {
   const [ready, setReady] = useState(false);
-  const [verified, setVerified] = useState(true);
+  const [verified, setVerified] = useState<boolean | null>(null);
 
   useEffect(() => {
     const stored = window.localStorage.getItem("caliv.age");
@@ -12,7 +12,15 @@ export function AgeGate() {
     setReady(true);
   }, []);
 
-  if (!ready || verified) return null;
+  if (!ready) {
+    return (
+      <div className="fixed inset-0 z-[70] flex items-center justify-center bg-background">
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-muted border-t-accent" />
+      </div>
+    );
+  }
+
+  if (verified) return null;
 
   return (
     <div className="fixed inset-0 z-[70] flex flex-col items-center justify-center bg-background px-6 text-center">
@@ -26,7 +34,12 @@ export function AgeGate() {
           className="mx-auto mt-6 w-full max-w-[16rem] md:max-w-[18rem]"
         />
         <div className="mx-auto mt-8 h-px w-16 bg-accent" />
-        <div className="mt-8 flex flex-col gap-3">
+        <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
+          Ce site propose des produits à base de CBD réservés exclusivement aux personnes majeures. En
+          accédant à ce site, vous confirmez avoir plus de 18 ans et être légalement autorisé(e) à
+          consulter ce contenu.
+        </p>
+        <div className="mt-6 flex flex-col gap-3">
           <button
             className="btn-base btn-primary w-full"
             onClick={() => {
