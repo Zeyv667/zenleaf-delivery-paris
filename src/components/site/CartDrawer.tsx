@@ -129,8 +129,9 @@ export function CartDrawer() {
             </button>
             {status && <p className="text-xs text-muted-foreground">{status}</p>}
             <p className="text-center text-[11px] text-muted-foreground">
-              Paiement sécurisé · Carte bancaire, Apple Pay, Google Pay
+              Paiement au livreur · Espèces ou carte (CB, Visa, Mastercard, Apple Pay, Google Pay)
             </p>
+
           </div>
         )}
       </aside>

@@ -2,8 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImage from "@/assets/caliv-store-hero-hd.webp";
 import wordmarkAsset from "@/assets/caliv-cbd-premium-3.png.asset.json";
 import { ProductCard } from "@/components/site/ProductCard";
+import { PaymentMethods } from "@/components/site/PaymentMethods";
 import { PRODUCTS } from "@/lib/products";
 import { WHATSAPP_LINK } from "@/lib/utils";
+
 
 
 export const Route = createFileRoute("/")({
@@ -83,7 +85,7 @@ function Home() {
             <ul className="mt-8 grid gap-3 text-sm text-muted-foreground sm:grid-cols-2">
               {[
                 "Livraison rapide",
-                "Paiement sécurisé",
+                "Paiement en espèces ou carte",
                 "Nos variétés analysées en laboratoire",
                 "THC conforme à la législation française",
               ].map((f) => (
@@ -93,6 +95,7 @@ function Home() {
                 </li>
               ))}
             </ul>
+
           </div>
 
           <div className="overflow-hidden rounded-2xl md:rounded-3xl">
@@ -108,8 +111,15 @@ function Home() {
         </div>
       </section>
 
+      {/* PAIEMENT */}
+      <section className="container-x pb-10 md:pb-14">
+        <p className="eyebrow mb-4">Paiement</p>
+        <PaymentMethods />
+      </section>
+
       {/* BANDEAU */}
       <div className="overflow-hidden border-y border-border bg-primary py-3">
+
         <div className="container-x flex flex-wrap items-center justify-center gap-x-8 gap-y-1 text-center">
           {MARQUEE.map((m) => (
             <span

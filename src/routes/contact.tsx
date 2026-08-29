@@ -3,7 +3,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { WHATSAPP_NUMBER } from "@/lib/utils";
+import { PaymentMethods } from "@/components/site/PaymentMethods";
 import { supabase } from "@/integrations/supabase/client";
+
 
 const orderSchema = z.object({
   pseudo: z
@@ -94,7 +96,12 @@ function ContactPage() {
         Remplissez le formulaire ci-dessous. Votre demande part directement sur WhatsApp.
       </p>
 
+      <div className="mt-8 max-w-xl">
+        <PaymentMethods />
+      </div>
+
       <form
+
         onSubmit={handleSubmit(onSubmit)}
         className="mt-10 grid max-w-xl gap-6"
         noValidate
