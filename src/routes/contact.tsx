@@ -95,10 +95,6 @@ function ContactPage() {
         <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
         Réponse rapide (10 min max)
       </p>
-      <p className="mt-6 max-w-md text-sm text-muted-foreground">
-        Remplissez le formulaire ci-dessous. Votre demande part directement sur WhatsApp.
-      </p>
-
       <form
 
         onSubmit={handleSubmit(onSubmit)}
