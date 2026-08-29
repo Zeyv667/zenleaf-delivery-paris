@@ -4,15 +4,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useEffect, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { Package, MapPin, Loader2 } from "lucide-react";
+import { MapPin, Loader2 } from "lucide-react";
 import { autocompleteAddress } from "@/lib/places.functions";
 import { WHATSAPP_NUMBER } from "@/lib/utils";
 import { PRODUCTS } from "@/lib/products";
 import { supabase } from "@/integrations/supabase/client";
-
-
-
-const QUANTITIES = ["5 g", "10 g", "15 g", "20 g", "25 g", "30 g", "50 g", "100 g"];
 
 const orderSchema = z.object({
   pseudo: z
