@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import logo from "@/assets/caliv-logo.png";
+import { PaymentMethods } from "@/components/site/PaymentMethods";
 
 const LINKS = [
   { to: "/produits", label: "NOS VARIETES" },
