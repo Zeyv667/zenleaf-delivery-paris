@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ageLogo from "@/assets/caliv-gorilla-logo-hd.webp";
+import { WHATSAPP_LINK } from "@/lib/utils";
 
 export function AgeGate() {
   const [ready, setReady] = useState(false);
@@ -75,10 +76,10 @@ export function CookieBanner() {
           accepter ou refuser les cookies de mesure.
         </p>
         <div className="flex gap-3">
-          <button className="btn-base btn-ghost px-5 py-2" onClick={() => decide("refused")}>
+          <button className="btn-base btn-ghost flex-1 px-5 py-2 md:flex-none" onClick={() => decide("refused")}>
             Refuser
           </button>
-          <button className="btn-base btn-primary px-5 py-2" onClick={() => decide("accepted")}>
+          <button className="btn-base btn-primary flex-1 px-5 py-2 md:flex-none" onClick={() => decide("accepted")}>
             Accepter
           </button>
         </div>
@@ -103,7 +104,7 @@ export function FloatingActions() {
       </a>
       <a
 
-        href="https://wa.me/33600000000"
+        href={WHATSAPP_LINK}
         target="_blank"
         rel="noreferrer noopener"
         aria-label="Contacter par WhatsApp"
