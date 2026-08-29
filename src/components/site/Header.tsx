@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import logo from "@/assets/caliv-logo.png";
+import { Logo } from "@/components/site/Logo";
 
 const NAV = [
   { to: "/", label: "Accueil" },
@@ -65,7 +65,7 @@ export function Header() {
             aria-label="CALIV — accueil"
             onClick={() => setMenu(false)}
           >
-            <img src={logo} alt="CALIV Premium CBD PARIS" width={40} height={40} className="h-9 w-auto" />
+            <Logo height={36} priority />
             <span className="display text-lg tracking-[0.14em] text-[#FBD9DF]">CALIV</span>
           </Link>
         </div>

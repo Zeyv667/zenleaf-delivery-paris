@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/caliv-logo.png";
+import { Logo } from "@/components/site/Logo";
 import { PaymentMethods } from "@/components/site/PaymentMethods";
 
 const LINKS = [
@@ -17,7 +17,7 @@ export function Footer() {
     <footer className="border-t border-border">
       <div className="container-x grid gap-8 py-12 md:grid-cols-2 md:gap-12 md:py-16">
         <div>
-          <img src={logo} alt="CALIV Premium CBD PARIS" width={56} height={56} className="h-12 w-auto" />
+          <Logo height={48} />
           <p className="display mt-4 text-2xl tracking-[0.12em]">CALIV</p>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
             Livraison de CBD premium à PARIS et en Île-de-France. California grade.
