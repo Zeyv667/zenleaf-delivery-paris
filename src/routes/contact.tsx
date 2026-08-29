@@ -332,6 +332,12 @@ function ContactPage() {
               Le client est tenu de vérifier l’exactitude de sa commande au moment de sa réception
               et de signaler toute anomalie dans les meilleurs délais.
             </p>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Les produits sont livrés sous emballage scellé. Une fois l’emballage ouvert, le produit
+              est considéré comme utilisé et ne peut faire l’objet d’un retour. Caliv ne saurait
+              être tenue responsable de l’utilisation faite des produits après ouverture de
+              l’emballage.
+            </p>
           </div>
 
           <div>
