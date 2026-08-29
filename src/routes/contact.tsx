@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { WHATSAPP_NUMBER } from "@/lib/utils";
+import { PRODUCTS } from "@/lib/products";
 import { supabase } from "@/integrations/supabase/client";
 
 
@@ -138,20 +139,25 @@ function ContactPage() {
           }}
         />
 
-        <Field
+        <SelectField
           id="variete"
           label="Variété"
           error={errors.variete?.message}
           valid={Boolean(dirtyFields.variete) && !errors.variete}
-          inputProps={{
-            type: "text",
-            placeholder: "1x BRUCE BANNER",
+          selectProps={{
             autoComplete: "off",
-            autoCapitalize: "characters",
-            enterKeyHint: "next",
             ...register("variete"),
           }}
-        />
+        >
+          <option value="" disabled>
+            Choisissez une variété
+          </option>
+          {PRODUCTS.map((product) => (
+            <option key={product.id} value={product.name}>
+              {product.name}
+            </option>
+          ))}
+        </SelectField>
 
         <div className="grid gap-1.5">
           <label
@@ -363,6 +369,53 @@ function Field({
         }`}
         {...inputProps}
       />
+      {error && <p className="text-xs text-red-600">{error}</p>}
+    </div>
+  );
+}
+
+function SelectField({
+  id,
+  label,
+  error,
+  valid,
+  selectProps,
+  children,
+}: {
+  id: string;
+  label: string;
+  error: string | undefined;
+  valid: boolean;
+  selectProps: React.SelectHTMLAttributes<HTMLSelectElement>;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="grid gap-1.5">
+      <label
+        htmlFor={id}
+        className="flex items-center justify-between text-xs font-medium uppercase tracking-wider text-muted-foreground"
+      >
+        {label}
+        {valid && (
+          <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-green-600">
+            <span aria-hidden>✓</span> OK
+          </span>
+        )}
+      </label>
+      <select
+        id={id}
+        aria-invalid={Boolean(error)}
+        className={`w-full appearance-none rounded-lg border bg-background px-4 py-3.5 text-base text-foreground outline-none transition focus:ring-2 ${
+          error
+            ? "border-red-500 focus:border-red-500 focus:ring-red-500/25"
+            : valid
+              ? "border-green-500/60 focus:border-primary focus:ring-ring/30"
+              : "border-border focus:border-primary focus:ring-ring/30"
+        }`}
+        {...selectProps}
+      >
+        {children}
+      </select>
       {error && <p className="text-xs text-red-600">{error}</p>}
     </div>
   );
