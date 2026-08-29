@@ -117,9 +117,11 @@ function Home() {
         <PaymentMethods />
       </section>
 
+      {/* VARIETES */}
+      <ProductMarquee />
+
       {/* BANDEAU */}
       <div className="overflow-hidden border-y border-border bg-primary py-3">
-
         <div className="container-x flex flex-wrap items-center justify-center gap-x-8 gap-y-1 text-center">
           {MARQUEE.map((m) => (
             <span
@@ -131,10 +133,6 @@ function Home() {
           ))}
         </div>
       </div>
-
-
-      {/* VARIETES */}
-      <ProductMarquee />
 
 
       {/* SERVICE */}
