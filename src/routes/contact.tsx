@@ -92,6 +92,10 @@ function ContactPage() {
       <h1 className="display mt-4 max-w-2xl text-[2.25rem] sm:text-4xl md:text-6xl">
         CONTACTEZ NOUS
       </h1>
+      <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-[#FBD9DF]/50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-foreground">
+        <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+        Réponse rapide (10 min max)
+      </p>
       <p className="mt-6 max-w-md text-sm text-muted-foreground">
         Remplissez le formulaire ci-dessous. Votre demande part directement sur WhatsApp.
       </p>
