@@ -1,9 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage } from "@/components/site/LegalPage";
+import { PaymentMethods } from "@/components/site/PaymentMethods";
 import { WHATSAPP_LINK } from "@/lib/utils";
 
 
 export const Route = createFileRoute("/livraison")({
+
   head: () => ({
     meta: [
       { title: "Conditions de livraison | CALIV" },
