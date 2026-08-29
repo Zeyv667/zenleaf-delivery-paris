@@ -197,7 +197,7 @@ function ContactPage() {
               informations suivantes :
             </p>
             <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
-              <li>Numéro de WhatsApp</li>
+              <li>WhatsApp</li>
               <li>Nom de la variété souhaitée</li>
               <li>Adresse complète de livraison (numéro, rue, code postal, ville)</li>
             </ul>
