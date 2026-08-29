@@ -96,7 +96,12 @@ function ContactPage() {
         Remplissez le formulaire ci-dessous. Votre demande part directement sur WhatsApp.
       </p>
 
+      <div className="mt-8 max-w-xl">
+        <PaymentMethods />
+      </div>
+
       <form
+
         onSubmit={handleSubmit(onSubmit)}
         className="mt-10 grid max-w-xl gap-6"
         noValidate
