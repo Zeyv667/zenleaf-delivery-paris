@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImage from "@/assets/caliv-store-hero-hd.webp";
-import blueLogo from "@/assets/caliv-logo-original.png";
+import wordmarkAsset from "@/assets/caliv-cbd-premium-3.png.asset.json";
 import { ProductMarquee } from "@/components/site/ProductMarquee";
 
 
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: "https://zenleaf-delivery-paris.lovable.app/" },
-      { rel: "preload", as: "image", href: blueLogo },
+      { rel: "preload", as: "image", href: wordmarkAsset.url },
     ],
   }),
   component: Home,
@@ -47,13 +47,13 @@ function Home() {
       <section className="container-x pt-20 md:pt-24">
         <div className="flex items-center justify-center">
           <img
-            src={blueLogo}
+            src={wordmarkAsset.url}
             alt="CALIV — Premium CBD PARIS"
-            width={589}
-            height={583}
+            width={900}
+            height={480}
             decoding="sync"
             loading="eager"
-            className="w-auto max-w-[10rem] sm:max-w-[14rem]"
+            className="w-full max-w-[19rem] sm:max-w-md"
           />
         </div>
 
