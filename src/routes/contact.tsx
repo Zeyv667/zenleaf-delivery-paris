@@ -526,8 +526,8 @@ function AddressField({
   value: string;
   onChange: (v: string) => void;
   onBlur: () => void;
-  error?: string;
-  valid?: boolean;
+  error?: string | undefined;
+  valid?: boolean | undefined;
 }) {
   const fetchSuggestions = useServerFn(autocompleteAddress);
   const [suggestions, setSuggestions] = useState<string[]>([]);
