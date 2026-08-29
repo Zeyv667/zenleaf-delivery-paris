@@ -12,7 +12,7 @@ export function DeliveryCTA() {
           rel="noopener noreferrer"
           className="btn-base btn-primary mt-8 w-full active:scale-[0.98] sm:w-auto"
         >
-          DELIVERY EXPRESS
+          EXPRESS DELIVERY
         </a>
       </div>
     </section>

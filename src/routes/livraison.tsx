@@ -68,7 +68,7 @@ function DeliveryPage() {
           rel="noopener noreferrer"
           className="btn-base w-full bg-[#759DD2] text-center text-white hover:bg-[#A3B2D6]"
         >
-          DELIVERY EXPRESS
+          EXPRESS DELIVERY
         </a>
 
       </section>
