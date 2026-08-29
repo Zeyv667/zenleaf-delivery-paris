@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: "https://zenleaf-delivery-paris.lovable.app/" },
-      { rel: "preload", as: "image", href: wordmarkAsset.url, fetchPriority: "high" },
+      { rel: "preload", as: "image", href: wordmarkAsset.urlceci
     ],
   }),
   component: Home,
