@@ -7,7 +7,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { MapPin, Loader2 } from "lucide-react";
 import { autocompleteAddress } from "@/lib/places.functions";
 import { WHATSAPP_NUMBER } from "@/lib/utils";
-import { PRODUCTS } from "@/lib/products";
+import { PRODUCTS, formatPrice } from "@/lib/products";
 import { supabase } from "@/integrations/supabase/client";
 
 const orderSchema = z.object({
@@ -162,7 +162,14 @@ function ContactPage() {
               label="Variété(s)"
               error={errors.variete?.message}
               valid={Boolean(dirtyFields.variete) && !errors.variete}
-              options={PRODUCTS.map((p) => ({ value: p.name, label: p.name }))}
+              options={PRODUCTS.flatMap((p) =>
+                p.variants
+                  ? p.variants.map((v) => ({
+                      value: `${p.name} — ${v.label}`,
+                      label: `${p.name} — ${v.label} ${formatPrice(v.price)}`,
+                    }))
+                  : [{ value: p.name, label: p.name }],
+              )}
               value={field.value}
               onChange={field.onChange}
               onBlur={field.onBlur}

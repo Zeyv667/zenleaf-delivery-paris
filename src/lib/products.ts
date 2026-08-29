@@ -12,6 +12,11 @@ const caliPlate = resinTwo;
 
 export type ProductType = "Fleur" | "Résine";
 
+export type ProductVariant = {
+  label: string;
+  price: number;
+};
+
 export type Product = {
   id: string;
   name: string;
@@ -21,6 +26,7 @@ export type Product = {
   pricePerGram: number;
   price: number;
   image: string;
+  variants?: ProductVariant[];
 };
 
 export const PRODUCTS: Product[] = [
@@ -55,24 +61,18 @@ export const PRODUCTS: Product[] = [
     image: bruceBanner,
   },
   {
-    id: "frozen-2g",
-    name: "CALIV - Frozen 2g",
+    id: "frozen",
+    name: "CALIV - Frozen",
     type: "Résine",
     origin: "Maroc",
     description: "Résine fraîche à la texture souple. Arômes verts et épicés.",
     pricePerGram: 12,
     price: 24,
     image: frozenHash,
-  },
-  {
-    id: "frozen-5g",
-    name: "CALIV - Frozen 5g",
-    type: "Résine",
-    origin: "Maroc",
-    description: "Résine fraîche à la texture souple. Arômes verts et épicés.",
-    pricePerGram: 10,
-    price: 50,
-    image: frozenHash,
+    variants: [
+      { label: "2G", price: 24 },
+      { label: "5G", price: 50 },
+    ],
   },
   {
     id: "cali-plate",

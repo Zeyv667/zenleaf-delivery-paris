@@ -25,7 +25,9 @@ export function ProductCard({ product }: { product: Product }) {
           </span>
         </div>
         <p className="mt-1 text-[11px] leading-snug text-muted-foreground sm:text-xs">
-          {product.origin} · Sachet 5 g — {formatPrice(product.price)}
+          {product.variants
+            ? `${product.origin} · ${product.variants.map((v) => `${v.label} ${formatPrice(v.price)}`).join(" · ")}`
+            : `${product.origin} · Sachet 5 g — ${formatPrice(product.price)}`}
         </p>
       </div>
     </article>
