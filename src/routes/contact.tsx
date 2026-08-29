@@ -62,11 +62,12 @@ function ContactPage() {
     register,
     handleSubmit,
     control,
+    setValue,
     watch,
     formState: { errors, isSubmitting, dirtyFields },
   } = useForm<OrderForm>({
     resolver: zodResolver(orderSchema),
-    defaultValues: { variete: [], adresse: "" },
+    defaultValues: { variete: [], adresse: "", adresseSelected: false },
     mode: "onBlur",
     reValidateMode: "onChange",
   });
