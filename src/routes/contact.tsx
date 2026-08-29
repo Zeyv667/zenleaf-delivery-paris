@@ -24,7 +24,6 @@ const orderSchema = z.object({
   variete: z
     .array(z.string())
     .min(1, { message: "Sélectionnez au moins une variété." }),
-  quantite: z.string().min(1, { message: "Sélectionnez une quantité." }),
   adresse: z
     .string()
     .trim()
@@ -35,7 +34,7 @@ const orderSchema = z.object({
   }),
 });
 
-const QUANTITIES = ["5 g", "10 g", "15 g", "20 g", "25 g", "30 g", "50 g", "100 g"];
+
 
 type OrderForm = z.infer<typeof orderSchema>;
 
@@ -70,7 +69,7 @@ function ContactPage() {
     formState: { errors, isSubmitting, dirtyFields },
   } = useForm<OrderForm>({
     resolver: zodResolver(orderSchema),
-    defaultValues: { variete: [], quantite: "5 g", adresse: "", adresseSelected: false },
+    defaultValues: { variete: [], adresse: "", adresseSelected: false },
     mode: "onBlur",
     reValidateMode: "onChange",
   });
@@ -79,13 +78,12 @@ function ContactPage() {
 
   const onSubmit = async (data: OrderForm) => {
     const varietiesText = data.variete.join(", ");
-    const details = [data.adresse, data.quantite].filter(Boolean).join(" / ");
 
     const { error } = await supabase.from("commandes").insert({
       pseudo: data.pseudo,
       numero: data.numero,
       variete: varietiesText,
-      details: details || null,
+      details: data.adresse || null,
     });
     if (error) {
       console.error("Enregistrement de la commande impossible", error.message);
@@ -97,7 +95,6 @@ function ContactPage() {
       "Je souhaite passer une commande chez Caliv. Êtes-vous disponible pour une livraison ?",
       "",
       `Variété(s) : ${varietiesText}`,
-      `Quantité : ${data.quantite}`,
       `Adresse complète de livraison : ${data.adresse}`,
       "",
       "Merci de me confirmer la disponibilité ainsi que le délai estimée de livraison.",
@@ -164,29 +161,14 @@ function ContactPage() {
               valid={Boolean(dirtyFields.variete) && !errors.variete}
               options={PRODUCTS.flatMap((p) =>
                 p.variants
-                  ? p.variants.map((v) => ({
-                      value: `${p.name} — ${v.label}`,
-                      label: `${p.name} — ${v.label} ${formatPrice(v.price)}`,
-                    }))
+                  ? p.variants
+                      .filter((v) => v.label !== "2G")
+                      .map((v) => ({
+                        value: `${p.name} — ${v.label}`,
+                        label: `${p.name} — ${v.label} ${formatPrice(v.price)}`,
+                      }))
                   : [{ value: p.name, label: p.name }],
               )}
-              value={field.value}
-              onChange={field.onChange}
-              onBlur={field.onBlur}
-            />
-          )}
-        />
-
-        <Controller
-          name="quantite"
-          control={control}
-          render={({ field }) => (
-            <SelectField
-              id="quantite"
-              label="Quantité"
-              error={errors.quantite?.message}
-              valid={Boolean(dirtyFields.quantite) && !errors.quantite}
-              options={QUANTITIES.map((q) => ({ value: q, label: q }))}
               value={field.value}
               onChange={field.onChange}
               onBlur={field.onBlur}
@@ -635,59 +617,3 @@ function AddressField({
   );
 }
 
-function SelectField({
-  id,
-  label,
-  error,
-  valid,
-  options,
-  value,
-  onChange,
-  onBlur,
-}: {
-  id: string;
-  label: string;
-  error: string | undefined;
-  valid: boolean;
-  options: { value: string; label: string }[];
-  value: string;
-  onChange: (value: string) => void;
-  onBlur: () => void;
-}) {
-  return (
-    <div className="grid gap-1.5">
-      <label
-        htmlFor={id}
-        className="flex items-center justify-between text-xs font-medium uppercase tracking-wider text-muted-foreground"
-      >
-        {label}
-        {valid && (
-          <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-green-600">
-            <span aria-hidden>✓</span> OK
-          </span>
-        )}
-      </label>
-      <select
-        id={id}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        onBlur={onBlur}
-        aria-invalid={Boolean(error)}
-        className={`w-full appearance-none rounded-lg border bg-background px-4 py-3.5 text-base text-foreground outline-none transition focus:ring-2 ${
-          error
-            ? "border-red-500 focus:border-red-500 focus:ring-red-500/25"
-            : valid
-              ? "border-green-500/60 focus:border-primary focus:ring-ring/30"
-              : "border-border focus:border-primary focus:ring-ring/30"
-        }`}
-      >
-        {options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-      {error && <p className="text-xs text-red-600">{error}</p>}
-    </div>
-  );
-}
