@@ -49,6 +49,9 @@ const orderSchema = z.object({
   cgv: z.boolean().refine((v) => v === true, {
     message: "Vous devez accepter les conditions générales de vente.",
   }),
+  cgu: z.boolean().refine((v) => v === true, {
+    message: "Vous devez accepter les conditions d'utilisation.",
+  }),
   rgpd: z.boolean().refine((v) => v === true, {
     message: "Vous devez accepter la politique de confidentialité.",
   }),
