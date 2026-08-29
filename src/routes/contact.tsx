@@ -247,9 +247,13 @@ function ContactPage() {
           <ConsentField id="cgv" error={errors.cgv?.message} inputProps={register("cgv")}>
             J'ai lu et j'accepte les{" "}
             <Link to="/cgv" className="underline underline-offset-2">
-              conditions générales de vente
-            </Link>{" "}
-            et les{" "}
+              conditions générarales de vente
+            </Link>
+            .
+          </ConsentField>
+
+          <ConsentField id="cgu" error={errors.cgu?.message} inputProps={register("cgu")}>
+            J'ai lu et j'accepte les{" "}
             <Link to="/cgu" className="underline underline-offset-2">
               conditions d'utilisation
             </Link>
