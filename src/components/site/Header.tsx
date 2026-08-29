@@ -65,8 +65,8 @@ export function Header() {
             aria-label="CALIV — accueil"
             onClick={() => setMenu(false)}
           >
-            <span className="display text-lg tracking-[0.14em] text-[#FBD9DF]">CALIV</span>
             <Logo height={36} priority />
+            <span className="display text-lg tracking-[0.14em] text-[#FBD9DF]">CALIV</span>
           </Link>
         </div>
 
