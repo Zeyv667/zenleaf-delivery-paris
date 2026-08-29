@@ -2,8 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImage from "@/assets/caliv-store-hero-hd.webp";
 import wordmarkAsset from "@/assets/caliv-cbd-premium-3.png.asset.json";
 import { ProductCard } from "@/components/site/ProductCard";
+import { PaymentMethods } from "@/components/site/PaymentMethods";
 import { PRODUCTS } from "@/lib/products";
 import { WHATSAPP_LINK } from "@/lib/utils";
+
 
 
 export const Route = createFileRoute("/")({
