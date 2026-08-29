@@ -2,11 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { Package } from "lucide-react";
 import { WHATSAPP_NUMBER } from "@/lib/utils";
 import { PRODUCTS } from "@/lib/products";
 import { supabase } from "@/integrations/supabase/client";
 
 
+
+const QUANTITIES = ["5 g", "10 g", "15 g", "20 g", "25 g", "30 g", "50 g", "100 g"];
 
 const orderSchema = z.object({
   pseudo: z
@@ -22,6 +25,9 @@ const orderSchema = z.object({
   variete: z
     .array(z.string())
     .min(1, { message: "Sélectionnez au moins une variété." }),
+  quantite: z
+    .string()
+    .min(1, { message: "Quantité requise." }),
   details: z
     .string()
     .trim()
@@ -61,7 +67,7 @@ function ContactPage() {
     formState: { errors, isSubmitting, dirtyFields },
   } = useForm<OrderForm>({
     resolver: zodResolver(orderSchema),
-    defaultValues: { variete: [] },
+    defaultValues: { variete: [], quantite: "5 g" },
     mode: "onBlur",
     reValidateMode: "onChange",
   });
@@ -70,11 +76,18 @@ function ContactPage() {
 
   const onSubmit = async (data: OrderForm) => {
     const varietiesText = data.variete.join(", ");
+    const storedDetails = [
+      `Quantité : ${data.quantite}`,
+      data.details ?? "",
+    ]
+      .filter(Boolean)
+      .join("\n");
+
     const { error } = await supabase.from("commandes").insert({
       pseudo: data.pseudo,
       numero: data.numero,
       variete: varietiesText,
-      details: data.details ?? null,
+      details: storedDetails || null,
     });
     if (error) {
       console.error("Enregistrement de la commande impossible", error.message);
@@ -86,11 +99,11 @@ function ContactPage() {
       "Je souhaite passer une commande chez Caliv. Êtes-vous disponible pour une livraison ?",
       "",
       `Variété(s) : ${varietiesText}`,
-      `Quantité(s) :`,
+      `Quantité(s) : ${data.quantite}`,
       `Adresse complète de livraison :`,
       data.details ? `\nDétails :\n${data.details}` : "",
       "",
-      "Merci de me confirmer la disponibilité ainsi que le délai estimé de livraison.",
+      "Merci de me confirmer la disponibilité ainsi que le délai estimée de livraison.",
     ].join("\n");
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -156,6 +169,30 @@ function ContactPage() {
               value={field.value}
               onChange={field.onChange}
               onBlur={field.onBlur}
+              quantitySlot={
+                <Controller
+                  name="quantite"
+                  control={control}
+                  render={({ field: qField }) => (
+                    <label className="flex items-center gap-1.5">
+                      <Package className="h-3.5 w-3.5 text-muted-foreground" />
+                      <select
+                        aria-label="Quantité"
+                        className="h-7 cursor-pointer appearance-none rounded-md border border-border bg-background px-2 py-0.5 pr-6 text-xs font-medium text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-ring/30"
+                        value={qField.value}
+                        onChange={(e) => qField.onChange(e.target.value)}
+                        onBlur={qField.onBlur}
+                      >
+                        {QUANTITIES.map((q) => (
+                          <option key={q} value={q}>
+                            {q}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  )}
+                />
+              }
             />
           )}
         />
@@ -384,6 +421,7 @@ function MultiSelectField({
   value,
   onChange,
   onBlur,
+  quantitySlot,
 }: {
   id: string;
   label: string;
@@ -393,6 +431,7 @@ function MultiSelectField({
   value: string[];
   onChange: (value: string[]) => void;
   onBlur: () => void;
+  quantitySlot?: React.ReactNode;
 }) {
   const toggle = (optionValue: string) => {
     const next = value.includes(optionValue)
@@ -403,17 +442,20 @@ function MultiSelectField({
 
   return (
     <div className="grid gap-1.5" onBlur={onBlur}>
-      <label
-        htmlFor={id}
-        className="flex items-center justify-between text-xs font-medium uppercase tracking-wider text-muted-foreground"
-      >
-        {label}
-        {valid && (
-          <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-green-600">
-            <span aria-hidden>✓</span> OK
-          </span>
-        )}
-      </label>
+      <div className="flex items-center justify-between">
+        <label
+          htmlFor={id}
+          className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-muted-foreground"
+        >
+          {label}
+          {valid && (
+            <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-green-600">
+              <span aria-hidden>✓</span> OK
+            </span>
+          )}
+        </label>
+        {quantitySlot}
+      </div>
       <div
         id={id}
         role="listbox"
