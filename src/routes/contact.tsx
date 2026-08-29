@@ -89,7 +89,14 @@ function ContactPage() {
     formState: { errors, isSubmitting, dirtyFields },
   } = useForm<OrderForm>({
     resolver: zodResolver(orderSchema),
-    defaultValues: { variete: [], adresse: "", adresseSelected: false },
+    defaultValues: {
+      variete: [],
+      adresse: "",
+      adresseSelected: false,
+      majeur: false,
+      cgv: false,
+      rgpd: false,
+    },
     mode: "onBlur",
     reValidateMode: "onChange",
   });
