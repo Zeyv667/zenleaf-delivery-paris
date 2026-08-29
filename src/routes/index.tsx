@@ -3,7 +3,6 @@ import heroImage from "@/assets/caliv-store-hero-hd.webp";
 import wordmarkAsset from "@/assets/caliv-cbd-premium-3.png.asset.json";
 import { ProductMarquee } from "@/components/site/ProductMarquee";
 
-import { WHATSAPP_LINK } from "@/lib/utils";
 
 
 
@@ -65,14 +64,12 @@ function Home() {
               LIVRAISON EXPRESS
             </h1>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={WHATSAPP_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/contact"
                 className="btn-base btn-primary w-full text-center sm:w-auto"
               >
                 EXPRESS DELIVERY
-              </a>
+              </Link>
 
               <Link to="/produits" className="btn-base btn-ghost w-full sm:w-auto">
                 NOS VARIETES
