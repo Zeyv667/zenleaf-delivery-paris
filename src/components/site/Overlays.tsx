@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ageLogo from "@/assets/caliv-gorilla-logo-hd.webp";
+import ageLogo from "@/assets/logo-tremblement.gif.asset.json";
 import { WHATSAPP_LINK } from "@/lib/utils";
 
 export function AgeGate() {
@@ -19,7 +19,7 @@ export function AgeGate() {
       <div className="w-full max-w-md fade-up">
         <p className="eyebrow">PARIS · Île-de-France</p>
         <img
-          src={ageLogo}
+          src={ageLogo.url}
           alt="CALIV"
           width={900}
           height={900}
