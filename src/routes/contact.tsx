@@ -7,7 +7,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { MapPin, Loader2 } from "lucide-react";
 import { autocompleteAddress } from "@/lib/places.functions";
 import { WHATSAPP_NUMBER } from "@/lib/utils";
-import { PRODUCTS } from "@/lib/products";
+import { PRODUCTS, formatPrice } from "@/lib/products";
 import { supabase } from "@/integrations/supabase/client";
 
 const orderSchema = z.object({
