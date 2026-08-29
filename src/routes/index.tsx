@@ -51,7 +51,6 @@ function Home() {
             alt="CALIV — Premium CBD PARIS"
             width={900}
             height={480}
-            fetchPriority="high"
             decoding="sync"
             loading="eager"
             className="w-full max-w-[19rem] sm:max-w-md"
