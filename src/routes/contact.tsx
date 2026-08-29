@@ -28,9 +28,6 @@ const orderSchema = z.object({
   variete: z
     .array(z.string())
     .min(1, { message: "Sélectionnez au moins une variété." }),
-  quantite: z
-    .string()
-    .min(1, { message: "Quantité requise." }),
   adresse: z
     .string()
     .trim()
@@ -70,7 +67,7 @@ function ContactPage() {
     formState: { errors, isSubmitting, dirtyFields },
   } = useForm<OrderForm>({
     resolver: zodResolver(orderSchema),
-    defaultValues: { variete: [], quantite: "5 g", adresse: "" },
+    defaultValues: { variete: [], adresse: "" },
     mode: "onBlur",
     reValidateMode: "onChange",
   });
@@ -79,16 +76,12 @@ function ContactPage() {
 
   const onSubmit = async (data: OrderForm) => {
     const varietiesText = data.variete.join(", ");
-    const storedDetails = [
-      `Quantité : ${data.quantite}`,
-      `Adresse complète : ${data.adresse}`,
-    ].join("\n");
 
     const { error } = await supabase.from("commandes").insert({
       pseudo: data.pseudo,
       numero: data.numero,
       variete: varietiesText,
-      details: storedDetails || null,
+      details: data.adresse || null,
     });
     if (error) {
       console.error("Enregistrement de la commande impossible", error.message);
@@ -100,7 +93,6 @@ function ContactPage() {
       "Je souhaite passer une commande chez Caliv. Êtes-vous disponible pour une livraison ?",
       "",
       `Variété(s) : ${varietiesText}`,
-      `Quantité(s) : ${data.quantite}`,
       `Adresse complète de livraison : ${data.adresse}`,
       "",
       "Merci de me confirmer la disponibilité ainsi que le délai estimée de livraison.",
