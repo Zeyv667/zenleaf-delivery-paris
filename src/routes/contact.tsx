@@ -24,6 +24,7 @@ const orderSchema = z.object({
   variete: z
     .array(z.string())
     .min(1, { message: "Sélectionnez au moins une variété." }),
+  quantite: z.string().min(1, { message: "Sélectionnez une quantité." }),
   adresse: z
     .string()
     .trim()
@@ -33,6 +34,8 @@ const orderSchema = z.object({
     message: "Veuillez sélectionner une adresse dans la liste Google Maps.",
   }),
 });
+
+const QUANTITIES = ["5 g", "10 g", "15 g", "20 g", "25 g", "30 g", "50 g", "100 g"];
 
 type OrderForm = z.infer<typeof orderSchema>;
 
