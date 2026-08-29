@@ -1,7 +1,7 @@
 import pouchSunset from "@/assets/CALIV_ID_MENU-5-clean.png.asset.json";
 import pouchGreen from "@/assets/CALIV_ID_MENU-4-clean.png.asset.json";
 import pouchPink from "@/assets/caliv-pouch-pink-hd.png";
-import resinOne from "@/assets/caliv-resin-1-hd.png";
+import resinFrozen from "@/assets/caliv-resin-1.png.asset.json";
 import resinTwo from "@/assets/caliv-resin-2-hd.png";
 
 const sunsetCream = pouchSunset.url;
