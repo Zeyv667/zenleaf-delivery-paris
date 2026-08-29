@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { WHATSAPP_NUMBER } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
+import { ExpressDeliveryBlock } from "@/components/site/ExpressDeliveryBlock";
 
 
 const orderSchema = z.object({
