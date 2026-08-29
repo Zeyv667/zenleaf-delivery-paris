@@ -19,7 +19,7 @@ export function AgeGate() {
       <div className="w-full max-w-md fade-up">
         <p className="eyebrow">PARIS · Île-de-France</p>
         <img
-          src={ageLogo}
+          src={ageLogo.url}
           alt="CALIV"
           width={900}
           height={900}
