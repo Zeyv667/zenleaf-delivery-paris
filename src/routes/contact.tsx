@@ -70,7 +70,7 @@ function ContactPage() {
     formState: { errors, isSubmitting, dirtyFields },
   } = useForm<OrderForm>({
     resolver: zodResolver(orderSchema),
-    defaultValues: { variete: [], adresse: "", adresseSelected: false },
+    defaultValues: { variete: [], quantite: "5 g", adresse: "", adresseSelected: false },
     mode: "onBlur",
     reValidateMode: "onChange",
   });
