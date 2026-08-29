@@ -2,19 +2,19 @@ import { Banknote, CreditCard, Smartphone } from "lucide-react";
 
 const METHODS = [
   {
-    icon: Banknote,
-    label: "Espèces",
-    hint: "Paiement au livreur",
-  },
-  {
     icon: CreditCard,
-    label: "Carte bancaire",
+    label: "CARTES",
     hint: "Visa, Mastercard, CB",
   },
   {
     icon: Smartphone,
-    label: "Apple & Google Pay",
+    label: "GOOGLE PAY",
     hint: "Paiement sans contact",
+  },
+  {
+    icon: Banknote,
+    label: "ESPÈCE",
+    hint: "Paiement au livreur",
   },
 ];
 
