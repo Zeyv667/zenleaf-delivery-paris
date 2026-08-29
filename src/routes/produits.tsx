@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ProductCard } from "@/components/site/ProductCard";
 import { PRODUCTS } from "@/lib/products";
-import { WHATSAPP_LINK } from "@/lib/utils";
 
 
 export const Route = createFileRoute("/produits")({
@@ -40,17 +39,7 @@ function ProductsPage() {
         ))}
       </div>
 
-      <a
-        href={WHATSAPP_LINK}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="btn-base mt-12 w-full bg-[#FBD9DF] text-center text-[#0F172A] hover:bg-[#A3B2D6]"
-      >
-        EXPRESS DELIVERY
-      </a>
-
-
-      <section className="mt-10 rounded-sm border border-border bg-card px-5 py-5 md:px-10 md:py-6">
+      <section className="mt-14 rounded-sm border border-border bg-card px-5 py-5 md:px-10 md:py-6">
         <h3 className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
           Qualité contrôlée
         </h3>
