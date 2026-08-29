@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImage from "@/assets/caliv-store-hero-hd.webp";
-import wordmarkAsset from "@/assets/caliv-cbd-premium-3.png.asset.json";
+import blueLogo from "@/assets/caliv-logo-original.png";
 import { ProductMarquee } from "@/components/site/ProductMarquee";
 
 
