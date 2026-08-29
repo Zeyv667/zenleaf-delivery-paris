@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImage from "@/assets/caliv-store-hero-hd.webp";
 import wordmarkAsset from "@/assets/caliv-cbd-premium-3.png.asset.json";
 import { ProductMarquee } from "@/components/site/ProductMarquee";
-import { PaymentMethods } from "@/components/site/PaymentMethods";
 
 import { WHATSAPP_LINK } from "@/lib/utils";
 
@@ -156,12 +155,6 @@ function Home() {
             </Link>
           </div>
         </div>
-      </section>
-
-      {/* PAIEMENT */}
-      <section className="container-x pb-10 md:pb-14">
-        <p className="eyebrow mb-4">Paiement Sécurisé</p>
-        <PaymentMethods />
       </section>
 
     </main>
