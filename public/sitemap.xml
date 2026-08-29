@@ -6,6 +6,7 @@
   <url><loc>https://zenleaf-delivery-paris.lovable.app/cbd</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://zenleaf-delivery-paris.lovable.app/faq</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://zenleaf-delivery-paris.lovable.app/cgv</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://zenleaf-delivery-paris.lovable.app/cgu</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://zenleaf-delivery-paris.lovable.app/mentions-legales</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://zenleaf-delivery-paris.lovable.app/confidentialite</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
