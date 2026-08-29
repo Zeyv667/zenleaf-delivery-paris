@@ -29,6 +29,9 @@ const orderSchema = z.object({
     .trim()
     .min(8, { message: "Adresse complète requise (numéro, rue, code postal, ville)." })
     .max(300, { message: "L'adresse ne doit pas dépasser 300 caractères." }),
+  adresseSelected: z.literal(true, {
+    errorMap: () => ({ message: "Veuillez sélectionner une adresse dans la liste Google Maps." }),
+  }),
 });
 
 type OrderForm = z.infer<typeof orderSchema>;
