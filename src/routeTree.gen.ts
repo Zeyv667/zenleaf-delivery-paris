@@ -15,7 +15,6 @@ import { Route as CgvRouteImport } from './routes/cgv'
 import { Route as ConfidentialiteRouteImport } from './routes/confidentialite'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FaqRouteImport } from './routes/faq'
-import { Route as LivraisonRouteImport } from './routes/livraison'
 import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
 import { Route as ProduitsRouteImport } from './routes/produits'
 
@@ -49,11 +48,6 @@ const FaqRoute = FaqRouteImport.update({
   path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LivraisonRoute = LivraisonRouteImport.update({
-  id: '/livraison',
-  path: '/livraison',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
   id: '/mentions-legales',
   path: '/mentions-legales',
@@ -72,7 +66,6 @@ export interface FileRoutesByFullPath {
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
-  '/livraison': typeof LivraisonRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/produits': typeof ProduitsRoute
 }
@@ -83,7 +76,6 @@ export interface FileRoutesByTo {
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
-  '/livraison': typeof LivraisonRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/produits': typeof ProduitsRoute
 }
@@ -95,7 +87,6 @@ export interface FileRoutesById {
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
-  '/livraison': typeof LivraisonRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/produits': typeof ProduitsRoute
 }
@@ -108,7 +99,6 @@ export interface FileRouteTypes {
     | '/confidentialite'
     | '/contact'
     | '/faq'
-    | '/livraison'
     | '/mentions-legales'
     | '/produits'
   fileRoutesByTo: FileRoutesByTo
@@ -119,7 +109,6 @@ export interface FileRouteTypes {
     | '/confidentialite'
     | '/contact'
     | '/faq'
-    | '/livraison'
     | '/mentions-legales'
     | '/produits'
   id:
@@ -130,7 +119,6 @@ export interface FileRouteTypes {
     | '/confidentialite'
     | '/contact'
     | '/faq'
-    | '/livraison'
     | '/mentions-legales'
     | '/produits'
   fileRoutesById: FileRoutesById
@@ -142,7 +130,6 @@ export interface RootRouteChildren {
   ConfidentialiteRoute: typeof ConfidentialiteRoute
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
-  LivraisonRoute: typeof LivraisonRoute
   MentionsLegalesRoute: typeof MentionsLegalesRoute
   ProduitsRoute: typeof ProduitsRoute
 }
@@ -191,13 +178,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/livraison': {
-      id: '/livraison'
-      path: '/livraison'
-      fullPath: '/livraison'
-      preLoaderRoute: typeof LivraisonRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/mentions-legales': {
       id: '/mentions-legales'
       path: '/mentions-legales'
@@ -222,7 +202,6 @@ const rootRouteChildren: RootRouteChildren = {
   ConfidentialiteRoute: ConfidentialiteRoute,
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
-  LivraisonRoute: LivraisonRoute,
   MentionsLegalesRoute: MentionsLegalesRoute,
   ProduitsRoute: ProduitsRoute,
 }
