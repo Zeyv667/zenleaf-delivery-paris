@@ -6,11 +6,10 @@ const LINKS = [
   { to: "/produits", label: "NOS VARIETES" },
   { to: "/cbd", label: "Le CBD" },
   { to: "/faq", label: "FAQ" },
-  { to: "/contact", label: "Contact" },
+  { to: "/contact", label: "EXPRESS DELIVERY" },
   { to: "/cgv", label: "CGV" },
   { to: "/mentions-legales", label: "Mentions légales" },
   { to: "/confidentialite", label: "Politique de confidentialité" },
-  { to: "/livraison", label: "Conditions de livraison" },
 ] as const;
 
 export function Footer() {
