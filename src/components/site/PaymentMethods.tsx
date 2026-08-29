@@ -3,17 +3,17 @@ import { Banknote, CreditCard, Smartphone } from "lucide-react";
 const METHODS = [
   {
     icon: CreditCard,
-    label: "CARTES",
+    label: "Cartes",
     hint: "Visa, Mastercard, CB",
   },
   {
     icon: Smartphone,
-    label: "GOOGLE PAY",
+    label: "Google Pay",
     hint: "Paiement sans contact",
   },
   {
     icon: Banknote,
-    label: "ESPÈCE",
+    label: "Espèce",
     hint: "Paiement au livreur",
   },
 ];
