@@ -53,9 +53,9 @@ export const Route = createFileRoute("/contact")({
         property: "og:description",
         content: "Commande express de CBD premium à PARIS. Formulaire de contact rapide par WhatsApp.",
       },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: "https://zenleaf-delivery-paris.lovable.app/contact" },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: "https://zenleaf-delivery-paris.lovable.app/contact" }],
   }),
   component: ContactPage,
 });

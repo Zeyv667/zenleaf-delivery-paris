@@ -21,11 +21,11 @@ export const Route = createFileRoute("/")({
         content: "Fleurs et résines sélectionnées, livrées à PARIS et en Île-de-France.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://zenleaf-delivery-paris.lovable.app/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      { rel: "canonical", href: "/" },
+      { rel: "canonical", href: "https://zenleaf-delivery-paris.lovable.app/" },
       { rel: "preload", as: "image", href: wordmarkAsset.url, fetchpriority: "high" },
       { rel: "preload", as: "image", href: heroImage, fetchpriority: "high" },
     ],

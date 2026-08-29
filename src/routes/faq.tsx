@@ -20,9 +20,9 @@ export const Route = createFileRoute("/faq")({
       },
       { property: "og:title", content: "FAQ CBD | CALIV" },
       { property: "og:description", content: "Légalité, livraison, paiement et analyses laboratoire." },
-      { property: "og:url", content: "/faq" },
+      { property: "og:url", content: "https://zenleaf-delivery-paris.lovable.app/faq" },
     ],
-    links: [{ rel: "canonical", href: "/faq" }],
+    links: [{ rel: "canonical", href: "https://zenleaf-delivery-paris.lovable.app/faq" }],
     scripts: [
       {
         type: "application/ld+json",

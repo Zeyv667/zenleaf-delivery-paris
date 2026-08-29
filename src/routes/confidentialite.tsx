@@ -11,9 +11,9 @@ export const Route = createFileRoute("/confidentialite")({
       },
       { property: "og:title", content: "Politique de confidentialité | CALIV" },
       { property: "og:description", content: "Données personnelles, cookies et droits RGPD." },
-      { property: "og:url", content: "/confidentialite" },
+      { property: "og:url", content: "https://zenleaf-delivery-paris.lovable.app/confidentialite" },
     ],
-    links: [{ rel: "canonical", href: "/confidentialite" }],
+    links: [{ rel: "canonical", href: "https://zenleaf-delivery-paris.lovable.app/confidentialite" }],
   }),
   component: () => (
     <LegalPage
