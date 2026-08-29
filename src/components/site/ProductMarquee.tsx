@@ -32,7 +32,7 @@ export function ProductMarquee() {
   const items = [...PRODUCTS, ...PRODUCTS];
 
   return (
-    <section className="border-b border-border bg-background py-6 md:py-8">
+    <section className="bg-background py-6 md:py-8">
       <div className="relative flex overflow-x-hidden">
         <div className="marquee-track gap-3 px-1.5">
           {items.map((product, idx) => (
