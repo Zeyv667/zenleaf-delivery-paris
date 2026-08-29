@@ -85,7 +85,7 @@ export const PRODUCTS: Product[] = [
     image: caliPlate,
     variants: [
       { label: "2G", price: 28 },
-      { label: "5G", price: 70 },
+      { label: "5G", price: 60 },
     ],
   },
 ];
