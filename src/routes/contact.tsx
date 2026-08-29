@@ -78,10 +78,8 @@ function ContactPage() {
     const varietiesText = data.variete.join(", ");
     const storedDetails = [
       `Quantité : ${data.quantite}`,
-      data.details ?? "",
-    ]
-      .filter(Boolean)
-      .join("\n");
+      `Adresse complète : ${data.adresse}`,
+    ].join("\n");
 
     const { error } = await supabase.from("commandes").insert({
       pseudo: data.pseudo,
@@ -100,8 +98,7 @@ function ContactPage() {
       "",
       `Variété(s) : ${varietiesText}`,
       `Quantité(s) : ${data.quantite}`,
-      `Adresse complète de livraison :`,
-      data.details ? `\nDétails :\n${data.details}` : "",
+      `Adresse complète de livraison : ${data.adresse}`,
       "",
       "Merci de me confirmer la disponibilité ainsi que le délai estimée de livraison.",
     ].join("\n");
