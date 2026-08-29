@@ -76,12 +76,18 @@ function ContactPage() {
 
   const onSubmit = async (data: OrderForm) => {
     const varietiesText = data.variete.join(", ");
+    const storedDetails = [
+      `Quantité : ${data.quantite}`,
+      data.details ?? "",
+    ]
+      .filter(Boolean)
+      .join("\n");
+
     const { error } = await supabase.from("commandes").insert({
       pseudo: data.pseudo,
       numero: data.numero,
       variete: varietiesText,
-      quantite: data.quantite,
-      details: data.details ?? null,
+      details: storedDetails || null,
     });
     if (error) {
       console.error("Enregistrement de la commande impossible", error.message);
