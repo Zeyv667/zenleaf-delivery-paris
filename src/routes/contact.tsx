@@ -162,7 +162,14 @@ function ContactPage() {
               label="Variété(s)"
               error={errors.variete?.message}
               valid={Boolean(dirtyFields.variete) && !errors.variete}
-              options={PRODUCTS.map((p) => ({ value: p.name, label: p.name }))}
+              options={PRODUCTS.flatMap((p) =>
+                p.variants
+                  ? p.variants.map((v) => ({
+                      value: `${p.name} — ${v.label}`,
+                      label: `${p.name} — ${v.label} ${formatPrice(v.price)}`,
+                    }))
+                  : [{ value: p.name, label: p.name }],
+              )}
               value={field.value}
               onChange={field.onChange}
               onBlur={field.onBlur}
