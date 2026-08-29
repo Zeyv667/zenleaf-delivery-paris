@@ -34,6 +34,11 @@
   --color-olive: var(--olive);
   --color-olive-soft: var(--olive-soft);
   --color-blush: var(--blush);
+  --color-express-bg: var(--express-bg);
+  --color-express-bg-soft: var(--express-bg-soft);
+  --color-express-accent: var(--express-accent);
+  --color-express-accent-soft: var(--express-accent-soft);
+  --color-express-muted: var(--express-muted);
 }
 
 :root {
