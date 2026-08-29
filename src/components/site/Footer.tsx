@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { Logo } from "@/components/site/Logo";
 import { PaymentMethods } from "@/components/site/PaymentMethods";
 
