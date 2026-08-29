@@ -26,11 +26,6 @@ export function AgeGate() {
           className="mx-auto mt-6 w-full max-w-[16rem] md:max-w-[18rem]"
         />
         <div className="mx-auto mt-8 h-px w-16 bg-accent" />
-        <p className="mt-8 text-sm text-muted-foreground">
-          Service de livraison réservé aux personnes majeures.
-          <br />
-          Avez-vous 18 ans ou plus ?
-        </p>
         <div className="mt-8 flex flex-col gap-3">
           <button
             className="btn-base btn-primary w-full"
@@ -39,10 +34,10 @@ export function AgeGate() {
               setVerified(true);
             }}
           >
-            Oui, j'ai 18 ans ou plus
+            + 18
           </button>
           <a href="https://www.google.com" className="btn-base btn-ghost w-full">
-            Non, je quitte le site
+            NO
           </a>
         </div>
         <p className="mt-8 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
