@@ -113,7 +113,7 @@ function Home() {
       <ProductMarquee />
 
       {/* SERVICE */}
-      <section className="border-y border-border">
+      <section>
         <div className="container-x flex flex-col items-start py-12 md:py-20">
           <h3 className="display text-[1.75rem] sm:text-3xl md:text-5xl">{DELIVERY.label}</h3>
           <p className="mt-3 text-base text-muted-foreground md:text-lg">{DELIVERY.hours}</p>
