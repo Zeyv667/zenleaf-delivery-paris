@@ -79,12 +79,13 @@ function ContactPage() {
 
   const onSubmit = async (data: OrderForm) => {
     const varietiesText = data.variete.join(", ");
+    const details = [data.adresse, data.quantite].filter(Boolean).join(" / ");
 
     const { error } = await supabase.from("commandes").insert({
       pseudo: data.pseudo,
       numero: data.numero,
       variete: varietiesText,
-      details: data.adresse || null,
+      details: details || null,
     });
     if (error) {
       console.error("Enregistrement de la commande impossible", error.message);
@@ -96,6 +97,7 @@ function ContactPage() {
       "Je souhaite passer une commande chez Caliv. Êtes-vous disponible pour une livraison ?",
       "",
       `Variété(s) : ${varietiesText}`,
+      `Quantité : ${data.quantite}`,
       `Adresse complète de livraison : ${data.adresse}`,
       "",
       "Merci de me confirmer la disponibilité ainsi que le délai estimée de livraison.",
