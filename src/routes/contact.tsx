@@ -34,16 +34,16 @@ type OrderForm = z.infer<typeof orderSchema>;
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contactez-nous — CALIV" },
+      { title: "EXPRESS DELIVERY — CALIV" },
       {
         name: "description",
         content:
-          "Contactez CALIV par WhatsApp. Service client 7j/7.",
+          "Commandez CALIV en EXPRESS DELIVERY à PARIS. Contactez-nous par WhatsApp.",
       },
-      { property: "og:title", content: "Contactez-nous — CALIV" },
+      { property: "og:title", content: "EXPRESS DELIVERY — CALIV" },
       {
         property: "og:description",
-        content: "Formulaire de contact rapide par WhatsApp.",
+        content: "Commande express de CBD premium à PARIS. Formulaire de contact rapide par WhatsApp.",
       },
       { property: "og:url", content: "/contact" },
     ],
@@ -87,7 +87,7 @@ function ContactPage() {
 
   return (
     <main className="container-x pb-24 pt-28 md:pb-32 md:pt-36">
-      <p className="eyebrow">Contact</p>
+      <p className="eyebrow">EXPRESS DELIVERY</p>
       <h1 className="display mt-4 max-w-2xl text-[2.25rem] sm:text-4xl md:text-6xl">
         CONTACTEZ NOUS
       </h1>
