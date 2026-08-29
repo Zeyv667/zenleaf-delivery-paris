@@ -111,8 +111,15 @@ function Home() {
         </div>
       </section>
 
+      {/* PAIEMENT */}
+      <section className="container-x pb-10 md:pb-14">
+        <p className="eyebrow mb-4">Paiement</p>
+        <PaymentMethods />
+      </section>
+
       {/* BANDEAU */}
       <div className="overflow-hidden border-y border-border bg-primary py-3">
+
         <div className="container-x flex flex-wrap items-center justify-center gap-x-8 gap-y-1 text-center">
           {MARQUEE.map((m) => (
             <span
