@@ -100,6 +100,7 @@ function ProductsPage() {
             <div>
               <h4 className="font-semibold text-foreground">Responsabilité</h4>
               <p className="mt-1">Le client est seul responsable de l'utilisation des produits après leur achat et s'engage à respecter la législation applicable dans son pays de résidence.</p>
+              <p className="mt-3">Les produits sont livrés sous emballage scellé. Après ouverture de l’emballage, le produit est considéré comme utilisé : Caliv ne saurait être tenue responsable de toute utilisation non conforme ou de tout dommage subséquent.</p>
             </div>
 
           </div>
