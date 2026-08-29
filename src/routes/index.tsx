@@ -115,9 +115,13 @@ function Home() {
       <section>
         <div className="container-x flex flex-col items-start py-12 md:py-20">
           <h3 className="display text-[1.75rem] sm:text-3xl md:text-5xl">{DELIVERY.label}</h3>
-          <p className="mt-3 text-base text-muted-foreground md:text-lg">{DELIVERY.hours}</p>
-          <p className="mt-6 text-base text-muted-foreground md:text-lg">Paris / IDF (75/93/94)</p>
-          <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            {DELIVERY.hours}
+          </p>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            Paris / IDF (75/93/94)
+          </p>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
             La livraison dans le 91 et le 92 n'est pas encore assurée de manière systématique. Nous travaillons à l'ouverture de ces secteurs. Certaines commandes supérieures à 10 g, à proximité de PARIS, peuvent néanmoins être éligibles à la livraison.
           </p>
         </div>
@@ -127,10 +131,10 @@ function Home() {
       <section className="bg-primary/10">
         <div className="container-x flex flex-col items-start py-12 md:py-20">
           <h3 className="display text-[1.75rem] sm:text-3xl md:text-5xl">CBD+</h3>
-          <p className="mt-3 text-base text-muted-foreground md:text-lg">
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
             Nos variétés sont analysées en laboratoire français — COA disponible pour chaque variété.
           </p>
-          <p className="mt-4 text-base text-muted-foreground md:text-lg">
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
             CBD+ : concentration ++ en cannabidiol (15 % à 25 %), sélectionnée pour les amateurs de profils riches en cannabinoïdes et d'une expérience plus intense que les variétés classiques.
           </p>
         </div>
