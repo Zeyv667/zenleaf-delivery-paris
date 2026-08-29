@@ -139,20 +139,25 @@ function ContactPage() {
           }}
         />
 
-        <Field
+        <SelectField
           id="variete"
           label="Variété"
           error={errors.variete?.message}
           valid={Boolean(dirtyFields.variete) && !errors.variete}
-          inputProps={{
-            type: "text",
-            placeholder: "1x BRUCE BANNER",
+          selectProps={{
             autoComplete: "off",
-            autoCapitalize: "characters",
-            enterKeyHint: "next",
             ...register("variete"),
           }}
-        />
+        >
+          <option value="" disabled>
+            Choisissez une variété
+          </option>
+          {PRODUCTS.map((product) => (
+            <option key={product.id} value={product.name}>
+              {product.name}
+            </option>
+          ))}
+        </SelectField>
 
         <div className="grid gap-1.5">
           <label
