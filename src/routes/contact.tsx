@@ -98,6 +98,7 @@ function ContactPage() {
       adresseSelected: false,
       majeur: false,
       cgv: false,
+      cgu: false,
       rgpd: false,
     },
     mode: "onBlur",
