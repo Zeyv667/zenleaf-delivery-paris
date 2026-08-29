@@ -157,30 +157,6 @@ function ContactPage() {
               value={field.value}
               onChange={field.onChange}
               onBlur={field.onBlur}
-              quantitySlot={
-                <Controller
-                  name="quantite"
-                  control={control}
-                  render={({ field: qField }) => (
-                    <label className="flex items-center gap-1.5">
-                      <Package className="h-3.5 w-3.5 text-muted-foreground" />
-                      <select
-                        aria-label="Quantité"
-                        className="h-7 cursor-pointer appearance-none rounded-md border border-border bg-background px-2 py-0.5 pr-6 text-xs font-medium text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-ring/30"
-                        value={qField.value}
-                        onChange={(e) => qField.onChange(e.target.value)}
-                        onBlur={qField.onBlur}
-                      >
-                        {QUANTITIES.map((q) => (
-                          <option key={q} value={q}>
-                            {q}
-                          </option>
-                        ))}
-                      </select>
-                    </label>
-                  )}
-                />
-              }
             />
           )}
         />
