@@ -167,7 +167,7 @@ function ContactPage() {
                         value: `${p.name} — ${v.label}`,
                         label: `${p.name} — ${v.label} ${formatPrice(v.price)}`,
                       }))
-                  : [{ value: p.name, label: p.name }],
+                  : [{ value: p.name, label: `${p.name} ${formatPrice(p.price)}` }],
               )}
               value={field.value}
               onChange={field.onChange}
