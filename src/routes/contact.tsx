@@ -687,3 +687,34 @@ function AddressField({
   );
 }
 
+
+function ConsentField({
+  id,
+  error,
+  inputProps,
+  children,
+}: {
+  id: string;
+  error: string | undefined;
+  inputProps: React.InputHTMLAttributes<HTMLInputElement>;
+  children: React.ReactNode;
+}) {
+  return (
+    <div>
+      <label
+        htmlFor={id}
+        className="flex cursor-pointer items-start gap-3 text-sm leading-snug text-muted-foreground"
+      >
+        <input
+          id={id}
+          type="checkbox"
+          aria-invalid={Boolean(error)}
+          className="mt-0.5 h-5 w-5 flex-shrink-0 rounded border-border accent-[#759DD2]"
+          {...inputProps}
+        />
+        <span>{children}</span>
+      </label>
+      {error && <p className="mt-1 pl-8 text-xs text-red-600">{error}</p>}
+    </div>
+  );
+}
