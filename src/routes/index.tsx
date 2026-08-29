@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImage from "@/assets/caliv-store-hero-hd.webp";
 import wordmarkAsset from "@/assets/caliv-cbd-premium-3.png.asset.json";
-import { ProductCard } from "@/components/site/ProductCard";
+import { ProductMarquee } from "@/components/site/ProductMarquee";
 import { PaymentMethods } from "@/components/site/PaymentMethods";
 import { PRODUCTS } from "@/lib/products";
 import { WHATSAPP_LINK } from "@/lib/utils";
@@ -134,21 +134,7 @@ function Home() {
 
 
       {/* VARIETES */}
-      <section className="container-x py-14 md:py-28">
-        <h3 className="display text-2xl">Fleurs</h3>
-        <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-8 sm:gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-          {PRODUCTS.filter((p) => p.type === "Fleur").map((p) => (
-            <ProductCard key={p.id} product={p} />
-          ))}
-        </div>
-
-        <h3 className="display mt-12 text-2xl md:mt-16">Résines</h3>
-        <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-8 sm:gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-          {PRODUCTS.filter((p) => p.type === "Résine").map((p) => (
-            <ProductCard key={p.id} product={p} />
-          ))}
-        </div>
-      </section>
+      <ProductMarquee />
 
 
       {/* SERVICE */}
