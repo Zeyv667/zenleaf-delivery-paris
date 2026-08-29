@@ -61,7 +61,7 @@ function Home() {
 
         <div className="grid gap-8 py-10 md:gap-10 md:py-14 md:grid-cols-[1.1fr_0.9fr] md:items-center">
           <div>
-            <p className="eyebrow">CBD premium · PARIS & Île-de-France</p>
+            <p className="eyebrow">CBD+ · PARIS & Île-de-France</p>
             <h1 className="display mt-4 text-center text-[2.5rem] leading-[0.95] sm:text-[3rem] md:text-[5rem]">
               LIVRAISON EXPRESS
             </h1>
