@@ -85,7 +85,7 @@ function Home() {
             <ul className="mt-8 grid gap-3 text-sm text-muted-foreground sm:grid-cols-2">
               {[
                 "Livraison rapide",
-                "Paiement sécurisé",
+                "Paiement en espèces ou carte",
                 "Nos variétés analysées en laboratoire",
                 "THC conforme à la législation française",
               ].map((f) => (
@@ -95,6 +95,7 @@ function Home() {
                 </li>
               ))}
             </ul>
+
           </div>
 
           <div className="overflow-hidden rounded-2xl md:rounded-3xl">
