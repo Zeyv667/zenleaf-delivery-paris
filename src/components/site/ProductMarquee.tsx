@@ -27,11 +27,7 @@ export function ProductMarquee() {
   const items = [...PRODUCTS, ...PRODUCTS];
 
   return (
-    <section className="border-y border-border bg-background py-10 md:py-14">
-      <div className="container-x mb-6 px-1 text-center">
-        <h2 className="display text-2xl sm:text-3xl">Nos variétés</h2>
-      </div>
-
+    <section className="border-b border-border bg-background py-10 md:py-14">
       <div className="relative flex overflow-x-hidden">
         <div className="marquee-track gap-3 px-1.5">
           {items.map((product, idx) => (
