@@ -169,6 +169,143 @@ function ContactPage() {
         </button>
       </form>
 
+      <section className="mt-16 max-w-2xl border-t border-border pt-10">
+        <h2 className="display text-2xl md:text-3xl">Conditions de livraison</h2>
+
+        <div className="mt-8 space-y-8">
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              Processus de commande
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Pour garantir un traitement rapide de votre commande, merci de transmettre les
+              informations suivantes :
+            </p>
+            <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
+              <li>Numéro de WhatsApp</li>
+              <li>Nom de la variété souhaitée</li>
+              <li>Adresse complète de livraison (numéro, rue, code postal, ville)</li>
+            </ul>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Toute information incomplète pourra entraîner un retard dans le traitement de la
+              commande.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              Frais de livraison
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              La livraison est offerte pour toute commande validée.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              Montant minimum de commande
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Un minimum de 5 g est requis pour passer commande, ce qui correspond à un sachet de
+              5 g.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              Modes de paiement
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Règlement simple et flexible au moment de la livraison :
+            </p>
+            <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
+              <li>
+                <span className="font-medium text-foreground">Cartes</span> — Visa, Mastercard,
+                CB
+              </li>
+              <li>
+                <span className="font-medium text-foreground">Google Pay</span> — Paiement sans
+                contact
+              </li>
+              <li>
+                <span className="font-medium text-foreground">Espèce</span> — Paiement au livreur
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              Zone desservie
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Nous livrons actuellement PARIS et certaines communes limitrophes d’Île-de-France.
+              Les départements 91 et 92 ne sont pas encore couverts dans leur intégralité. Nous
+              travaillons activement à l’extension de notre zone de livraison.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              Horaires de livraison
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Les livraisons sont effectuées selon les créneaux disponibles et l'activité du
+              service.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              Délais de livraison
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Les délais communiqués sont indicatifs et peuvent varier en fonction du trafic, des
+              conditions météorologiques ou d'autres circonstances exceptionnelles.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              Vérification de l'âge
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              La vente est strictement réservée aux personnes majeures. Une pièce d'identité pourra
+              être demandée lors de la livraison.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              Réception de la commande
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Le client est tenu de vérifier l’exactitude de sa commande au moment de sa réception
+              et de signaler toute anomalie dans les meilleurs délais.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              Adresse de livraison
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Le client doit fournir une adresse complète et accessible. Tout retard ou
+              impossibilité de livraison lié à une information erronée relève de la responsabilité
+              du client.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              Disponibilité des produits
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              En cas d'indisponibilité exceptionnelle d'un produit, le client sera contacté afin
+              de convenir d'un remplacement ou d'un remboursement.
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
