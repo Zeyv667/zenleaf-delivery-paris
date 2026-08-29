@@ -171,6 +171,23 @@ function ContactPage() {
         />
 
         <Controller
+          name="quantite"
+          control={control}
+          render={({ field }) => (
+            <SelectField
+              id="quantite"
+              label="Quantité"
+              error={errors.quantite?.message}
+              valid={Boolean(dirtyFields.quantite) && !errors.quantite}
+              options={QUANTITIES.map((q) => ({ value: q, label: q }))}
+              value={field.value}
+              onChange={field.onChange}
+              onBlur={field.onBlur}
+            />
+          )}
+        />
+
+        <Controller
           name="adresse"
           control={control}
           render={({ field }) => (
