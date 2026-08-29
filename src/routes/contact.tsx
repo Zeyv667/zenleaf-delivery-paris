@@ -194,25 +194,19 @@ function ContactPage() {
           )}
         />
 
-        <div className="grid gap-1.5">
-          <label
-            htmlFor="details"
-            className="text-xs font-medium uppercase tracking-wider text-muted-foreground"
-          >
-            Détails de la commande
-          </label>
-          <textarea
-            id="details"
-            rows={3}
-            placeholder="Quantité, adresse complète, créneau..."
-            enterKeyHint="done"
-            className="w-full resize-none rounded-lg border border-border bg-background px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 outline-none transition focus:border-primary focus:ring-2 focus:ring-ring/30"
-            {...register("details")}
-          />
-          {errors.details?.message && (
-            <p className="text-sm text-red-600">{errors.details.message}</p>
+        <Controller
+          name="adresse"
+          control={control}
+          render={({ field }) => (
+            <AddressField
+              value={field.value ?? ""}
+              onChange={field.onChange}
+              onBlur={field.onBlur}
+              error={errors.adresse?.message}
+              valid={Boolean(dirtyFields.adresse) && !errors.adresse}
+            />
           )}
-        </div>
+        />
 
         <div className="sticky bottom-4 z-10 sm:static">
           <button
