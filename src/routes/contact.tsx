@@ -171,10 +171,17 @@ function ContactPage() {
           render={({ field }) => (
             <AddressField
               value={field.value ?? ""}
-              onChange={field.onChange}
+              onChange={(value) => {
+                field.onChange(value);
+                setValue("adresseSelected", false, { shouldValidate: false });
+              }}
               onBlur={field.onBlur}
-              error={errors.adresse?.message}
-              valid={Boolean(dirtyFields.adresse) && !errors.adresse}
+              onSelect={(value) => {
+                field.onChange(value);
+                setValue("adresseSelected", true, { shouldValidate: true });
+              }}
+              error={errors.adresse?.message ?? errors.adresseSelected?.message}
+              valid={Boolean(dirtyFields.adresse) && !errors.adresse && !errors.adresseSelected}
             />
           )}
         />
