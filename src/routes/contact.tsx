@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { WHATSAPP_NUMBER } from "@/lib/utils";
-import { PaymentMethods } from "@/components/site/PaymentMethods";
 import { supabase } from "@/integrations/supabase/client";
 
 
@@ -99,10 +98,6 @@ function ContactPage() {
       <p className="mt-6 max-w-md text-sm text-muted-foreground">
         Remplissez le formulaire ci-dessous. Votre demande part directement sur WhatsApp.
       </p>
-
-      <div className="mt-8 max-w-xl">
-        <PaymentMethods />
-      </div>
 
       <form
 
