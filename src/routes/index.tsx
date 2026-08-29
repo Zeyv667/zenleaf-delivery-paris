@@ -47,13 +47,13 @@ function Home() {
       <section className="container-x pt-20 md:pt-24">
         <div className="flex items-center justify-center">
           <img
-            src={wordmarkAsset.url}
+            src={blueLogo}
             alt="CALIV — Premium CBD PARIS"
-            width={900}
-            height={480}
+            width={589}
+            height={583}
             decoding="sync"
             loading="eager"
-            className="w-full max-w-[19rem] sm:max-w-md"
+            className="w-auto max-w-[10rem] sm:max-w-[14rem]"
           />
         </div>
 
