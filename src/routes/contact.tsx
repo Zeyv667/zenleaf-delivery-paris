@@ -28,11 +28,11 @@ const orderSchema = z.object({
   quantite: z
     .string()
     .min(1, { message: "Quantité requise." }),
-  details: z
+  adresse: z
     .string()
     .trim()
-    .max(1000, { message: "Les détails ne doivent pas dépasser 1000 caractères." })
-    .optional(),
+    .min(8, { message: "Adresse complète requise (numéro, rue, code postal, ville)." })
+    .max(300, { message: "L'adresse ne doit pas dépasser 300 caractères." }),
 });
 
 type OrderForm = z.infer<typeof orderSchema>;
