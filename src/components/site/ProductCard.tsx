@@ -9,6 +9,7 @@ export function ProductCard({ product }: { product: Product }) {
             src={product.image}
             alt={`${product.name} — ${product.type} CBD`}
             loading="lazy"
+            decoding="async"
             width={800}
             height={800}
             className="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03]"

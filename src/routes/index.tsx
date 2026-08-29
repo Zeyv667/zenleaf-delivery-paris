@@ -24,7 +24,11 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [
+      { rel: "canonical", href: "/" },
+      { rel: "preload", as: "image", href: wordmarkAsset.url, fetchpriority: "high" },
+      { rel: "preload", as: "image", href: heroImage, fetchpriority: "high" },
+    ],
   }),
   component: Home,
 });
