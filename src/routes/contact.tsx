@@ -2,11 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { Package } from "lucide-react";
 import { WHATSAPP_NUMBER } from "@/lib/utils";
 import { PRODUCTS } from "@/lib/products";
 import { supabase } from "@/integrations/supabase/client";
 
 
+
+const QUANTITIES = ["5 g", "10 g", "15 g", "20 g", "25 g", "30 g", "50 g", "100 g"];
 
 const orderSchema = z.object({
   pseudo: z
@@ -22,6 +25,9 @@ const orderSchema = z.object({
   variete: z
     .array(z.string())
     .min(1, { message: "Sélectionnez au moins une variété." }),
+  quantite: z
+    .string()
+    .min(1, { message: "Quantité requise." }),
   details: z
     .string()
     .trim()
@@ -61,7 +67,7 @@ function ContactPage() {
     formState: { errors, isSubmitting, dirtyFields },
   } = useForm<OrderForm>({
     resolver: zodResolver(orderSchema),
-    defaultValues: { variete: [] },
+    defaultValues: { variete: [], quantite: "5 g" },
     mode: "onBlur",
     reValidateMode: "onChange",
   });
@@ -74,6 +80,7 @@ function ContactPage() {
       pseudo: data.pseudo,
       numero: data.numero,
       variete: varietiesText,
+      quantite: data.quantite,
       details: data.details ?? null,
     });
     if (error) {
@@ -86,11 +93,11 @@ function ContactPage() {
       "Je souhaite passer une commande chez Caliv. Êtes-vous disponible pour une livraison ?",
       "",
       `Variété(s) : ${varietiesText}`,
-      `Quantité(s) :`,
+      `Quantité(s) : ${data.quantite}`,
       `Adresse complète de livraison :`,
       data.details ? `\nDétails :\n${data.details}` : "",
       "",
-      "Merci de me confirmer la disponibilité ainsi que le délai estimé de livraison.",
+      "Merci de me confirmer la disponibilité ainsi que le délai estimée de livraison.",
     ].join("\n");
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
