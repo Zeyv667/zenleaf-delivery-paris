@@ -13,9 +13,20 @@ export function Header() {
   const [menu, setMenu] = useState(false);
 
   useEffect(() => {
-    document.body.style.overflow = menu ? "hidden" : "";
+    if (!menu) return;
+    // Verrou de scroll compatible Safari iOS (préserve la position)
+    const y = window.scrollY;
+    const { body } = document;
+    body.style.position = "fixed";
+    body.style.top = `-${y}px`;
+    body.style.width = "100%";
+    body.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = "";
+      body.style.position = "";
+      body.style.top = "";
+      body.style.width = "";
+      body.style.overflow = "";
+      window.scrollTo(0, y);
     };
   }, [menu]);
 
@@ -28,7 +39,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-40 transition-colors duration-300 ${
+      className={`fixed inset-x-0 top-0 z-40 pt-[env(safe-area-inset-top)] transition-colors duration-300 [transform:translateZ(0)] ${
         scrolled || menu ? "border-b border-border bg-background/85 backdrop-blur-xl" : ""
       }`}
     >
@@ -76,13 +87,13 @@ export function Header() {
 
 
       {menu && (
-        <nav className="container-x flex max-h-[calc(100dvh-4rem)] flex-col gap-1 overflow-y-auto pb-8 md:hidden">
+        <nav className="container-x flex max-h-[calc(100dvh-4rem)] flex-col gap-1 overflow-y-auto overscroll-contain pb-[max(2rem,env(safe-area-inset-bottom))] md:hidden">
           {NAV.map((item) => (
             <Link
               key={item.to}
               to={item.to}
               onClick={() => setMenu(false)}
-              className="display border-b border-border py-5 text-2xl"
+              className="display flex min-h-[56px] items-center border-b border-border py-5 text-2xl"
             >
               {item.label}
             </Link>
