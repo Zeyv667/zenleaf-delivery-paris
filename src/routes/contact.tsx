@@ -379,7 +379,6 @@ function MultiSelectField({
   value,
   onChange,
   onBlur,
-  quantitySlot,
 }: {
   id: string;
   label: string;
