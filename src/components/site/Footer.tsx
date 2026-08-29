@@ -24,7 +24,7 @@ export function Footer() {
           <p className="display mt-4 text-2xl tracking-[0.12em]">CALIV</p>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
             {isContact
-              ? "Livraison de CBD Premium / PARIS. California grade."
+              ? "Livraison de Cali CBD à Paris. California Grade."
               : "Livraison de CBD premium à PARIS et en Île-de-France. California grade."}
           </p>
         </div>
