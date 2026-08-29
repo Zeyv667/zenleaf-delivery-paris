@@ -34,6 +34,11 @@ export function AgeGate() {
           className="mx-auto mt-6 w-full max-w-[16rem] md:max-w-[18rem]"
         />
         <div className="mx-auto mt-8 h-px w-16 bg-accent" />
+        <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
+          Ce site propose des produits à base de CBD réservés exclusivement aux personnes majeures. En
+          accédant à ce site, vous confirmez avoir plus de 18 ans et être légalement autorisé(e) à
+          consulter ce contenu.
+        </p>
         <div className="mt-6 flex flex-col gap-3">
           <button
             className="btn-base btn-primary w-full"
@@ -48,9 +53,6 @@ export function AgeGate() {
             NO
           </a>
         </div>
-        <p className="mt-5 text-xs leading-relaxed text-muted-foreground">
-          L'accès à ce site est réservé aux personnes majeures.
-        </p>
         <p className="mt-8 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
           CALIV — Premium CBD delivery
         </p>
