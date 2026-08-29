@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { WHATSAPP_NUMBER } from "@/lib/utils";
+import { PRODUCTS } from "@/lib/products";
 import { supabase } from "@/integrations/supabase/client";
 
 
