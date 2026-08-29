@@ -34,6 +34,11 @@
   --color-olive: var(--olive);
   --color-olive-soft: var(--olive-soft);
   --color-blush: var(--blush);
+  --color-express-bg: var(--express-bg);
+  --color-express-bg-soft: var(--express-bg-soft);
+  --color-express-accent: var(--express-accent);
+  --color-express-accent-soft: var(--express-accent-soft);
+  --color-express-muted: var(--express-muted);
 }
 
 :root {
@@ -61,6 +66,11 @@
   --olive-soft: #a3b2d6;
   --blush: #fbd9df;
   --caliv-3: #a3b2d6;
+  --express-bg: #16233d;
+  --express-bg-soft: rgba(255, 255, 255, 0.05);
+  --express-accent: #10b981;
+  --express-accent-soft: rgba(16, 185, 129, 0.12);
+  --express-muted: #8a9bbd;
 }
 
 

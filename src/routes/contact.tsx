@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { WHATSAPP_NUMBER } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
+import { ExpressDeliveryBlock } from "@/components/site/ExpressDeliveryBlock";
 
 
 const orderSchema = z.object({
@@ -95,8 +96,10 @@ function ContactPage() {
         <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
         Réponse rapide (10 min max)
       </p>
-      <form
 
+      <ExpressDeliveryBlock />
+
+      <form
         onSubmit={handleSubmit(onSubmit)}
         className="mt-10 grid max-w-xl gap-6"
         noValidate
