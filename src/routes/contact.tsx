@@ -117,7 +117,7 @@ function ContactPage() {
       details:
         [
           data.adresse,
-          `Majorité certifiée, CGV et politique de confidentialité acceptées le ${new Date().toLocaleString("fr-FR")}`,
+          `Majorité certifiée, CGV, CGU et politique de confidentialité acceptées le ${new Date().toLocaleString("fr-FR")}`,
         ]
           .filter(Boolean)
           .join(" | ") || null,
