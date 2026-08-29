@@ -35,7 +35,7 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const MARQUEE = ["PARIS & Île-de-France", "Analysé en laboratoire", "THC < 0,3 %"];
+
 
 const DELIVERY = {
   label: "Livraison express",
