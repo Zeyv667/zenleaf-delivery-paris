@@ -76,12 +76,16 @@ function ContactPage() {
     }
 
     const message = [
-      "Bonjour CALIV, je souhaite passer une commande.",
+      "Bonjour,",
       "",
-      `Pseudo : ${data.pseudo}`,
-      `Numéro : ${data.numero}`,
-      `Variété : ${data.variete}`,
+      "Je souhaite passer une commande chez Caliv. Êtes-vous disponible pour une livraison ?",
+      "",
+      `Variété(s) : ${data.variete}`,
+      `Quantité(s) :`,
+      `Adresse complète de livraison :`,
       data.details ? `\nDétails :\n${data.details}` : "",
+      "",
+      "Merci de me confirmer la disponibilité ainsi que le délai estimé de livraison.",
     ].join("\n");
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
