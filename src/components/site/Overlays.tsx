@@ -24,34 +24,37 @@ export function AgeGate() {
 
   return (
     <div className="fixed inset-0 z-[70] flex flex-col items-center justify-center overflow-y-auto bg-background px-6 py-8 text-center">
-      <div className="m-auto w-full max-w-md fade-up">
+      <div className="m-auto w-full max-w-[20rem] fade-up">
         <p className="eyebrow">PARIS · Île-de-France</p>
         <img
           src={ageLogo.url}
           alt="CALIV"
           width={900}
           height={900}
-          className="mx-auto mt-6 w-full max-w-[16rem] md:max-w-[18rem]"
+          className="mx-auto mt-6 w-full max-w-[14rem] md:max-w-[16rem]"
         />
-        <div className="mx-auto mt-8 h-px w-16 bg-accent" />
-        <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
+        <div className="mx-auto mt-8 h-px w-14 bg-accent" />
+        <p className="mx-auto mt-6 max-w-[16rem] text-[11px] leading-relaxed text-muted-foreground">
           Site réservé aux adultes (+18 ans). En poursuivant, vous confirmez être majeur(e).
         </p>
-        <div className="mt-6 flex flex-col gap-3">
+        <div className="mt-6 grid grid-cols-2 gap-3">
           <button
-            className="btn-base btn-primary w-full"
+            className="btn-base btn-primary h-12 w-full text-xs font-semibold tracking-wider"
             onClick={() => {
               window.localStorage.setItem("caliv.age", "ok");
               setVerified(true);
             }}
           >
-            + 18
+            +18
           </button>
-          <a href="https://www.google.com" className="btn-base btn-ghost w-full">
+          <a
+            href="https://www.google.com"
+            className="btn-base btn-ghost h-12 w-full text-xs font-semibold tracking-wider"
+          >
             NO
           </a>
         </div>
-        <p className="mt-8 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+        <p className="mt-8 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
           CALIV — Premium CBD delivery
         </p>
       </div>
