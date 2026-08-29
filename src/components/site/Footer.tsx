@@ -27,7 +27,7 @@ export function Footer() {
 
         <div className="flex flex-col items-start md:items-end md:justify-end">
           <p className="display text-lg">Paiement Sécurisé</p>
-          <PaymentMethods className="mt-4 w-full md:max-w-sm" />
+          <PaymentMethods minimal className="mt-4 w-full md:max-w-sm" />
         </div>
       </div>
 
