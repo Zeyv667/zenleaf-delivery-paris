@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ageLogo from "@/assets/caliv-gorilla-logo-hd.webp";
+import ageLogo from "@/assets/logo-tremblement.gif.asset.json";
 import { WHATSAPP_LINK } from "@/lib/utils";
 
 export function AgeGate() {
