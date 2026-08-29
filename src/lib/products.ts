@@ -7,7 +7,7 @@ import resinTwo from "@/assets/caliv-resin-2-hd.png";
 const sunsetCream = pouchSunset.url;
 const blueberryCandy = pouchPink;
 const bruceBanner = pouchGreen.url;
-const frozenHash = resinOne;
+const frozenHash = resinFrozen.url;
 const caliPlate = resinTwo;
 
 export type ProductType = "Fleur" | "Résine";
