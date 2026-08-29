@@ -1,3 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemap s.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://zenleaf-delivery-paris.lovable.app/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://zenleaf-delivery-paris.lovable.app/produits</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://zenleaf-delivery-paris.lovable.app/contact</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://zenleaf-delivery-paris.lovable.app/cbd</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zenleaf-delivery-paris.lovable.app/faq</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zenleaf-delivery-paris.lovable.app/cgv</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://zenleaf-delivery-paris.lovable.app/mentions-legales</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://zenleaf-delivery-paris.lovable.app/confidentialite</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
