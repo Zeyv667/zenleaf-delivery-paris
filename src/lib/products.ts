@@ -12,6 +12,11 @@ const caliPlate = resinTwo;
 
 export type ProductType = "Fleur" | "Résine";
 
+export type ProductVariant = {
+  label: string;
+  price: number;
+};
+
 export type Product = {
   id: string;
   name: string;
@@ -21,6 +26,7 @@ export type Product = {
   pricePerGram: number;
   price: number;
   image: string;
+  variants?: ProductVariant[];
 };
 
 export const PRODUCTS: Product[] = [
