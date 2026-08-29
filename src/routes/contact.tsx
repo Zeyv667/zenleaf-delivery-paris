@@ -92,11 +92,6 @@ function ContactPage() {
       <h1 className="display mt-4 max-w-2xl text-[2.25rem] sm:text-4xl md:text-6xl">
         CONTACTEZ NOUS
       </h1>
-      <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-[#FBD9DF]/50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-foreground">
-        <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-        Réponse rapide (10 min max)
-      </p>
-
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="mt-10 grid max-w-xl gap-6"
@@ -165,6 +160,11 @@ function ContactPage() {
           EXPRESS DELIVERY
         </button>
       </form>
+
+      <p className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#FBD9DF]/50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-foreground">
+        <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+        Réponse rapide (10 min max)
+      </p>
 
       <section className="mt-16 max-w-2xl border-t border-border pt-10">
         <h2 className="display text-2xl md:text-3xl">Conditions de livraison</h2>
