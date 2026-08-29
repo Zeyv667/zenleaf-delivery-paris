@@ -125,7 +125,7 @@ function ContactPage() {
           valid={Boolean(dirtyFields.pseudo) && !errors.pseudo}
           inputProps={{
             type: "text",
-            placeholder: "REYMYSTERIO",
+            placeholder: "REYMYSTERIO619",
             autoComplete: "nickname",
             autoCapitalize: "characters",
             enterKeyHint: "next",
