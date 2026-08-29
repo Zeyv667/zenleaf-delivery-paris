@@ -161,29 +161,14 @@ function ContactPage() {
               valid={Boolean(dirtyFields.variete) && !errors.variete}
               options={PRODUCTS.flatMap((p) =>
                 p.variants
-                  ? p.variants.map((v) => ({
-                      value: `${p.name} — ${v.label}`,
-                      label: `${p.name} — ${v.label} ${formatPrice(v.price)}`,
-                    }))
+                  ? p.variants
+                      .filter((v) => v.label !== "2G")
+                      .map((v) => ({
+                        value: `${p.name} — ${v.label}`,
+                        label: `${p.name} — ${v.label} ${formatPrice(v.price)}`,
+                      }))
                   : [{ value: p.name, label: p.name }],
               )}
-              value={field.value}
-              onChange={field.onChange}
-              onBlur={field.onBlur}
-            />
-          )}
-        />
-
-        <Controller
-          name="quantite"
-          control={control}
-          render={({ field }) => (
-            <SelectField
-              id="quantite"
-              label="Quantité"
-              error={errors.quantite?.message}
-              valid={Boolean(dirtyFields.quantite) && !errors.quantite}
-              options={QUANTITIES.map((q) => ({ value: q, label: q }))}
               value={field.value}
               onChange={field.onChange}
               onBlur={field.onBlur}
