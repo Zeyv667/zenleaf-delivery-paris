@@ -16,8 +16,8 @@ const LINKS = [
 export function Footer() {
   return (
     <footer className="border-t border-border">
-      <div className="container-x grid grid-cols-2 gap-8 py-12 md:grid-cols-[1.4fr_1fr_1fr] md:gap-12 md:py-16">
-        <div className="col-span-2 md:col-span-1">
+      <div className="container-x grid gap-8 py-12 md:grid-cols-2 md:gap-12 md:py-16">
+        <div>
           <img src={logo} alt="CALIV Premium CBD PARIS" width={56} height={56} className="h-12 w-auto" />
           <p className="display mt-4 text-2xl tracking-[0.12em]">CALIV</p>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
@@ -25,6 +25,13 @@ export function Footer() {
           </p>
         </div>
 
+        <div className="flex flex-col items-start md:items-end md:justify-end">
+          <p className="display text-lg">Paiement Sécurisé</p>
+          <PaymentMethods className="mt-4 w-full md:max-w-sm" />
+        </div>
+      </div>
+
+      <div className="container-x grid grid-cols-2 gap-8 border-t border-border pb-[calc(2rem+env(safe-area-inset-bottom))] pt-8 md:grid-cols-[1fr_1fr] md:gap-12">
         <nav className="flex flex-col gap-3">
           {LINKS.slice(0, 4).map((l) => (
             <Link key={l.to} to={l.to} className="py-2 text-sm text-muted-foreground hover:text-foreground md:py-1">
