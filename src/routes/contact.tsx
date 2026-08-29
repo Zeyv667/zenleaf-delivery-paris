@@ -20,7 +20,18 @@ const orderSchema = z.object({
     .string()
     .trim()
     .min(8, { message: "Numéro requis." })
-    .max(20, { message: "Le numéro ne doit pas dépasser 20 caractères." }),
+    .max(20, { message: "Le numéro ne doit pas dépasser 20 caractères." })
+    .refine(
+      (v) =>
+        /^(?:(?:\+|00)33[\s\.]?0?|0)[1-9](?:[\s\.]?\d{2}){4}$/.test(
+          v.replace(/\s/g, ""),
+        ),
+      {
+        message:
+          "Numéro invalide. Exemple : 06 00 00 00 00 ou +33 6 00 00 00 00.",
+      },
+    ),
+
   variete: z
     .array(z.string())
     .min(1, { message: "Sélectionnez au moins une variété." }),
