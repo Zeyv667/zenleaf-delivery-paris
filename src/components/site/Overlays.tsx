@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ageLogo from "@/assets/caliv-gorilla-logo-hd.png";
+import ageLogo from "@/assets/caliv-gorilla-logo-hd.webp";
 
 export function AgeGate() {
   const [ready, setReady] = useState(false);

@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroImage from "@/assets/caliv-store-hero-hd.jpg";
+import heroImage from "@/assets/caliv-store-hero-hd.webp";
 import wordmarkAsset from "@/assets/caliv-cbd-premium-3.png.asset.json";
 import { ProductCard } from "@/components/site/ProductCard";
 import { PRODUCTS } from "@/lib/products";
@@ -24,7 +24,11 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [
+      { rel: "canonical", href: "/" },
+      { rel: "preload", as: "image", href: wordmarkAsset.url, fetchpriority: "high" },
+      { rel: "preload", as: "image", href: heroImage, fetchpriority: "high" },
+    ],
   }),
   component: Home,
 });
