@@ -26,7 +26,7 @@ export function Footer() {
 
         <nav className="flex flex-col gap-3">
           {LINKS.slice(0, 4).map((l) => (
-            <Link key={l.to} to={l.to} className="py-1 text-sm text-muted-foreground hover:text-foreground">
+            <Link key={l.to} to={l.to} className="py-2 text-sm text-muted-foreground hover:text-foreground md:py-1">
               {l.label}
             </Link>
           ))}
@@ -34,7 +34,7 @@ export function Footer() {
 
         <nav className="flex flex-col gap-3">
           {LINKS.slice(4).map((l) => (
-            <Link key={l.to} to={l.to} className="py-1 text-sm text-muted-foreground hover:text-foreground">
+            <Link key={l.to} to={l.to} className="py-2 text-sm text-muted-foreground hover:text-foreground md:py-1">
               {l.label}
             </Link>
           ))}

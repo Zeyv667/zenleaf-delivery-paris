@@ -83,7 +83,7 @@ export function CartDrawer() {
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
                 placeholder="Code promo"
-                className="flex-1 rounded-full border border-[#FBD9DF] bg-transparent px-4 py-2 text-sm outline-none placeholder:text-muted-foreground focus:border-[#759DD2]"
+                className="flex-1 rounded-full border border-[#FBD9DF] bg-transparent px-4 py-2 text-base outline-none placeholder:text-muted-foreground focus:border-[#759DD2] sm:text-sm"
               />
               <button className="btn-base btn-ghost px-5 py-2 active:scale-[0.98]" onClick={() => cart.applyPromo(code)}>
                 Appliquer

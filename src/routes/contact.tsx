@@ -153,7 +153,7 @@ function ContactPage() {
             id="details"
             rows={4}
             placeholder="Quantité, adresse complète, créneau..."
-            className="w-full resize-none rounded-sm border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 outline-none transition focus:border-primary focus:ring-2 focus:ring-ring/30"
+            className="w-full resize-none rounded-sm border border-border bg-background px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 outline-none transition focus:border-primary focus:ring-2 focus:ring-ring/30 sm:text-sm"
             {...register("details")}
           />
           {errors.details?.message && (
@@ -195,7 +195,7 @@ function Field({
       </label>
       <input
         id={id}
-        className="w-full rounded-sm border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 outline-none transition focus:border-primary focus:ring-2 focus:ring-ring/30"
+        className="w-full rounded-sm border border-border bg-background px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 outline-none transition focus:border-primary focus:ring-2 focus:ring-ring/30 sm:text-sm"
         {...inputProps}
       />
       {error && <p className="text-sm text-red-600">{error}</p>}
