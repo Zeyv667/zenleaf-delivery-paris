@@ -101,7 +101,7 @@ export function FloatingActions() {
   return (
     <div className="fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-[max(1rem,env(safe-area-inset-right))] z-40 flex flex-col items-end gap-2.5">
       <a
-        href={WHATSAPP_LINK}
+        href={`${WHATSAPP_LINK}?text=${encodeURIComponent("Bonjour, êtes vous disponible pour une livraison ?")}`}
         aria-label="Commander par WhatsApp"
         className="inline-flex h-12 items-center gap-2 rounded-full bg-olive pl-3.5 pr-4 text-background shadow-lg shadow-olive/20 transition-transform hover:scale-105 active:scale-[0.98]"
       >
