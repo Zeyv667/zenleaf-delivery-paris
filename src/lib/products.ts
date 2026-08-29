@@ -1,4 +1,4 @@
-import pouchSunset from "@/assets/CALIV_ID_MENU-5-clean.png.asset.json";
+import pouchSunset from "@/assets/flower-bag-1-option-a.png";
 import pouchGreen from "@/assets/CALIV_ID_MENU-4-clean.png.asset.json";
 import pouchPink from "@/assets/caliv-pouch-pink-hd.webp";
 import resinFrozen from "@/assets/caliv-resin-1.png.asset.json";
