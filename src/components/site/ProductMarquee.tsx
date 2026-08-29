@@ -2,8 +2,8 @@ import { PRODUCTS } from "@/lib/products";
 
 function MarqueeCard({ product }: { product: (typeof PRODUCTS)[number] }) {
   return (
-    <div className="relative w-44 shrink-0 overflow-hidden rounded-lg border border-[#FBD9DF] bg-[#FBD9DF] shadow-sm">
-      <div className="aspect-[4/5] w-full bg-[#FBD9DF]">
+    <div className="relative w-44 shrink-0 overflow-hidden rounded-lg border border-border/60 bg-background shadow-sm">
+      <div className="aspect-[4/5] w-full bg-background">
         <img
           src={product.image}
           alt={product.name}
