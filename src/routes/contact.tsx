@@ -29,6 +29,9 @@ const orderSchema = z.object({
     .trim()
     .min(8, { message: "Adresse complète requise (numéro, rue, code postal, ville)." })
     .max(300, { message: "L'adresse ne doit pas dépasser 300 caractères." }),
+  adresseSelected: z.boolean().refine((v) => v === true, {
+    message: "Veuillez sélectionner une adresse dans la liste Google Maps.",
+  }),
 });
 
 type OrderForm = z.infer<typeof orderSchema>;
@@ -59,11 +62,12 @@ function ContactPage() {
     register,
     handleSubmit,
     control,
+    setValue,
     watch,
     formState: { errors, isSubmitting, dirtyFields },
   } = useForm<OrderForm>({
     resolver: zodResolver(orderSchema),
-    defaultValues: { variete: [], adresse: "" },
+    defaultValues: { variete: [], adresse: "", adresseSelected: false },
     mode: "onBlur",
     reValidateMode: "onChange",
   });
@@ -167,10 +171,17 @@ function ContactPage() {
           render={({ field }) => (
             <AddressField
               value={field.value ?? ""}
-              onChange={field.onChange}
+              onChange={(value) => {
+                field.onChange(value);
+                setValue("adresseSelected", false, { shouldValidate: false });
+              }}
               onBlur={field.onBlur}
-              error={errors.adresse?.message}
-              valid={Boolean(dirtyFields.adresse) && !errors.adresse}
+              onSelect={(value) => {
+                field.onChange(value);
+                setValue("adresseSelected", true, { shouldValidate: true });
+              }}
+              error={errors.adresse?.message ?? errors.adresseSelected?.message}
+              valid={Boolean(dirtyFields.adresse) && !errors.adresse && !errors.adresseSelected}
             />
           )}
         />
@@ -479,12 +490,14 @@ function AddressField({
   value,
   onChange,
   onBlur,
+  onSelect,
   error,
   valid,
 }: {
   value: string;
   onChange: (v: string) => void;
   onBlur: () => void;
+  onSelect: (v: string) => void;
   error?: string | undefined;
   valid?: boolean | undefined;
 }) {
@@ -576,7 +589,7 @@ function AddressField({
                   onMouseDown={(e) => e.preventDefault()}
                   onClick={() => {
                     pickedRef.current = true;
-                    onChange(s);
+                    onSelect(s);
                     setSuggestions([]);
                     setOpen(false);
                   }}
