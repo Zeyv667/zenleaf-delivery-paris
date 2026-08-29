@@ -4,7 +4,7 @@ import pouchPink from "@/assets/caliv-pouch-pink-hd.webp";
 import resinFrozen from "@/assets/caliv-resin-1.png.asset.json";
 import resinTwo from "@/assets/caliv-resin-2-hd.webp";
 
-const sunsetCream = pouchSunset.url;
+const sunsetCream = pouchSunset;
 const blueberryCandy = pouchPink;
 const bruceBanner = pouchGreen.url;
 const frozenHash = resinFrozen.url;
