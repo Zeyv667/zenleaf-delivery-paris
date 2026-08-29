@@ -230,6 +230,37 @@ function ContactPage() {
           )}
         />
 
+        <div className="grid gap-3 rounded-lg border border-border bg-background/60 p-4">
+          <ConsentField
+            id="majeur"
+            error={errors.majeur?.message}
+            inputProps={register("majeur")}
+          >
+            Je certifie être majeur (18 ans ou plus). Une pièce d'identité peut être demandée à la
+            livraison.
+          </ConsentField>
+
+          <ConsentField id="cgv" error={errors.cgv?.message} inputProps={register("cgv")}>
+            J'ai lu et j'accepte les{" "}
+            <Link to="/cgv" className="underline underline-offset-2">
+              conditions générales de vente
+            </Link>{" "}
+            et les{" "}
+            <Link to="/cgu" className="underline underline-offset-2">
+              conditions d'utilisation
+            </Link>
+            .
+          </ConsentField>
+
+          <ConsentField id="rgpd" error={errors.rgpd?.message} inputProps={register("rgpd")}>
+            J'accepte que mes données soient utilisées pour traiter ma commande, conformément à la{" "}
+            <Link to="/confidentialite" className="underline underline-offset-2">
+              politique de confidentialité
+            </Link>
+            .
+          </ConsentField>
+        </div>
+
         <div className="sticky bottom-[max(1rem,env(safe-area-inset-bottom))] z-10 sm:static">
           <button
             type="submit"
