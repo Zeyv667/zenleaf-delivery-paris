@@ -375,23 +375,34 @@ function Field({
   );
 }
 
-function SelectField({
+function MultiSelectField({
   id,
   label,
   error,
   valid,
-  selectProps,
-  children,
+  options,
+  value,
+  onChange,
+  onBlur,
 }: {
   id: string;
   label: string;
   error: string | undefined;
   valid: boolean;
-  selectProps: React.SelectHTMLAttributes<HTMLSelectElement>;
-  children: React.ReactNode;
+  options: { value: string; label: string }[];
+  value: string[];
+  onChange: (value: string[]) => void;
+  onBlur: () => void;
 }) {
+  const toggle = (optionValue: string) => {
+    const next = value.includes(optionValue)
+      ? value.filter((v) => v !== optionValue)
+      : [...value, optionValue];
+    onChange(next);
+  };
+
   return (
-    <div className="grid gap-1.5">
+    <div className="grid gap-1.5" onBlur={onBlur}>
       <label
         htmlFor={id}
         className="flex items-center justify-between text-xs font-medium uppercase tracking-wider text-muted-foreground"
@@ -403,20 +414,66 @@ function SelectField({
           </span>
         )}
       </label>
-      <select
+      <div
         id={id}
+        role="listbox"
+        aria-multiselectable="true"
         aria-invalid={Boolean(error)}
-        className={`w-full appearance-none rounded-lg border bg-background px-4 py-3.5 text-base text-foreground outline-none transition focus:ring-2 ${
+        className={`max-h-64 overflow-y-auto rounded-lg border bg-background p-2 outline-none transition focus-within:ring-2 ${
           error
-            ? "border-red-500 focus:border-red-500 focus:ring-red-500/25"
+            ? "border-red-500 focus-within:border-red-500 focus-within:ring-red-500/25"
             : valid
-              ? "border-green-500/60 focus:border-primary focus:ring-ring/30"
-              : "border-border focus:border-primary focus:ring-ring/30"
+              ? "border-green-500/60 focus-within:border-primary focus-within:ring-ring/30"
+              : "border-border focus-within:border-primary focus-within:ring-ring/30"
         }`}
-        {...selectProps}
       >
-        {children}
-      </select>
+        <div className="grid gap-1.5">
+          {options.map((option) => {
+            const checked = value.includes(option.value);
+            return (
+              <label
+                key={option.value}
+                role="option"
+                aria-selected={checked}
+                className={`flex cursor-pointer items-center gap-3 rounded-md px-3 py-2.5 text-sm transition ${
+                  checked
+                    ? "bg-primary/10 font-medium text-foreground"
+                    : "text-foreground hover:bg-muted/50"
+                }`}
+              >
+                <span
+                  className={`flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border transition ${
+                    checked
+                      ? "border-primary bg-primary text-primary-foreground"
+                      : "border-border bg-background"
+                  }`}
+                >
+                  {checked && (
+                    <svg
+                      className="h-3.5 w-3.5"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="2 7 6 11 12 3" />
+                    </svg>
+                  )}
+                </span>
+                <input
+                  type="checkbox"
+                  className="sr-only"
+                  checked={checked}
+                  onChange={() => toggle(option.value)}
+                />
+                <span className="leading-tight">{option.label}</span>
+              </label>
+            );
+          })}
+        </div>
+      </div>
       {error && <p className="text-xs text-red-600">{error}</p>}
     </div>
   );
