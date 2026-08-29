@@ -14,6 +14,11 @@ function MarqueeCard({ product }: { product: (typeof PRODUCTS)[number] }) {
           className="h-full w-full object-contain p-3"
         />
       </div>
+      <div className="px-2 pb-3 pt-1 text-center">
+        <p className="line-clamp-2 text-[10px] font-semibold uppercase leading-tight tracking-wide text-[#759DD2]">
+          {product.name}
+        </p>
+      </div>
       <div className="absolute left-3 top-3">
         <span className="rounded bg-[#e6eefb] px-2 py-1 text-[9px] font-bold uppercase tracking-wider text-[#759DD2]">
           {product.type}
