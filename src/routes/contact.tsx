@@ -110,7 +110,13 @@ function ContactPage() {
       pseudo: data.pseudo,
       numero: data.numero,
       variete: varietiesText,
-      details: data.adresse || null,
+      details:
+        [
+          data.adresse,
+          `Majorité certifiée, CGV et politique de confidentialité acceptées le ${new Date().toLocaleString("fr-FR")}`,
+        ]
+          .filter(Boolean)
+          .join(" | ") || null,
     });
     if (error) {
       console.error("Enregistrement de la commande impossible", error.message);
