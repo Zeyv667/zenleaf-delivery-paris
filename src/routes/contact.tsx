@@ -589,7 +589,7 @@ function AddressField({
                   onMouseDown={(e) => e.preventDefault()}
                   onClick={() => {
                     pickedRef.current = true;
-                    onChange(s);
+                    onSelect(s);
                     setSuggestions([]);
                     setOpen(false);
                   }}
