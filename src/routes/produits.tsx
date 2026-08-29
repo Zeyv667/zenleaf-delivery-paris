@@ -108,10 +108,6 @@ function ProductsPage() {
               <p className="mt-1">Le client est seul responsable de l'utilisation des produits après leur achat et s'engage à respecter la législation applicable dans son pays de résidence.</p>
             </div>
 
-            <div className="sm:col-span-2">
-              <h4 className="font-semibold text-foreground">Propriété intellectuelle</h4>
-              <p className="mt-1">L'ensemble du contenu du site Caliv (textes, visuels, logo, photographies, éléments graphiques) est protégé par le droit de la propriété intellectuelle.</p>
-            </div>
           </div>
         </div>
       </section>
