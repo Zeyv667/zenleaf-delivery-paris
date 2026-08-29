@@ -490,12 +490,14 @@ function AddressField({
   value,
   onChange,
   onBlur,
+  onSelect,
   error,
   valid,
 }: {
   value: string;
   onChange: (v: string) => void;
   onBlur: () => void;
+  onSelect: (v: string) => void;
   error?: string | undefined;
   valid?: boolean | undefined;
 }) {
