@@ -62,10 +62,8 @@ function Home() {
         <div className="grid gap-8 py-10 md:gap-10 md:py-14 md:grid-cols-[1.1fr_0.9fr] md:items-center">
           <div>
             <p className="eyebrow">CBD premium · PARIS & Île-de-France</p>
-            <h1 className="display mt-4 text-[2.5rem] leading-[0.95] sm:text-[3rem] md:text-[5rem]">
-              Livraison
-              <br />
-              express.
+            <h1 className="display mt-4 text-center text-[2.5rem] leading-[0.95] sm:text-[3rem] md:text-[5rem]">
+              LIVRAISON EXPRESS
             </h1>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a
@@ -144,7 +142,7 @@ function Home() {
       {/* ZONE & QUALITÉ */}
       <section className="bg-primary/10">
         <div className="container-x flex flex-col items-start py-12 md:py-20">
-          <h3 className="display text-[1.75rem] sm:text-3xl md:text-5xl">CBD PREMIUM</h3>
+          <h3 className="display text-[1.75rem] sm:text-3xl md:text-5xl">CBD+</h3>
           <p className="mt-3 text-base text-muted-foreground md:text-lg">Nos variétés sont analysées en laboratoire français — COA disponible pour chaque variété.</p>
         </div>
       </section>
