@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImage from "@/assets/caliv-store-hero-hd.webp";
 import wordmarkAsset from "@/assets/caliv-cbd-premium-3.png.asset.json";
 import { ProductMarquee } from "@/components/site/ProductMarquee";
-import { PaymentMethods } from "@/components/site/PaymentMethods";
 
 import { WHATSAPP_LINK } from "@/lib/utils";
 
