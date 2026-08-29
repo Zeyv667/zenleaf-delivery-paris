@@ -35,7 +35,7 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const MARQUEE = ["PARIS & Île-de-France", "Analysé en laboratoire", "THC < 0,3 %"];
+
 
 const DELIVERY = {
   label: "Livraison express",
@@ -111,21 +111,6 @@ function Home() {
 
       {/* VARIETES */}
       <ProductMarquee />
-
-      {/* BANDEAU */}
-      <div className="overflow-hidden border-y border-border bg-primary py-3">
-        <div className="container-x flex flex-wrap items-center justify-center gap-x-8 gap-y-1 text-center">
-          {MARQUEE.map((m) => (
-            <span
-              key={m}
-              className="text-[11px] uppercase tracking-[0.24em] text-primary-foreground"
-            >
-              {m}
-            </span>
-          ))}
-        </div>
-      </div>
-
 
       {/* SERVICE */}
       <section className="border-y border-border">
