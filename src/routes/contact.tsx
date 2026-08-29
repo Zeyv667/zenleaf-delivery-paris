@@ -415,6 +415,7 @@ function MultiSelectField({
   value,
   onChange,
   onBlur,
+  quantitySlot,
 }: {
   id: string;
   label: string;
@@ -424,6 +425,7 @@ function MultiSelectField({
   value: string[];
   onChange: (value: string[]) => void;
   onBlur: () => void;
+  quantitySlot?: React.ReactNode;
 }) {
   const toggle = (optionValue: string) => {
     const next = value.includes(optionValue)
@@ -434,17 +436,20 @@ function MultiSelectField({
 
   return (
     <div className="grid gap-1.5" onBlur={onBlur}>
-      <label
-        htmlFor={id}
-        className="flex items-center justify-between text-xs font-medium uppercase tracking-wider text-muted-foreground"
-      >
-        {label}
-        {valid && (
-          <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-green-600">
-            <span aria-hidden>✓</span> OK
-          </span>
-        )}
-      </label>
+      <div className="flex items-center justify-between">
+        <label
+          htmlFor={id}
+          className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-muted-foreground"
+        >
+          {label}
+          {valid && (
+            <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-green-600">
+              <span aria-hidden>✓</span> OK
+            </span>
+          )}
+        </label>
+        {quantitySlot}
+      </div>
       <div
         id={id}
         role="listbox"
