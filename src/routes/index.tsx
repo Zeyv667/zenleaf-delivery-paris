@@ -160,7 +160,7 @@ function Home() {
 
       {/* PAIEMENT */}
       <section className="container-x pb-10 md:pb-14">
-        <p className="eyebrow mb-4">Paiement</p>
+        <p className="eyebrow mb-4">Paiement Sécurisé</p>
         <PaymentMethods />
       </section>
 
