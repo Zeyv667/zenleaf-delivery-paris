@@ -226,3 +226,103 @@
     animation: none;
   }
 }
+
+/* ============================================================
+   iOS / Safari WebKit optimisations (viewport, scroll, touch)
+   ============================================================ */
+
+@layer base {
+  html {
+    /* momentum scrolling natif + pas de zoom auto sur rotation */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    /* évite le rebond/pull-to-refresh accidentel sur iOS */
+    overscroll-behavior-y: none;
+    min-height: 100dvh;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* iOS zoome sur tout champ < 16px : on verrouille à 16px */
+  input,
+  select,
+  textarea,
+  button {
+    font-size: max(16px, 1rem);
+  }
+
+  select,
+  textarea,
+  input {
+    border-radius: inherit;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  /* zones tactiles confortables au pouce */
+  button,
+  a[role="button"],
+  [type="button"],
+  [type="submit"] {
+    touch-action: manipulation;
+  }
+
+  /* focus visible cohérent (accessibilité AA) */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  /* images : jamais de débordement, pas de CLS */
+  img,
+  svg,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* listes déroulantes / conteneurs scrollables : inertie iOS */
+  .overflow-y-auto,
+  .overflow-auto,
+  .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+}
+
+/* safe areas Apple (Dynamic Island, encoche, barre d'accueil) */
+@utility container-x {
+  padding-inline: max(1rem, env(safe-area-inset-left), env(safe-area-inset-right));
+}
+
+@utility safe-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+@utility safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* accélération GPU du bandeau produits (transform only, 60 fps) */
+.marquee-track {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
