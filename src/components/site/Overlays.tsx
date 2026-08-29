@@ -45,7 +45,7 @@ export function AgeGate() {
               setVerified(true);
             }}
           >
-            +18
+            <span className="text-xl">+18</span>
           </button>
           <a
             href="https://www.google.com"
