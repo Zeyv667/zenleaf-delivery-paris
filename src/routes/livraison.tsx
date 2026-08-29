@@ -42,7 +42,16 @@ function DeliveryPage() {
           )},
           { heading: "Frais de livraison", body: "La livraison est offerte pour toute commande validée." },
           { heading: "Montant minimum de commande", body: "Un minimum de 5 g est requis pour passer commande, ce qui correspond à un sachet de 5 g." },
+          { heading: "Modes de paiement", body: (
+            <>
+              <p>Règlement simple et flexible au moment de la livraison :</p>
+              <div className="mt-4">
+                <PaymentMethods />
+              </div>
+            </>
+          )},
           { heading: "Zone desservie", body: "Nous livrons actuellement PARIS et certaines communes limitrophes d’Île-de-France. Les départements 91 et 92 ne sont pas encore couverts dans leur intégralité. Nous travaillons activement à l’extension de notre zone de livraison." },
+
           { heading: "Horaires de livraison", body: "Les livraisons sont effectuées selon les créneaux disponibles et l'activité du service." },
           { heading: "Délais de livraison", body: "Les délais communiqués sont indicatifs et peuvent varier en fonction du trafic, des conditions météorologiques ou d'autres circonstances exceptionnelles." },
           { heading: "Vérification de l'âge", body: "La vente est strictement réservée aux personnes majeures. Une pièce d'identité pourra être demandée lors de la livraison." },
