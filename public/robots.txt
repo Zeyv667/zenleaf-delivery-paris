@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://zenleaf-delivery-paris.lovable.app/sitemap.xml

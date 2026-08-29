@@ -21,13 +21,12 @@ export const Route = createFileRoute("/")({
         content: "Fleurs et résines sélectionnées, livrées à PARIS et en Île-de-France.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://zenleaf-delivery-paris.lovable.app/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      { rel: "canonical", href: "/" },
-      { rel: "preload", as: "image", href: wordmarkAsset.url, fetchpriority: "high" },
-      { rel: "preload", as: "image", href: heroImage, fetchpriority: "high" },
+      { rel: "canonical", href: "https://zenleaf-delivery-paris.lovable.app/" },
+      { rel: "preload", as: "image", href: wordmarkAsset.url },
     ],
   }),
   component: Home,
@@ -52,7 +51,8 @@ function Home() {
             alt="CALIV — Premium CBD PARIS"
             width={900}
             height={480}
-            fetchPriority="high"
+            decoding="sync"
+            loading="eager"
             className="w-full max-w-[19rem] sm:max-w-md"
           />
         </div>
@@ -99,6 +99,8 @@ function Home() {
             width={1200}
             height={1200}
             loading="lazy"
+            decoding="async"
+            sizes="(max-width: 768px) 100vw, 45vw"
             className="aspect-square h-full w-full object-cover md:aspect-auto"
           />
           </div>

@@ -14,9 +14,9 @@ export const Route = createFileRoute("/produits")({
       },
       { property: "og:title", content: "Nos variétés CBD — Fleurs et résines | CALIV" },
       { property: "og:description", content: "Fleurs et résines CBD sélectionnées, sachets 5 g." },
-      { property: "og:url", content: "/produits" },
+      { property: "og:url", content: "https://zenleaf-delivery-paris.lovable.app/produits" },
     ],
-    links: [{ rel: "canonical", href: "/produits" }],
+    links: [{ rel: "canonical", href: "https://zenleaf-delivery-paris.lovable.app/produits" }],
   }),
   component: ProductsPage,
 });

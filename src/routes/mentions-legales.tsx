@@ -11,9 +11,9 @@ export const Route = createFileRoute("/mentions-legales")({
       },
       { property: "og:title", content: "Mentions légales | CALIV" },
       { property: "og:description", content: "Éditeur, hébergeur et propriété intellectuelle." },
-      { property: "og:url", content: "/mentions-legales" },
+      { property: "og:url", content: "https://zenleaf-delivery-paris.lovable.app/mentions-legales" },
     ],
-    links: [{ rel: "canonical", href: "/mentions-legales" }],
+    links: [{ rel: "canonical", href: "https://zenleaf-delivery-paris.lovable.app/mentions-legales" }],
   }),
   component: () => (
     <LegalPage

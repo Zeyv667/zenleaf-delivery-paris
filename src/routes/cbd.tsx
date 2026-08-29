@@ -15,10 +15,10 @@ export const Route = createFileRoute("/cbd")({
         content: "Tout savoir sur le CBD, sa légalité et les précautions d'utilisation.",
       },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: "/cbd" },
+      { property: "og:url", content: "https://zenleaf-delivery-paris.lovable.app/cbd" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/cbd" }],
+    links: [{ rel: "canonical", href: "https://zenleaf-delivery-paris.lovable.app/cbd" }],
   }),
   component: CbdPage,
 });

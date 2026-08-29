@@ -11,9 +11,9 @@ export const Route = createFileRoute("/cgv")({
       },
       { property: "og:title", content: "Conditions générales de vente | CALIV" },
       { property: "og:description", content: "Commandes, prix, paiement, livraison et rétractation." },
-      { property: "og:url", content: "/cgv" },
+      { property: "og:url", content: "https://zenleaf-delivery-paris.lovable.app/cgv" },
     ],
-    links: [{ rel: "canonical", href: "/cgv" }],
+    links: [{ rel: "canonical", href: "https://zenleaf-delivery-paris.lovable.app/cgv" }],
   }),
   component: () => (
     <LegalPage
