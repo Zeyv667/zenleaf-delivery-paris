@@ -49,6 +49,9 @@ const orderSchema = z.object({
   cgv: z.boolean().refine((v) => v === true, {
     message: "Vous devez accepter les conditions générales de vente.",
   }),
+  cgu: z.boolean().refine((v) => v === true, {
+    message: "Vous devez accepter les conditions d'utilisation.",
+  }),
   rgpd: z.boolean().refine((v) => v === true, {
     message: "Vous devez accepter la politique de confidentialité.",
   }),
@@ -95,6 +98,7 @@ function ContactPage() {
       adresseSelected: false,
       majeur: false,
       cgv: false,
+      cgu: false,
       rgpd: false,
     },
     mode: "onBlur",
@@ -113,7 +117,7 @@ function ContactPage() {
       details:
         [
           data.adresse,
-          `Majorité certifiée, CGV et politique de confidentialité acceptées le ${new Date().toLocaleString("fr-FR")}`,
+          `Majorité certifiée, CGV, CGU et politique de confidentialité acceptées le ${new Date().toLocaleString("fr-FR")}`,
         ]
           .filter(Boolean)
           .join(" | ") || null,
@@ -244,8 +248,12 @@ function ContactPage() {
             J'ai lu et j'accepte les{" "}
             <Link to="/cgv" className="underline underline-offset-2">
               conditions générales de vente
-            </Link>{" "}
-            et les{" "}
+            </Link>
+            .
+          </ConsentField>
+
+          <ConsentField id="cgu" error={errors.cgu?.message} inputProps={register("cgu")}>
+            J'ai lu et j'accepte les{" "}
             <Link to="/cgu" className="underline underline-offset-2">
               conditions d'utilisation
             </Link>
