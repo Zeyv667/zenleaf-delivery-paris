@@ -8,8 +8,9 @@ const LINKS = [
   { to: "/faq", label: "FAQ" },
   { to: "/contact", label: "EXPRESS DELIVERY" },
   { to: "/cgv", label: "CGV" },
+  { to: "/cgu", label: "CGU" },
   { to: "/mentions-legales", label: "Mentions légales" },
-  { to: "/confidentialite", label: "Politique de confidentialité" },
+  { to: "/confidentialite", label: "Confidentialité & cookies" },
 ] as const;
 
 export function Footer() {

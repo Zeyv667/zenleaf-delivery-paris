@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -43,6 +43,15 @@ const orderSchema = z.object({
   adresseSelected: z.boolean().refine((v) => v === true, {
     message: "Veuillez sélectionner une adresse dans la liste Google Maps.",
   }),
+  majeur: z.boolean().refine((v) => v === true, {
+    message: "Vous devez certifier être majeur (18 ans ou plus).",
+  }),
+  cgv: z.boolean().refine((v) => v === true, {
+    message: "Vous devez accepter les conditions générales de vente.",
+  }),
+  rgpd: z.boolean().refine((v) => v === true, {
+    message: "Vous devez accepter la politique de confidentialité.",
+  }),
 });
 
 
@@ -80,7 +89,14 @@ function ContactPage() {
     formState: { errors, isSubmitting, dirtyFields },
   } = useForm<OrderForm>({
     resolver: zodResolver(orderSchema),
-    defaultValues: { variete: [], adresse: "", adresseSelected: false },
+    defaultValues: {
+      variete: [],
+      adresse: "",
+      adresseSelected: false,
+      majeur: false,
+      cgv: false,
+      rgpd: false,
+    },
     mode: "onBlur",
     reValidateMode: "onChange",
   });
@@ -94,7 +110,13 @@ function ContactPage() {
       pseudo: data.pseudo,
       numero: data.numero,
       variete: varietiesText,
-      details: data.adresse || null,
+      details:
+        [
+          data.adresse,
+          `Majorité certifiée, CGV et politique de confidentialité acceptées le ${new Date().toLocaleString("fr-FR")}`,
+        ]
+          .filter(Boolean)
+          .join(" | ") || null,
     });
     if (error) {
       console.error("Enregistrement de la commande impossible", error.message);
@@ -207,6 +229,37 @@ function ContactPage() {
             />
           )}
         />
+
+        <div className="grid gap-3 rounded-lg border border-border bg-background/60 p-4">
+          <ConsentField
+            id="majeur"
+            error={errors.majeur?.message}
+            inputProps={register("majeur")}
+          >
+            Je certifie être majeur (18 ans ou plus). Une pièce d'identité peut être demandée à la
+            livraison.
+          </ConsentField>
+
+          <ConsentField id="cgv" error={errors.cgv?.message} inputProps={register("cgv")}>
+            J'ai lu et j'accepte les{" "}
+            <Link to="/cgv" className="underline underline-offset-2">
+              conditions générales de vente
+            </Link>{" "}
+            et les{" "}
+            <Link to="/cgu" className="underline underline-offset-2">
+              conditions d'utilisation
+            </Link>
+            .
+          </ConsentField>
+
+          <ConsentField id="rgpd" error={errors.rgpd?.message} inputProps={register("rgpd")}>
+            J'accepte que mes données soient utilisées pour traiter ma commande, conformément à la{" "}
+            <Link to="/confidentialite" className="underline underline-offset-2">
+              politique de confidentialité
+            </Link>
+            .
+          </ConsentField>
+        </div>
 
         <div className="sticky bottom-[max(1rem,env(safe-area-inset-bottom))] z-10 sm:static">
           <button
@@ -634,3 +687,34 @@ function AddressField({
   );
 }
 
+
+function ConsentField({
+  id,
+  error,
+  inputProps,
+  children,
+}: {
+  id: string;
+  error: string | undefined;
+  inputProps: React.InputHTMLAttributes<HTMLInputElement>;
+  children: React.ReactNode;
+}) {
+  return (
+    <div>
+      <label
+        htmlFor={id}
+        className="flex cursor-pointer items-start gap-3 text-sm leading-snug text-muted-foreground"
+      >
+        <input
+          id={id}
+          type="checkbox"
+          aria-invalid={Boolean(error)}
+          className="mt-0.5 h-5 w-5 flex-shrink-0 rounded border-border accent-[#759DD2]"
+          {...inputProps}
+        />
+        <span>{children}</span>
+      </label>
+      {error && <p className="mt-1 pl-8 text-xs text-red-600">{error}</p>}
+    </div>
+  );
+}
