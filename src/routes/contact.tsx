@@ -186,7 +186,7 @@ function ContactPage() {
           )}
         />
 
-        <div className="sticky bottom-4 z-10 sm:static">
+        <div className="sticky bottom-[max(1rem,env(safe-area-inset-bottom))] z-10 sm:static">
           <button
             type="submit"
             disabled={isSubmitting}

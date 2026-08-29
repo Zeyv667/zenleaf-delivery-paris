@@ -23,8 +23,8 @@ export function AgeGate() {
   if (verified) return null;
 
   return (
-    <div className="fixed inset-0 z-[70] flex flex-col items-center justify-center bg-background px-6 text-center">
-      <div className="w-full max-w-md fade-up">
+    <div className="fixed inset-0 z-[70] flex flex-col items-center justify-center overflow-y-auto bg-background px-6 py-8 text-center">
+      <div className="m-auto w-full max-w-md fade-up">
         <p className="eyebrow">PARIS · Île-de-France</p>
         <img
           src={ageLogo.url}
@@ -76,7 +76,7 @@ export function CookieBanner() {
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-[60] border-t border-border bg-card/95 backdrop-blur-xl">
-      <div className="container-x flex flex-col gap-4 py-5 md:flex-row md:items-center md:justify-between">
+      <div className="container-x flex flex-col gap-4 py-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] md:flex-row md:items-center md:justify-between">
         <p className="text-xs leading-relaxed text-muted-foreground md:max-w-xl">
           Nous utilisons des cookies pour mesurer l'audience et améliorer votre expérience. Vous pouvez
           accepter ou refuser les cookies de mesure.
@@ -96,7 +96,7 @@ export function CookieBanner() {
 
 export function FloatingActions() {
   return (
-    <div className="fixed bottom-5 right-4 z-40 flex flex-col items-end gap-2.5">
+    <div className="fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-[max(1rem,env(safe-area-inset-right))] z-40 flex flex-col items-end gap-2.5">
       <a
         href={WHATSAPP_LINK}
         target="_blank"
