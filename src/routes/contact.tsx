@@ -6,9 +6,9 @@ import { useEffect, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { MapPin, Loader2 } from "lucide-react";
 import { autocompleteAddress } from "@/lib/places.functions";
+import { submitOrder } from "@/lib/order.functions";
 import { WHATSAPP_NUMBER } from "@/lib/utils";
 import { PRODUCTS, formatPrice } from "@/lib/products";
-import { supabase } from "@/integrations/supabase/client";
 
 const orderSchema = z.object({
   pseudo: z
@@ -106,24 +106,17 @@ function ContactPage() {
   });
 
   const selectedVarieties = watch("variete") ?? [];
+  const cguAccepted = watch("cgu") === true;
+  const submitOrderFn = useServerFn(submitOrder);
 
   const onSubmit = async (data: OrderForm) => {
     const varietiesText = data.variete.join(", ");
 
-    const { error } = await supabase.from("commandes").insert({
-      pseudo: data.pseudo,
-      numero: data.numero,
-      variete: varietiesText,
-      details:
-        [
-          data.adresse,
-          `Majorité certifiée, CGV, CGU et politique de confidentialité acceptées le ${new Date().toLocaleString("fr-FR")}`,
-        ]
-          .filter(Boolean)
-          .join(" | ") || null,
-    });
-    if (error) {
-      console.error("Enregistrement de la commande impossible", error.message);
+    try {
+      await submitOrderFn({ data });
+    } catch (error) {
+      console.error("Enregistrement de la commande impossible", error);
+      return;
     }
 
     const message = [
