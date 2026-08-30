@@ -36,13 +36,7 @@ export const submitOrder = createServerFn({ method: "POST" })
       pseudo: data.pseudo,
       numero: data.numero,
       variete: data.variete.join(", "),
-      details:
-        [
-          data.adresse,
-          `Majorité certifiée, CGV, CGU et politique de confidentialité acceptées le ${new Date().toLocaleString("fr-FR")}`,
-        ]
-          .filter(Boolean)
-          .join(" | ") || null,
+      details: data.adresse || null,
     });
 
     if (error) {
