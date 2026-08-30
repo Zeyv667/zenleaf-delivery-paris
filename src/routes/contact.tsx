@@ -84,17 +84,12 @@ function ContactPage() {
       variete: [],
       adresse: "",
       adresseSelected: false,
-      majeur: false,
-      cgv: false,
-      cgu: false,
-      rgpd: false,
     },
     mode: "onBlur",
     reValidateMode: "onChange",
   });
 
   const selectedVarieties = watch("variete") ?? [];
-  const cguAccepted = watch("cgu") === true;
   const submitOrderFn = useServerFn(submitOrder);
 
   const onSubmit = async (data: OrderForm) => {
