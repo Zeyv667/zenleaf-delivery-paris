@@ -6,9 +6,9 @@ import { useEffect, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { MapPin, Loader2 } from "lucide-react";
 import { autocompleteAddress } from "@/lib/places.functions";
+import { submitOrder } from "@/lib/order.functions";
 import { WHATSAPP_NUMBER } from "@/lib/utils";
 import { PRODUCTS, formatPrice } from "@/lib/products";
-import { supabase } from "@/integrations/supabase/client";
 
 const orderSchema = z.object({
   pseudo: z
@@ -106,24 +106,17 @@ function ContactPage() {
   });
 
   const selectedVarieties = watch("variete") ?? [];
+  const cguAccepted = watch("cgu") === true;
+  const submitOrderFn = useServerFn(submitOrder);
 
   const onSubmit = async (data: OrderForm) => {
     const varietiesText = data.variete.join(", ");
 
-    const { error } = await supabase.from("commandes").insert({
-      pseudo: data.pseudo,
-      numero: data.numero,
-      variete: varietiesText,
-      details:
-        [
-          data.adresse,
-          `Majorité certifiée, CGV, CGU et politique de confidentialité acceptées le ${new Date().toLocaleString("fr-FR")}`,
-        ]
-          .filter(Boolean)
-          .join(" | ") || null,
-    });
-    if (error) {
-      console.error("Enregistrement de la commande impossible", error.message);
+    try {
+      await submitOrderFn({ data });
+    } catch (error) {
+      console.error("Enregistrement de la commande impossible", error);
+      return;
     }
 
     const message = [
@@ -252,13 +245,24 @@ function ContactPage() {
             .
           </ConsentField>
 
-          <ConsentField id="cgu" error={errors.cgu?.message} inputProps={register("cgu")}>
-            J'ai lu et j'accepte les{" "}
-            <Link to="/cgu" className="underline underline-offset-2">
-              conditions d'utilisation
-            </Link>
-            .
-          </ConsentField>
+          <div
+            className={`rounded-lg border-2 p-3 transition ${
+              cguAccepted
+                ? "border-[#759DD2] bg-[#759DD2]/10"
+                : "border-[#759DD2]/60 bg-[#759DD2]/5"
+            }`}
+          >
+            <ConsentField id="cgu" error={errors.cgu?.message} inputProps={register("cgu")}>
+              <span className="font-semibold text-foreground">
+                J'ai lu et j'accepte les{" "}
+                <Link to="/cgu" className="underline underline-offset-2">
+                  conditions d'utilisation
+                </Link>
+                .{" "}
+                <span className="text-[#759DD2]">(Obligatoire pour commander)</span>
+              </span>
+            </ConsentField>
+          </div>
 
           <ConsentField id="rgpd" error={errors.rgpd?.message} inputProps={register("rgpd")}>
             J'accepte que mes données soient utilisées pour traiter ma commande, conformément à la{" "}
@@ -272,11 +276,16 @@ function ContactPage() {
         <div className="sticky bottom-[max(1rem,env(safe-area-inset-bottom))] z-10 sm:static">
           <button
             type="submit"
-            disabled={isSubmitting}
-            className="btn-base btn-primary w-full text-center uppercase tracking-wide shadow-lg shadow-primary/25 sm:w-auto sm:shadow-none"
+            disabled={isSubmitting || !cguAccepted}
+            className="btn-base btn-primary w-full text-center uppercase tracking-wide shadow-lg shadow-primary/25 disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none sm:w-auto sm:shadow-none"
           >
             {isSubmitting ? "ENVOI..." : "EXPRESS DELIVERY"}
           </button>
+          {!cguAccepted && (
+            <p className="mt-2 text-xs text-muted-foreground">
+              Cochez la case « conditions d'utilisation » pour activer le bouton.
+            </p>
+          )}
         </div>
       </form>
 
