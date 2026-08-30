@@ -245,13 +245,24 @@ function ContactPage() {
             .
           </ConsentField>
 
-          <ConsentField id="cgu" error={errors.cgu?.message} inputProps={register("cgu")}>
-            J'ai lu et j'accepte les{" "}
-            <Link to="/cgu" className="underline underline-offset-2">
-              conditions d'utilisation
-            </Link>
-            .
-          </ConsentField>
+          <div
+            className={`rounded-lg border-2 p-3 transition ${
+              cguAccepted
+                ? "border-[#759DD2] bg-[#759DD2]/10"
+                : "border-[#759DD2]/60 bg-[#759DD2]/5"
+            }`}
+          >
+            <ConsentField id="cgu" error={errors.cgu?.message} inputProps={register("cgu")}>
+              <span className="font-semibold text-foreground">
+                J'ai lu et j'accepte les{" "}
+                <Link to="/cgu" className="underline underline-offset-2">
+                  conditions d'utilisation
+                </Link>
+                .{" "}
+                <span className="text-[#759DD2]">(Obligatoire pour commander)</span>
+              </span>
+            </ConsentField>
+          </div>
 
           <ConsentField id="rgpd" error={errors.rgpd?.message} inputProps={register("rgpd")}>
             J'accepte que mes données soient utilisées pour traiter ma commande, conformément à la{" "}
@@ -265,11 +276,16 @@ function ContactPage() {
         <div className="sticky bottom-[max(1rem,env(safe-area-inset-bottom))] z-10 sm:static">
           <button
             type="submit"
-            disabled={isSubmitting}
-            className="btn-base btn-primary w-full text-center uppercase tracking-wide shadow-lg shadow-primary/25 sm:w-auto sm:shadow-none"
+            disabled={isSubmitting || !cguAccepted}
+            className="btn-base btn-primary w-full text-center uppercase tracking-wide shadow-lg shadow-primary/25 disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none sm:w-auto sm:shadow-none"
           >
             {isSubmitting ? "ENVOI..." : "EXPRESS DELIVERY"}
           </button>
+          {!cguAccepted && (
+            <p className="mt-2 text-xs text-muted-foreground">
+              Cochez la case « conditions d'utilisation » pour activer le bouton.
+            </p>
+          )}
         </div>
       </form>
 
