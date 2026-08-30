@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -43,18 +43,6 @@ const orderSchema = z.object({
   adresseSelected: z.boolean().refine((v) => v === true, {
     message: "Veuillez sélectionner une adresse dans la liste Google Maps.",
   }),
-  majeur: z.boolean().refine((v) => v === true, {
-    message: "Vous devez certifier être majeur (18 ans ou plus).",
-  }),
-  cgv: z.boolean().refine((v) => v === true, {
-    message: "Vous devez accepter les conditions générales de vente.",
-  }),
-  cgu: z.boolean().refine((v) => v === true, {
-    message: "Vous devez accepter les conditions d'utilisation.",
-  }),
-  rgpd: z.boolean().refine((v) => v === true, {
-    message: "Vous devez accepter la politique de confidentialité.",
-  }),
 });
 
 
@@ -96,17 +84,12 @@ function ContactPage() {
       variete: [],
       adresse: "",
       adresseSelected: false,
-      majeur: false,
-      cgv: false,
-      cgu: false,
-      rgpd: false,
     },
     mode: "onBlur",
     reValidateMode: "onChange",
   });
 
   const selectedVarieties = watch("variete") ?? [];
-  const cguAccepted = watch("cgu") === true;
   const submitOrderFn = useServerFn(submitOrder);
 
   const onSubmit = async (data: OrderForm) => {
@@ -227,65 +210,14 @@ function ContactPage() {
           )}
         />
 
-        <div className="grid gap-3 rounded-lg border border-border bg-background/60 p-4">
-          <ConsentField
-            id="majeur"
-            error={errors.majeur?.message}
-            inputProps={register("majeur")}
-          >
-            Je certifie être majeur (18 ans ou plus). Une pièce d'identité peut être demandée à la
-            livraison.
-          </ConsentField>
-
-          <ConsentField id="cgv" error={errors.cgv?.message} inputProps={register("cgv")}>
-            J'ai lu et j'accepte les{" "}
-            <Link to="/cgv" className="underline underline-offset-2">
-              conditions générales de vente
-            </Link>
-            .
-          </ConsentField>
-
-          <div
-            className={`rounded-lg border-2 p-3 transition ${
-              cguAccepted
-                ? "border-[#759DD2] bg-[#759DD2]/10"
-                : "border-[#759DD2]/60 bg-[#759DD2]/5"
-            }`}
-          >
-            <ConsentField id="cgu" error={errors.cgu?.message} inputProps={register("cgu")}>
-              <span className="font-semibold text-foreground">
-                J'ai lu et j'accepte les{" "}
-                <Link to="/cgu" className="underline underline-offset-2">
-                  conditions d'utilisation
-                </Link>
-                .{" "}
-                <span className="text-[#759DD2]">(Obligatoire pour commander)</span>
-              </span>
-            </ConsentField>
-          </div>
-
-          <ConsentField id="rgpd" error={errors.rgpd?.message} inputProps={register("rgpd")}>
-            J'accepte que mes données soient utilisées pour traiter ma commande, conformément à la{" "}
-            <Link to="/confidentialite" className="underline underline-offset-2">
-              politique de confidentialité
-            </Link>
-            .
-          </ConsentField>
-        </div>
-
         <div className="sticky bottom-[max(1rem,env(safe-area-inset-bottom))] z-10 sm:static">
           <button
             type="submit"
-            disabled={isSubmitting || !cguAccepted}
+            disabled={isSubmitting}
             className="btn-base btn-primary w-full text-center uppercase tracking-wide shadow-lg shadow-primary/25 disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none sm:w-auto sm:shadow-none"
           >
             {isSubmitting ? "ENVOI..." : "EXPRESS DELIVERY"}
           </button>
-          {!cguAccepted && (
-            <p className="mt-2 text-xs text-muted-foreground">
-              Cochez la case « conditions d'utilisation » pour activer le bouton.
-            </p>
-          )}
         </div>
       </form>
 
@@ -704,34 +636,3 @@ function AddressField({
   );
 }
 
-
-function ConsentField({
-  id,
-  error,
-  inputProps,
-  children,
-}: {
-  id: string;
-  error: string | undefined;
-  inputProps: React.InputHTMLAttributes<HTMLInputElement>;
-  children: React.ReactNode;
-}) {
-  return (
-    <div>
-      <label
-        htmlFor={id}
-        className="flex cursor-pointer items-start gap-3 text-sm leading-snug text-muted-foreground"
-      >
-        <input
-          id={id}
-          type="checkbox"
-          aria-invalid={Boolean(error)}
-          className="mt-0.5 h-5 w-5 flex-shrink-0 rounded border-border accent-[#759DD2]"
-          {...inputProps}
-        />
-        <span>{children}</span>
-      </label>
-      {error && <p className="mt-1 pl-8 text-xs text-red-600">{error}</p>}
-    </div>
-  );
-}
