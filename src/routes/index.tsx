@@ -59,7 +59,7 @@ function Home() {
 
         <div className="grid gap-8 pt-10 pb-6 md:gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-center md:pt-14 md:pb-8">
           <div>
-            <p className="eyebrow">CBD+ · PARIS & Île-de-France</p>
+            <p className="eyebrow">CBD X · PARIS & Île-de-France</p>
             <h1 className="display mt-4 text-center text-[2.5rem] leading-[0.95] sm:text-[3rem] md:text-[5rem]">
               LIVRAISON EXPRESS
             </h1>
@@ -129,12 +129,12 @@ function Home() {
       {/* ZONE & QUALITÉ */}
       <section className="bg-primary/10">
         <div className="container-x flex flex-col items-start py-12 md:py-20">
-          <h3 className="display text-[1.75rem] sm:text-3xl md:text-5xl">CBD+</h3>
+          <h3 className="display text-[1.75rem] sm:text-3xl md:text-5xl">CBD X</h3>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
             Nos variétés sont analysées en laboratoire français — COA disponible pour chaque variété.
           </p>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            CBD+ : concentration ++ en cannabidiol (15 % à 25 %), sélectionnée pour les amateurs de profils riches en cannabinoïdes et d'une expérience plus intense que les variétés classiques.
+            CBD X : concentration ++ en cannabidiol (15 % à 25 %), sélectionnée pour les amateurs de profils riches en cannabinoïdes et d'une expérience plus intense que les variétés classiques.
           </p>
         </div>
       </section>
