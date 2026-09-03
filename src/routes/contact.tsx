@@ -441,11 +441,11 @@ function MultiSelectField({
     <div className="grid gap-1.5" onBlur={onBlur}>
       <label
         htmlFor={id}
-        className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-muted-foreground"
+        className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-primary-foreground/80"
       >
         {label}
         {valid && (
-          <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-green-600">
+          <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-green-300">
             <span aria-hidden>✓</span> OK
           </span>
         )}
@@ -455,12 +455,12 @@ function MultiSelectField({
         role="listbox"
         aria-multiselectable="true"
         aria-invalid={Boolean(error)}
-        className={`max-h-64 overflow-y-auto rounded-lg border bg-background p-2 outline-none transition focus-within:ring-2 ${
+        className={`max-h-64 overflow-y-auto rounded-lg border bg-primary p-2 outline-none transition focus-within:ring-2 ${
           error
-            ? "border-red-500 focus-within:border-red-500 focus-within:ring-red-500/25"
+            ? "border-red-400 focus-within:border-red-400 focus-within:ring-red-400/30"
             : valid
-              ? "border-green-500/60 focus-within:border-primary focus-within:ring-ring/30"
-              : "border-border focus-within:border-primary focus-within:ring-ring/30"
+              ? "border-green-300 focus-within:border-primary-foreground focus-within:ring-primary-foreground/30"
+              : "border-primary-foreground/20 focus-within:border-primary-foreground focus-within:ring-primary-foreground/30"
         }`}
       >
         <div className="grid gap-1.5">
@@ -473,15 +473,15 @@ function MultiSelectField({
                 aria-selected={checked}
                 className={`flex cursor-pointer items-center gap-3 rounded-md px-3 py-2.5 text-sm transition ${
                   checked
-                    ? "bg-primary/10 font-medium text-foreground"
-                    : "text-foreground hover:bg-muted/50"
+                    ? "bg-primary-foreground/15 font-medium text-primary-foreground"
+                    : "text-primary-foreground hover:bg-primary-foreground/10"
                 }`}
               >
                 <span
                   className={`flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border transition ${
                     checked
-                      ? "border-primary bg-primary text-primary-foreground"
-                      : "border-border bg-background"
+                      ? "border-primary-foreground bg-primary-foreground text-primary"
+                      : "border-primary-foreground/40 bg-primary"
                   }`}
                 >
                   {checked && (
@@ -510,7 +510,7 @@ function MultiSelectField({
           })}
         </div>
       </div>
-      {error && <p className="text-xs text-red-600">{error}</p>}
+      {error && <p className="text-xs text-red-300">{error}</p>}
     </div>
   );
 }
