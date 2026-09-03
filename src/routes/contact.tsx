@@ -385,7 +385,7 @@ function Field({
     <div className="grid gap-1.5">
       <label
         htmlFor={id}
-        className="flex items-center justify-between text-xs font-medium uppercase tracking-wider text-primary-foreground/80"
+        className="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-primary"
       >
         {label}
         {valid && (
@@ -441,7 +441,7 @@ function MultiSelectField({
     <div className="grid gap-1.5" onBlur={onBlur}>
       <label
         htmlFor={id}
-        className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-primary-foreground/80"
+        className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary"
       >
         {label}
         {valid && (
@@ -573,7 +573,7 @@ function AddressField({
       <div className="flex items-center justify-between gap-2">
         <label
           htmlFor="adresse"
-          className="text-xs font-medium uppercase tracking-wider text-primary-foreground/80"
+          className="text-xs font-semibold uppercase tracking-wider text-primary"
         >
           Adresse complète
         </label>
