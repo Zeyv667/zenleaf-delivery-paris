@@ -99,7 +99,7 @@ export function CookieBanner() {
 
 export function FloatingActions() {
   return (
-    <div className="fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-[max(1rem,env(safe-area-inset-right))] z-40 flex flex-col items-end gap-2.5">
+    <div className="fixed bottom-[max(1.75rem,env(safe-area-inset-bottom))] right-[max(1.25rem,env(safe-area-inset-right))] z-40 flex flex-col items-end gap-3 sm:bottom-[max(1.25rem,env(safe-area-inset-bottom))] sm:right-[max(1rem,env(safe-area-inset-right))] sm:gap-2.5">
       <a
         href={`${WHATSAPP_LINK}?text=${encodeURIComponent("Bonjour, êtes vous disponible pour une livraison ?")}`}
         aria-label="Commander par WhatsApp"
