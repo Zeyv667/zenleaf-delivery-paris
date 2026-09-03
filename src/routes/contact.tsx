@@ -573,16 +573,16 @@ function AddressField({
       <div className="flex items-center justify-between gap-2">
         <label
           htmlFor="adresse"
-          className="text-xs font-medium uppercase tracking-wider text-muted-foreground"
+          className="text-xs font-medium uppercase tracking-wider text-primary-foreground/80"
         >
           Adresse complète
         </label>
         {valid && (
-          <span className="text-[11px] font-semibold text-green-600">✓ OK</span>
+          <span className="text-[11px] font-semibold text-green-300">✓ OK</span>
         )}
       </div>
       <div className="relative">
-        <MapPin className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+        <MapPin className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-primary-foreground/70" />
         <input
           id="adresse"
           type="text"
@@ -598,24 +598,24 @@ function AddressField({
           placeholder="12 rue de Rivoli, 75004 Paris"
           autoComplete="street-address"
           enterKeyHint="done"
-          className={`w-full rounded-lg border bg-background py-3 pl-9 pr-9 text-base text-foreground placeholder:text-muted-foreground/60 outline-none transition focus:ring-2 focus:ring-ring/30 ${
+          className={`w-full rounded-lg border bg-primary py-3 pl-9 pr-9 text-base text-primary-foreground placeholder:text-primary-foreground/60 outline-none transition focus:ring-2 focus:ring-primary-foreground/30 ${
             error
-              ? "border-red-500"
+              ? "border-red-400 focus:border-red-400"
               : valid
-                ? "border-green-500"
-                : "border-border focus:border-primary"
+                ? "border-green-300 focus:border-primary-foreground"
+                : "border-primary-foreground/20 focus:border-primary-foreground"
           }`}
         />
         {loading && (
-          <Loader2 className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 animate-spin text-muted-foreground" />
+          <Loader2 className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 animate-spin text-primary-foreground/70" />
         )}
         {open && suggestions.length > 0 && (
-          <ul className="absolute z-20 mt-1 w-full overflow-hidden rounded-lg border border-border bg-background shadow-lg">
+          <ul className="absolute z-20 mt-1 w-full overflow-hidden rounded-lg border border-primary-foreground/20 bg-primary shadow-lg">
             {suggestions.map((s) => (
               <li key={s}>
                 <button
                   type="button"
-                  className="block w-full px-4 py-2.5 text-left text-sm text-foreground transition hover:bg-muted"
+                  className="block w-full px-4 py-2.5 text-left text-sm text-primary-foreground transition hover:bg-primary-foreground/10"
                   onMouseDown={(e) => e.preventDefault()}
                   onClick={() => {
                     pickedRef.current = true;
@@ -631,7 +631,7 @@ function AddressField({
           </ul>
         )}
       </div>
-      {error && <p className="text-sm text-red-600">{error}</p>}
+      {error && <p className="text-sm text-red-300">{error}</p>}
     </div>
   );
 }
