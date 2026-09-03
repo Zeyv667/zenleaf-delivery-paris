@@ -385,11 +385,11 @@ function Field({
     <div className="grid gap-1.5">
       <label
         htmlFor={id}
-        className="flex items-center justify-between text-xs font-medium uppercase tracking-wider text-muted-foreground"
+        className="flex items-center justify-between text-xs font-medium uppercase tracking-wider text-primary-foreground/80"
       >
         {label}
         {valid && (
-          <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-green-600">
+          <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-green-300">
             <span aria-hidden>✓</span> OK
           </span>
         )}
@@ -397,16 +397,16 @@ function Field({
       <input
         id={id}
         aria-invalid={Boolean(error)}
-        className={`w-full rounded-lg border bg-background px-4 py-3.5 text-base text-foreground placeholder:text-muted-foreground/60 outline-none transition focus:ring-2 ${
+        className={`w-full rounded-lg border bg-primary px-4 py-3.5 text-base text-primary-foreground placeholder:text-primary-foreground/60 outline-none transition focus:ring-2 ${
           error
-            ? "border-red-500 focus:border-red-500 focus:ring-red-500/25"
+            ? "border-red-400 focus:border-red-400 focus:ring-red-400/30"
             : valid
-              ? "border-green-500/60 focus:border-primary focus:ring-ring/30"
-              : "border-border focus:border-primary focus:ring-ring/30"
+              ? "border-green-300 focus:border-primary-foreground focus:ring-primary-foreground/30"
+              : "border-primary-foreground/20 focus:border-primary-foreground focus:ring-primary-foreground/30"
         }`}
         {...inputProps}
       />
-      {error && <p className="text-xs text-red-600">{error}</p>}
+      {error && <p className="text-xs text-red-300">{error}</p>}
     </div>
   );
 }
