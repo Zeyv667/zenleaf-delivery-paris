@@ -89,7 +89,7 @@
   }
 
   body {
-    overflow-x: hidden;
+    /* Pas de masquage artificiel du débordement : chaque composant est corrigé à la source. */
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
