@@ -111,7 +111,7 @@ export function FloatingActions() {
         <span className="text-[11px] font-extrabold uppercase tracking-wider">WhatsApp</span>
       </a>
       <a
-        href="https://instagram.com"
+        href="https://instagram.com/calivparis"
         target="_blank"
         rel="noreferrer noopener"
         aria-label="Instagram CALIV"

@@ -61,7 +61,7 @@ export function Footer() {
         </p>
         <div className="flex gap-6">
           <a
-            href="https://instagram.com"
+            href="https://instagram.com/calivparis"
             target="_blank"
             rel="noreferrer noopener"
             className="text-xs text-muted-foreground hover:text-foreground"
