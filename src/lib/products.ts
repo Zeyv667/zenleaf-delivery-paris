@@ -1,4 +1,4 @@
-import pouchSunset from "@/assets/product-sunset-cream.webp";
+import pouchSunset from "@/assets/product-sunset-cream.png";
 import pouchPink from "@/assets/product-blueberry-candy.webp";
 import pouchGreen from "@/assets/product-bruce-wayne.webp";
 import resinFrozen from "@/assets/product-frozen.webp";
