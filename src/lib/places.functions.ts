@@ -23,6 +23,7 @@ export const autocompleteAddress = createServerFn({ method: "POST" })
         input: data.input,
         includedRegionCodes: ["fr"],
         languageCode: "fr",
+        pageSize: 10,
         // Bias: rectangle couvrant toute l'Île-de-France (des Yvelines à la Seine-et-Marne,
         // de l'Oise côté nord au sud de l'Essonne) pour faire remonter les adresses IDF
         // en premier, tout en gardant le reste de la France disponible après.
