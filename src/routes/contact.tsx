@@ -362,6 +362,26 @@ function ContactPage() {
               de convenir d'un remplacement ou d'un remboursement.
             </p>
           </div>
+
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              Politique de remboursement
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Chaque commande est préparée avec soin et livrée sous emballage scellé, gage de
+              fraîcheur et de confidentialité. Pour cette raison, et conformément à la nature des
+              produits, un produit payé ne peut être ni repris ni échangé.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Aucun remboursement ne peut être accordé une fois la commande réceptionnée : les
+              produits scellés et ouverts ne peuvent être retournés, ni repris, ni échangés.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              En revanche, si un produit vous est livré endommagé, non conforme ou défectueux
+              avant ouverture, signalez-le nous immédiatement (photos à l'appui) : nous
+              trouverons ensemble la solution la plus juste, remplacement ou remboursement.
+            </p>
+          </div>
         </div>
       </section>
     </main>
