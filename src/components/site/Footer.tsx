@@ -1,4 +1,5 @@
 import { Link, useLocation } from "@tanstack/react-router";
+import { openInstagram } from "@/lib/utils";
 import { Logo } from "@/components/site/Logo";
 import { PaymentMethods } from "@/components/site/PaymentMethods";
 

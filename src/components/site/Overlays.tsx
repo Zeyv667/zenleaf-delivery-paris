@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ageLogo from "@/assets/logo-tremblement.gif.asset.json";
-import { WHATSAPP_LINK } from "@/lib/utils";
+import { openInstagram, WHATSAPP_LINK } from "@/lib/utils";
 
 export function AgeGate() {
   const [ready, setReady] = useState(false);
