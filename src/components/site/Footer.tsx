@@ -60,14 +60,13 @@ export function Footer() {
           législation française. Vente interdite aux mineurs.
         </p>
         <div className="flex gap-6">
-          <a
-            href="https://instagram.com/calivparis"
-            target="_blank"
-            rel="noreferrer noopener"
+          <button
+            type="button"
+            onClick={() => openInstagram()}
             className="text-xs text-muted-foreground hover:text-foreground"
           >
             Instagram
-          </a>
+          </button>
           <a
             href="https://tiktok.com"
             target="_blank"
